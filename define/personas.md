@@ -1,6 +1,6 @@
 # Personas, scenarios and storyboard outline (T14)
 
-Status: v1, 8 Nov 2026. Owners: KAYZ (personas, scenarios), Jishnu (storyboards). Built from `research/questionnaire-results.md` (Q-n), `research/affinity.md` (AFF-x) and `autoethnography-01-kobi.md` (AE-n). The names and details are fictional. Every attribute cites the data it comes from, so a persona is never a stereotype we made up (Wk 3). We revisit them after the interviews (v2).
+Status: v1, 8 Nov 2026. Owners: KAYZ (personas, scenarios), Jishnu (storyboards). Built from `../research/questionnaire-results.md` (Q-n), `../research/affinity.md` (AFF-x) and `../research/autoethnography-01-kobi.md` (AE-n). The names and details are fictional. Every attribute cites the data it comes from, so a persona is never a stereotype we made up (Wk 3). We revisit them after the interviews (v2).
 
 ## Why personas, and why three
 Personas keep the team designing for the students in our data, not for ourselves ("you are not the user", Wk 1). We use the three types from Week 3:

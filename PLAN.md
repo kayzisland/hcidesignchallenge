@@ -37,14 +37,14 @@ We run the UCD cycle with **parallel tracks** because we have five people and fi
 
 | Role | Owner | Responsible for |
 |---|---|---|
-| Research and organisation | KAYZ (Kobi) | Empathise and Define: autoethnography, questionnaire, observation, literature, personas, requirements. Plus the plan, the task board, the meetings log and rubric alignment |
+| Research and organisation | KAYZ (Kobi) | Empathise and Define: autoethnography, questionnaire, interviews, literature, personas, requirements. Plus the plan, the task board, the meetings log and rubric alignment |
 | Lo-fi prototyping | Jishnu | Ideate and lo-fi: sketches, alternatives, storyboards, paper or Figma prototypes |
 | Hi-fi prototyping | Jiven | The hi-fi build on the LearnHarness base |
 | Testing and recalibration | Lekan | Lo-fi and hi-fi testing, heuristic evaluation, and turning results into design changes |
 | Viva deck and poster | Rahul | The slide deck, viva deck and poster: structure, design and assembly |
 
 **The traceability rule.** This is how the data visibly drives the design.
-- Every finding gets an ID: `AE-n` (autoethnography), `Q-n` (questionnaire), `OBS-n` (observation), `LIT-n` (literature), `LF-n` (lo-fi test), `HF-n` (hi-fi test).
+- Every finding gets an ID: `AE-n` (autoethnography), `Q-n` (questionnaire), `INT-n-x` (interview), `LIT-n` (literature), `AFF-x` (affinity cluster), `LF-n` (lo-fi test), `HF-n` (hi-fi test).
 - Every requirement and every hi-fi feature cites at least one finding ID.
 - Every design change goes in `design-log.md`: date, decision, evidence ID, alternatives considered, who decided.
 
@@ -66,7 +66,7 @@ The deck is assembled from this log, which covers rubric criteria 3, 4, 5 and 8.
 | T10 | Sketch alternatives: 30+ across the group, 3+ distinct concepts | Jishnu | 3 Ideate | Sun 8 Nov | `ideate/sketches/` | 5 |
 | T11 | Hi-fi spike: what in LearnHarness can be reused, and what has to change | Jiven | 4 Prototype | Sun 8 Nov | `prototype/hifi/spike.md` | 6 |
 | T12 | Questionnaire analysis: charts and finding IDs | KAYZ | 2 Requirements | Tue 10 Nov | `research/questionnaire-results.md` | 3 |
-| T13 | Affinity diagram (Q12, observation, AE) | KAYZ + all | 2 Requirements | Wed 11 Nov | `research/affinity.png` | 3, 4 |
+| T13 | Affinity diagram (Q12, AE, interviews in v2) | KAYZ + all | 2 Requirements | Wed 11 Nov | `research/affinity.md`, `research/figures/affinity-v1.png` | 3, 4 |
 | T14 | Personas (primary, secondary, anti), scenarios, storyboards | KAYZ, Jishnu | 2 Requirements | Thu 12 Nov | `define/personas.md` | 2, 5, 7 |
 | T15 | Requirements (functional and non-functional) plus task analysis, each citing findings | Lekan | 2 Requirements | Thu 12 Nov | `define/requirements.md` | 4, 8 |
 | T16 | QOC to choose between the lo-fi alternatives | Jishnu, KAYZ | 3 Ideate | Fri 13 Nov | `ideate/qoc.md` | 2, 4, 5 |
@@ -92,7 +92,7 @@ Course content arriving during the project, and where we use it:
 
 ## 6. Deck structure (mirrors the rubric)
 1. Problem space and divergence: the five areas and three concepts, and why this one
-2. Empathise: autoethnographies, questionnaire, observation, existing solutions, each with *why this technique over the alternatives*
+2. Empathise: autoethnographies, questionnaire, interviews, existing solutions, each with *why this technique over the alternatives*
 3. Findings (with IDs) and their limitations
 4. Define: personas, scenarios, requirements (citing findings), task analysis
 5. Ideate: sketches, alternatives, QOC
@@ -106,10 +106,11 @@ Course content arriving during the project, and where we use it:
 ```
 PLAN.md                 this plan
 design-log.md           every design decision, with evidence IDs
-research/               autoethnographies, questionnaires, observation, literature, results
+research/               autoethnographies, questionnaires, interviews, literature, results, figures
 define/                 personas, scenarios, requirements, task analysis
 ideate/                 sketches, QOC
 prototype/lofi, hifi/   prototypes
+onboarding/             Rahul's hi-fi onboarding spike, merged 1 Nov
 test/                   test plans and results
 deliverables/           deck, viva deck, poster
 ```

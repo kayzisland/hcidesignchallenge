@@ -1,3 +1,8 @@
+// Built the questionnaire v2 Google Form, 30 Oct 2026. Kept for method
+// traceability (T02). The live form was edited after this script ran and
+// collected email addresses at Q16, which this script does not do. See
+// questionnaire-results.md (Ethics) and questionnaire-v2.md.
+
 function buildQuestionnaireV2() {
   var form = FormApp.create('How students study (HCI research, anonymous)');
   form.setDescription("We're a group of HCI students at Birmingham designing an app to help students study. This questionnaire is anonymous: we don't collect names or emails. It takes about 5 minutes. You can skip any question or stop at any time. By continuing you agree to your answers being used in our coursework.");

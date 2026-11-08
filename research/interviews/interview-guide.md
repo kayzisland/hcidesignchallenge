@@ -3,7 +3,7 @@
 Status: v1, 8 Nov 2026. Interviewer: KAYZ. Participants: questionnaire volunteers (Q16). Format: semi-structured, online, recorded and transcribed with Notion AI **with consent**. Each interview gets an ID (`INT-01`...) and its findings get IDs (`INT-01-a`...).
 
 ## Why interviews, and why semi-structured
-The questionnaire told us *what* (getting started is the top problem, Q-1). It can't tell us *why*. Interviews give the why, in the participant's own words (Wk 2). Semi-structured keeps the questions comparable across participants while leaving room to follow what they raise. We dropped observation (see `design-log.md`, 8 Nov), so these interviews also carry the "last real session" question, which gets as close to behaviour as recall allows.
+The questionnaire told us *what* (getting started is the top problem, Q-1). It can't tell us *why*. Interviews give the why, in the participant's own words (Wk 2). Semi-structured keeps the questions comparable across participants while leaving room to follow what they raise. We dropped observation (see `../../design-log.md`, 8 Nov), so these interviews also carry the "last real session" question, which gets as close to behaviour as recall allows.
 
 ## Rules for the interviewer (Wk 2)
 - Talk 5-15% of the time. Silence is a question.
@@ -48,7 +48,7 @@ Start recording only after a clear yes. Restate the consent on the recording.
 ## After each interview (10 minutes, same day)
 1. Save the Notion AI transcript and summary on the interview's Notion page.
 2. Pull 3-6 findings, each with an ID and a short anonymised quote: `INT-01-a: [finding] ("quote")`.
-3. Add `research/interviews/INT-01.md` to the repo: participant profile (year, subject, ND yes/no/not sure, no name or email), findings and quotes.
+3. Add `INT-01.md` to this folder (`research/interviews/`): participant profile (year, subject, ND yes/no/not sure, no name or email), findings and quotes.
 4. Every finding goes on the affinity diagram (T13).
 
 ## Note template (one per interview)

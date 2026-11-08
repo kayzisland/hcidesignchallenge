@@ -3,7 +3,7 @@
 Researcher and participant: Kobi (KAYZ). Period: 28 Sep to 29 Oct 2026 (Weeks 1-5 of HCI). Status: v1, open for the group to challenge.
 
 ## Why we used this method
-Week 3 taught autoethnography as self-observation, with the researcher as the participant. Its strength is inside access to motives, feelings and what happens moment to moment. Its limit is that one researcher isn't the user group, so it **complements** other methods and never replaces them. That's how we use it here. Every finding below becomes a hypothesis, which the questionnaire (`questionnaire-v2.md`) and the observation fieldwork then test on other students.
+Week 3 taught autoethnography as self-observation, with the researcher as the participant. Its strength is inside access to motives, feelings and what happens moment to moment. Its limit is that one researcher isn't the user group, so it **complements** other methods and never replaces them. That's how we use it here. Every finding below becomes a hypothesis, which the questionnaire (`questionnaire-v2.md`) and the interviews (`interviews/interview-guide.md`) then test on other students.
 
 We follow O'Kane's structure: log real use in context, group the log into themes, and turn each theme into a design implication.
 
@@ -40,19 +40,19 @@ We follow O'Kane's structure: log real use in context, group the log into themes
 
 | Theme | Implication | Tested by |
 |---|---|---|
-| 1 | Capture lecture material automatically and release it right after the lecture, so the student can stay present | Q4, Q5, Q6, observation |
+| 1 | Capture lecture material automatically and release it right after the lecture, so the student can stay present | Q4, Q5, Q6, interviews |
 | 2 | Teach by questioning and retrieval by default. Hints come in steps and never hand over the answer early | Q9, Q10, Q11 |
-| 3 | Show one step at a time. Offer a lighter mode when the student is overloaded | Q7, Q12, observation |
+| 3 | Show one step at a time. Offer a lighter mode when the student is overloaded | Q7, Q12, interviews |
 | 4 | Track misses, resurface repeat errors, retest weak spots | Q7 ("remembering", "knowing whether I've understood"), Q9 |
 | 5 | Organise content by course week. Nudge proactively into free time between lectures | Q13, Q14, Q15 |
 
 ## Limitations
 - **One participant.** I'm not "the student"; Week 1's "you are not the user" applies. These are hypotheses, not findings.
-- **The researcher wrote the log**, so bias is likely. The questionnaire and the observation are there to challenge it.
+- **The researcher wrote the log**, so bias is likely. The questionnaire and the interviews are there to challenge it.
 - **The study used an AI assistant.** Its behaviour shaped some entries (AE-4, AE-5, AE-7). That's useful, because our hi-fi will also question students, but students who don't use AI may differ.
 - **Five weeks, one module.** Exam season will likely look different.
 
 ## Where this goes next
 - Each theme is tested by the questionnaire items listed above.
-- The observation sessions look for themes 1 and 3 in other students.
+- The interviews look for themes 1 and 3 in other students.
 - Findings that hold become requirements. Findings that fail are logged and dropped. The deck shows both (rubric criteria 3 and 4).

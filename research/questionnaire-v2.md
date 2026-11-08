@@ -4,8 +4,10 @@ Status: v2, ready to pilot. Target: Birmingham students, any year and any subjec
 
 **Live form:** https://docs.google.com/forms/d/e/1FAIpQLScTX_cZAEZgopnmq-ow8Y0PJb83cqHDN8QyiejqQaWxqtomWg/viewform (built from `questionnaire-v2-form.gs`; responses go to KAYZ's Google account)
 
+**The script is not what went out.** `questionnaire-v2-form.gs` and Q16 below both leave email collection off and route volunteers to a separate sign-up form. The live form was edited after the script ran and took email addresses at Q16 instead. The script stays here as the record of what was designed. `questionnaire-results.md` (Ethics) records what actually ran and how we handled it.
+
 ## Change log v1 → v2
-- **The scope moved from choosing a problem to studying.** The group converged on a study app that supports neurodivergent students (see `PLAN.md`). Its deciding criteria (B4 better than now, B5 significant impact, P3 improves on existing tools in the QOC bank) needed evidence about studying, and v1 asked nothing about lectures or revision. That gap is flagged in `QOC Design Space Analysis.pdf`.
+- **The scope moved from choosing a problem to studying.** The group converged on a study app that supports neurodivergent students (see `../PLAN.md`). Its deciding criteria (B4 better than now, B5 significant impact, P3 improves on existing tools in the QOC bank) needed evidence about studying, and v1 asked nothing about lectures or revision. That gap is flagged in `../QOC Design Space Analysis.pdf`.
 - **Dropped:** housing, safety, bikes and phone platform (v1 Q2, Q7-Q11, Q15).
 - **Kept the forms that worked:** a recent, countable time frame; labelled scales; "if at all" stems; filter options; a forced single choice to show priority; and the proactive-acceptance block (v1 Q12-Q14, rewritten for study).
 - **Added:** questions on lectures and recordings, study problems, revision methods, learning preference, and an optional neurodivergence question so results can be split.

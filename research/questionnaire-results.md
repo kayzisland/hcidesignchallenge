@@ -2,7 +2,7 @@
 
 Status: v1 of the analysis, 8 Nov 2026. Form: "How students study (HCI research, anonymous)", live 31 Oct to 8 Nov. **n = 22.** Raw responses stay in KAYZ's Google account and are **not** committed here, because Q16 collected email addresses (see Ethics below).
 
-Every finding has an ID (`Q-n`). Requirements, personas and hi-fi features cite these IDs (see the traceability rule in `PLAN.md`).
+Every finding has an ID (`Q-n`). Requirements, personas and hi-fi features cite these IDs (see the traceability rule in `../PLAN.md`).
 
 ## Who answered
 | | |
