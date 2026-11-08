@@ -1,0 +1,83 @@
+# Existing solutions review (T08)
+
+Status: v1, 8 Nov 2026. Owners: KAYZ (Rahul to add theory links). Rubric criteria 6 (solution appropriateness) and 7 (domain understanding).
+
+## Why we used this method
+A competitive review is an investigative technique. It shows what students already use and where those tools stop, which stops us from rebuilding a product that already exists. That risk is real: Q9 shows AI chatbots, flashcards and planners are already in daily use (`questionnaire-results.md`, Q-6). We chose a desk review over hands-on usability testing of each product, because we have five weeks and one group, and our testing budget belongs to our own lo-fi and hi-fi prototypes. The cost is that we're judging features, not real use. That's logged in the limitations below.
+
+## The lens
+Each tool is scored against our evidence, not against a generic feature list.
+
+| Code | Need | Evidence |
+|---|---|---|
+| **S** | Helps a student *start* a session | Q-1, Q-11 |
+| **F** | Helps them *stay focused* | Q-2, Q-4 |
+| **R** | Active recall: practice questions, self-explanation | Q-6, AE theme 2 |
+| **M** | Lets the student choose the mode (shown vs questioned) | Q-7 |
+| **P** | Proactive: acts before being opened, at a sensible moment | Q-8, the brief |
+| **C** | Uses *course* context: timetable, lecture slides | Q-10 |
+| **B** | Respects a notification budget of 1-2 a day | Q-9 |
+
+✓ does it well · ◐ partly or with effort · ✗ doesn't
+
+## The tools
+
+| Tool | What it is | S | F | R | M | P | C | B |
+|---|---|---|---|---|---|---|---|---|
+| **ChatGPT Study Mode / Gemini Guided Learning / Claude learning mode** | General AI assistants with a tutoring mode that asks questions and guides step by step instead of giving the answer | ✗ | ✗ | ◐ | ◐ | ✗ | ◐ | ✓ |
+| **Anki** | Free spaced-repetition flashcards; FSRS scheduling | ✗ | ◐ | ✓ | ✗ | ◐ | ✗ | ✓ |
+| **Quizlet (Learn, AI features)** | Flashcards and adaptive quiz rounds; generates sets from notes | ✗ | ◐ | ✓ | ✗ | ◐ | ◐ | ◐ |
+| **Tiimo** | Visual day planner built for ADHD and autistic users; timers, routines, AI planning | ✓ | ✓ | ✗ | ✗ | ✓ | ◐ | ◐ |
+| **Goblin Tools (Magic ToDo)** | Breaks a task into small steps with a "spiciness" level; built for neurodivergent users | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| **Forest** | Focus timer that grows a tree while your phone is left alone | ◐ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| **Focusmate** | Video co-working sessions with a stranger (body doubling) | ✓ | ✓ | ✗ | ✗ | ◐ | ✗ | ✓ |
+| **Notion / calendars** | General planning and notes | ◐ | ✗ | ✗ | ✗ | ◐ | ◐ | ✓ |
+| **Canvas + Panopto** | The university's own course site and lecture recordings | ✗ | ✗ | ◐ | ✗ | ◐ | ✓ | ◐ |
+| **LearnHarness** (our base) | Open-source AI tutor: probes what the learner knows, teaches by questioning, practises with retrieval, logs errors | ✗ | ✗ | ✓ | ◐ | ✗ | ◐ | ✓ |
+
+### Notes per family
+- **AI study modes** are the most-used tool in our sample (15/22 use a chatbot) and the least trusted (2/22 rate it best, Q-6). They wait to be asked, know nothing about the timetable unless pasted in, and take the student's prompt as the plan. They're strong at explaining, which is the problem students report *least* (Q-3).
+- **Flashcard tools** are the evidence-backed recall tools (spaced repetition, retrieval practice) and score well on R. They don't help anyone start, and the cards come detached from the lecture that day unless the student builds them. Building them is effort, so it gets put off (Q-1 again).
+- **Planners and ND tools** (Tiimo, Goblin Tools) are the only ones aimed at *starting*: tiny first steps, visual time, routines. They have no idea what you're studying, and they never test you.
+- **Focus tools** (Forest, Focusmate) fix the middle of a session through commitment and social presence. Q-11 is a caution here: in our sample, social settings derailed sessions as often as they rescued them.
+- **Canvas and Panopto** hold the course context (C) that every other tool lacks. They're passive archives: nothing reaches out, nothing tests.
+- **LearnHarness** gives us a working engine for R and M (probe, question, retrieve, error log). It doesn't solve S, F, P or C. Those are exactly what our data says matter most.
+
+## The gap
+No tool does all three of these:
+1. **Get the student started at the right moment.** Use the timetable to spot a free gap after a lecture and offer one short session with a defined goal (S, P, C; Q-1, Q-8, Q-10).
+2. **Make that session active recall on what was just taught.** Practice questions drawn from that day's slides, in the mode the student prefers (R, M, C; Q-6, Q-7).
+3. **Do it inside a strict attention budget.** Short sessions, 1-2 nudges a day (F, B; Q-4, Q-9).
+
+Every existing tool covers one column group: planners do S/P, flashcards do R, AI modes do R/M on request, Canvas holds C. **Our design's claim is the combination,** with LearnHarness as the R/M engine and our work on S, P, C and B.
+
+## What we borrow, and from whom
+| From | Borrow | For |
+|---|---|---|
+| Goblin Tools | Breaking a task into tiny steps; a granularity control | The first 60 seconds of a session (S) |
+| Tiimo | Visual time and gentle routines | Session length and progress display (F) |
+| Anki / FSRS | Spaced resurfacing of missed items | The error log feeds later sessions (R) |
+| AI study modes | Questioning before telling | The LearnHarness question flow (R, M) |
+| Forest | A visible commitment for a fixed short block | The in-session focus cue (F) |
+
+## What we avoid
+- **Opening on a blank chat box.** AI study modes do this, and it puts the planning load on the student (Q-11: "not at all intentional about what I wanted to achieve").
+- **Notification spam.** Over 1-2 a day, two thirds of our sample switch off (Q-9).
+- **Location tracking.** Only 3/22 would allow it (Q-10).
+- **A separate "ND mode".** Our data doesn't support it (Q-12). The ND tools' best ideas (tiny steps, visual time) help everyone.
+
+## Limitations
+- This is a desk review of features from product pages and public write-ups, checked 8 Nov 2026. We didn't run usability tests on these products.
+- Scores are our judgement against our lens. A second group member should rescore the table independently and we'll compare.
+- Pricing and feature sets change quickly. Treat the table as a snapshot.
+
+## Sources
+- [Pearson: Gemini Guided Learning and ChatGPT Study Mode](https://pearson.com/international-schools/international-schools-blog/2026/02/what-is-gemini_s-guided-learning-and-chatgpts-study-mode-.html)
+- [TechCrunch: Google's Guided Learning in Gemini](https://techcrunch.com/2025/08/06/google-takes-on-chatgpts-study-mode-with-new-guided-learning-tool-in-gemini/)
+- [VentureBeat: Claude learning modes for students](https://venturebeat.com/ai/anthropic-takes-on-openai-and-google-with-new-claude-ai-features-designed-for-students-and-developers/)
+- [Tiimo: AI planning](https://www.tiimoapp.com/product/ai-planning)
+- [Warwick Library: Magic ToDo (Goblin Tools)](https://warwick.ac.uk/services/library/using/productivity-tools/magic-todo-gobin-tools)
+- [ADD.org: ADHD tools for adults](https://add.org/adhd-tools-for-adults/)
+- [Anki vs Quizlet comparison, 2026](https://dev.to/brainrash_edu/brainrash-vs-quizlet-vs-anki-honest-comparison-2026-1mh)
+- [AI spaced-repetition apps deep dive, 2026](https://www.youngju.dev/blog/culture/2026-05-16-ai-spaced-repetition-memory-apps-2026-anki-ankihub-remnote-supermemo-quizlet-ai-mochi-cards-brainscape-classcard-memrise-deep-dive.en)
+- LearnHarness: github.com/amosblomqvist/learnharness (docs/teaching-methodology.md)
