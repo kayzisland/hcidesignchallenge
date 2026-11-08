@@ -1,6 +1,6 @@
 # Project plan: HCI Design Challenge ("Sensing for Benefit")
 
-Updated 29 Oct 2026. The plan is built backwards from the marking rubric. Every task names the rubric criterion it earns marks for.
+Updated 8 Nov 2026. The plan is built backwards from the marking rubric. Every task names the rubric criterion it earns marks for.
 
 ## 1. What we're making
 A **proactive study app that works for all students and is designed with neurodivergent students in mind**. It senses context (timetable, lecture materials, free time, study behaviour) and steps in at the right moment with short, question-led learning. The hi-fi prototype is built on **LearnHarness** (github.com/amosblomqvist/learnharness), an open-source AI tutor that measures what a learner knows, teaches by questioning, and practises with retrieval.
@@ -60,7 +60,7 @@ The deck is assembled from this log, which covers rubric criteria 3, 4, 5 and 8.
 | T04 | Pilot the questionnaire (3-5 students) | KAYZ | 1 Understand | Sat 31 Oct | v2.1 change log | 2, 3 |
 | T05 | Distribute the questionnaire (KAYZ's socials plus everyone's channels) | KAYZ, all share | 1 Understand | Sun 1 Nov, closes Sun 8 Nov | Response sheet | 3 |
 | T06 | One short autoethnography each, same template | All | 1 Understand | Wed 4 Nov | `research/autoethnography-0n-name.md` | 3, 7 |
-| T07 | Observation protocol and 4-6 study-session observations | KAYZ (Lekan supports) | 1 Understand | Protocol Mon 2 Nov, sessions by Fri 6 Nov | `research/observation/` | 2, 3, 7 |
+| T07 | ~~Observation protocol and 4-6 study-session observations~~ **Dropped 8 Nov, see `design-log.md`.** Replaced by 15-minute interviews with questionnaire volunteers | KAYZ | 1 Understand | Interviews booked and run w/c 9 Nov | `research/interviews/` | 2, 3, 7 |
 | T08 | Review existing solutions (Anki, Quizlet, Notion, AI study modes, LearnHarness, focus apps) | KAYZ, Rahul | 1 Understand | Thu 5 Nov | `research/existing-solutions.md` | 6, 7 |
 | T09 | Theory base: learning science and neurodivergent learners | Rahul (existing card) | 1 Understand | Fri 6 Nov | `research/literature.md` (LIT-n) | 7 |
 | T10 | Sketch alternatives: 30+ across the group, 3+ distinct concepts | Jishnu | 3 Ideate | Sun 8 Nov | `ideate/sketches/` | 5 |
