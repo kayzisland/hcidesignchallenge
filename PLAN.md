@@ -106,6 +106,7 @@ Course content arriving during the project, and where we use it:
 ```
 PLAN.md                 this plan
 design-log.md           every design decision, with evidence IDs
+meetings/               sync agendas, decision briefs and what was decided
 research/               autoethnographies, questionnaires, interviews, literature, results, figures
 define/                 personas, scenarios, requirements, task analysis
 ideate/                 sketches, QOC
