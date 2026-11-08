@@ -1,0 +1,5 @@
+# Questionnaire response exports must never be committed.
+# Q16 of the v2 form collected email addresses although the form promised
+# anonymity, so the raw data stays in KAYZ's Google account only.
+research/**/*.csv
+*responses*.csv
