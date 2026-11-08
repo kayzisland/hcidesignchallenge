@@ -44,7 +44,7 @@ We run the UCD cycle with **parallel tracks** because we have five people and fi
 | Viva deck and poster | Rahul | The slide deck, viva deck and poster: structure, design and assembly |
 
 **The traceability rule.** This is how the data visibly drives the design.
-- Every finding gets an ID: `AE-n` (autoethnography), `Q-n` (questionnaire), `INT-n-x` (interview), `LIT-n` (literature), `AFF-x` (affinity cluster), `LF-n` (lo-fi test), `HF-n` (hi-fi test).
+- Every finding gets an ID: `AE-n` (autoethnography), `AE2-n` and `AE2-Pn` (second autoethnography: LearnHarness sessions, prototype walkthrough), `Q-n` (questionnaire), `INT-n-x` (interview), `LIT-n` (literature), `AFF-x` (affinity cluster), `LF-n` (lo-fi test), `HF-n` (hi-fi test).
 - Every requirement and every hi-fi feature cites at least one finding ID.
 - Every design change goes in `design-log.md`: date, decision, evidence ID, alternatives considered, who decided.
 
