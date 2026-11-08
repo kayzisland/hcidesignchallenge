@@ -27,10 +27,11 @@ Start recording only after a clear yes. Restate the consent on the recording.
 - What were you trying to get done in that session? How did you know when you were done?
 - Did anything pull you off track? What did you do about it?
 
-**3. When it goes wrong (3 min). Probes Q-1, Q-3, Q-11**
+**3. When it goes wrong (3 min). Probes Q-1, Q-3, Q-11, AE2-P14, AE2-P15, AE2-1**
 - Tell me about a session that went badly. What happened?
 - (If they mention not starting) What would have had to be different for you to start?
 - (If they mention not understanding) What did you do when you got stuck?
+- Have you ever stopped using a study app or tool? What made you stop, and when did you decide?
 
 **4. How you learn (3 min). Probes Q-6, Q-7**
 - What do you actually do when you study? Show me, if you can, the last thing you used.
