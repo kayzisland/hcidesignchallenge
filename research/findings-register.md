@@ -97,9 +97,11 @@ Source: [`affinity.md`](affinity.md). Built from Q12 open answers, questionnaire
 | **AFF-D** | "I learn when I produce the answer": sessions are active recall, hints in steps, never the answer early | affinity.md | Strong | Q-6, AE-3, AE-4, AE-8, AE2-5, AE2-8 | Q-7 (not every student prefers this) |
 | **AFF-E** | "Mistakes repeat": keep an error log and resurface misses in later sessions | affinity.md | Single-source | AE-2, AE-6, AE-8 | |
 | **AFF-F** | "Fit my week, nudge me gently": organise by course week, nudge into free gaps, 1 to 2 a day at most | affinity.md | Strong | Q-8, Q-9, Q-10, AE-9, AE-11, AE2-P13 | |
+| **AFF-G** | "Why are you asking me this?": a question that changes something visible earns the next one; a question that only collects spends goodwill | affinity.md (new in v1.1) | Single-source | AE2-P4, AE2-P9, AE2-P11, AE2-9 | AE2-P5 and AE2-P10 are questions that gave something back and were welcomed. Both are kept in the cluster as counter-notes |
+| **AFF-H** | "I can't tell what it's doing": show progress during a wait, say what background work is for, never use a term the session has not introduced | affinity.md (new in v1.1) | Single-source | AE2-2, AE2-4, AE2-7 | |
 
 ## INT-n-x: Interviews
-**To come.** Interviews are booked and run w/c 9 Nov 2026 (T07). Findings land in `research/interviews/INT-0n.md` and are added here as each interview is written up. The affinity diagram rebuilds as v2 once the last one is done.
+**To come.** Interviews are booked and run w/c 9 Nov 2026 (T07). Findings land in `interviews/INT-0n.md` and are added here as each interview is written up. The affinity diagram rebuilds as v2 once the last one is done.
 
 ## LIT-n: Literature
 Source: [`../define/behaviour-change.md`](../define/behaviour-change.md). All five verified against primary texts on 8 Nov 2026: author, year, venue and the specific claim used. Nothing was dropped as unverifiable.

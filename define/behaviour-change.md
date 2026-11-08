@@ -163,7 +163,7 @@ Wording is given exactly and every line is under 90 characters, because Android 
 ## 7. Limitations
 
 - **This is v1, written before the Week 8 lecture** on 16 Nov. The module may expect specific frameworks or vocabulary that are not here, and v2 adopts them.
-- **No literature review underneath it.** T09 (`research/literature.md`, Rahul) is overdue, so the five sources below were found and verified for this document alone. They are not a systematic review and there is no claim that they are the strongest five.
+- **No literature review underneath it.** T09 (`../research/literature.md`, Rahul) is overdue, so the five sources below were found and verified for this document alone. They are not a systematic review and there is no claim that they are the strongest five.
 - **The notification budget rests on one self-report question** (Q-9) from 22 people who were imagining an app, not using one. Stated tolerance and actual tolerance are different measurements.
 - **LIT-4 is a desktop laboratory study** from 2004, with tasks that are not studying. LIT-5 is mobile and in the wild, and it found that disruption depends on task type, completion level and complexity, which we can only partly sense from a timetable. Neither was run on students between lectures.
 - **None of these designs has been tested.** The wordings are drafts. T18 and T23 are where they get evaluated, and R-1's cap is the first thing to check.
