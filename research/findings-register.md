@@ -102,9 +102,19 @@ Source: [`affinity.md`](affinity.md). Built from Q12 open answers, questionnaire
 **To come.** Interviews are booked and run w/c 9 Nov 2026 (T07). Findings land in `research/interviews/INT-0n.md` and are added here as each interview is written up. The affinity diagram rebuilds as v2 once the last one is done.
 
 ## LIT-n: Literature
-**To come.** Two sources feed this section.
-- T09, the learning-science and neurodivergent-learners base, owned by Rahul. Due Fri 6 Nov on the current plan and now overdue; a new date is on the 10 Nov sync agenda.
-- T20, the behaviour-change and notification literature, owned by KAYZ, added with `define/behaviour-change.md`.
+Source: [`../define/behaviour-change.md`](../define/behaviour-change.md). All five verified against primary texts on 8 Nov 2026: author, year, venue and the specific claim used. Nothing was dropped as unverifiable.
+
+| ID | Source | Finding used | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|---|
+| **LIT-1** | Fogg (2009), *Persuasive '09*, DOI 10.1145/1541948.1541999 | A behaviour happens when motivation, ability and a prompt occur together; ability is the more reliable lever for a designer | Established framework | Q-1, Q-8, AE2-P15, AFF-A | |
+| **LIT-2** | Michie, van Stralen & West (2011), *Implementation Science* 6:42, DOI 10.1186/1748-5908-6-42 | COM-B: behaviour needs capability, opportunity and motivation; nine intervention functions sit on the wheel | Established framework | Q-3, Q-8, Q-10, Q-11 | |
+| **LIT-3** | Gollwitzer (1999), *American Psychologist* 54(7), 493-503, DOI 10.1037/0003-066X.54.7.493 | A goal intention names an endpoint; an implementation intention specifies when, where and how, as "whenever situation x arises, I will initiate response y" | Established framework | Q-11, AE2-P1, AE2-1, AFF-A | |
+| **LIT-4** | Adamczyk & Bailey (2004), *CHI '04*, 271-278 | Interrupting at predicted best points produced less annoyance, frustration, time pressure and mental effort, and was rated more respectful of the primary task. **No main effect on time on task** | Single study, desktop laboratory, non-study tasks | Q-8, Q-9, AFF-F | |
+| **LIT-5** | Mehrotra, Pejovic, Vermeulen, Hendley & Musolesi (2016), *CHI '16*, 1021-1032 | Response time and perceived disruption vary with notification presentation, alert type, sender-recipient relationship, and the ongoing task's type, completion level and complexity. Even useful content can disrupt | Single study, in the wild, 20 users | Q-9, LIT-4 | LIT-4 is desktop and laboratory; this is mobile and in the wild, and it finds disruption depends on task factors a timetable cannot sense |
+
+**Still to come.** T09, the learning-science and neurodivergent-learners base, owned by Rahul. Due Fri 6 Nov on the current plan and now overdue; a new date is on the 10 Nov sync agenda.
+
+**Numbering, proposed by KAYZ for group review.** T20 has taken LIT-1 to LIT-5, so **T09 should start at LIT-6**. If Rahul has already numbered from LIT-1, these five renumber instead, because his is the larger set.
 
 ---
 

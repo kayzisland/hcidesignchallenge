@@ -148,7 +148,7 @@ Wording is given exactly and every line is under 90 characters, because Android 
 
 ## 6. Risks and ethics
 
-**Over-nudging.** Our whole mechanism depends on a budget we have one number for (Q-9, n = 22, self-reported in the abstract and never measured in use). If the real tolerance is lower, every design above is too aggressive. LIT-4's finding that poorly timed interruptions are judged disrespectful, and that this is linked to discontinuing use, is the mechanism by which we would lose users without ever seeing it in a usability test. **Mitigation:** default to one a day, measure switch-off in T23, treat any opt-out as a failed design rather than a user preference.
+**Over-nudging.** Our whole mechanism depends on a budget we have one number for (Q-9, n = 22, self-reported in the abstract and never measured in use). If the real tolerance is lower, every design above is too aggressive. LIT-4's finding that poorly timed interruptions are judged disrespectful, and that this is linked to discontinuing use, is the mechanism by which we would lose users without ever seeing it in a usability test. **Mitigation:** default to one a day, measure switch-off in T23, treat any opt-out as a failed design, never as a user preference.
 
 **Dark patterns.** A proactive app that opens straight into a task is, structurally, the same machinery as an engagement loop. The difference is what it is pointed at. We decline incentivisation and coercion from the Behaviour Change Wheel (LIT-2) on purpose, and that decision should be visible in the deck, because a marker is entitled to ask why a study app needs notifications at all. Our answer is Q-1 and C-1, and it has to stay our answer.
 
