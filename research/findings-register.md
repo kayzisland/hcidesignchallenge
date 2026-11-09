@@ -104,7 +104,7 @@ Source: [`affinity.md`](affinity.md). Built from Q12 open answers, questionnaire
 **To come.** Interviews are booked and run w/c 9 Nov 2026 (T07). Findings land in `interviews/INT-0n.md` and are added here as each interview is written up. The affinity diagram rebuilds as v2 once the last one is done.
 
 ## LIT-n: Literature
-Source: [`../define/behaviour-change.md`](../define/behaviour-change.md). All five verified against primary texts on 8 Nov 2026: author, year, venue and the specific claim used. Nothing was dropped as unverifiable.
+Two sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../define/behaviour-change.md) (T20), verified against primary texts on 8 Nov 2026. **LIT-6 to LIT-12** come from [`literature-phones.md`](literature-phones.md), checked on 9 Nov 2026. In both cases author, year, venue and the specific claim were checked, and nothing was dropped as unverifiable.
 
 | ID | Source | Finding used | Strength | Corroborated by | Contradicted by |
 |---|---|---|---|---|---|
@@ -114,9 +114,17 @@ Source: [`../define/behaviour-change.md`](../define/behaviour-change.md). All fi
 | **LIT-4** | Adamczyk & Bailey (2004), *CHI '04*, 271-278 | Interrupting at predicted best points produced less annoyance, frustration, time pressure and mental effort, and was rated more respectful of the primary task. **No main effect on time on task** | Single study, desktop laboratory, non-study tasks | Q-8, Q-9, AFF-F | |
 | **LIT-5** | Mehrotra, Pejovic, Vermeulen, Hendley & Musolesi (2016), *CHI '16*, 1021-1032 | Response time and perceived disruption vary with notification presentation, alert type, sender-recipient relationship, and the ongoing task's type, completion level and complexity. Even useful content can disrupt | Single study, in the wild, 20 users | Q-9, LIT-4 | LIT-4 is desktop and laboratory; this is mobile and in the wild, and it finds disruption depends on task factors a timetable cannot sense |
 
-**Still to come.** T09, the learning-science and neurodivergent-learners base, owned by Rahul. Due Fri 6 Nov on the current plan and now overdue; a new date is on the 10 Nov sync agenda.
+| **LIT-6** | Ward, Duke, Gneezy & Bos (2017), *Journal of the Association for Consumer Research* 2(2) | The mere presence of one's own phone reduces available cognitive capacity. Participants with the phone in another room outperformed those with it on the desk, even when it was silent, face down or off. The most phone-dependent were hit hardest | Experiment, nearly 800 participants, laboratory | | |
+| **LIT-7** | Rosen, Carrier & Cheever (2013), *Computers in Human Behavior* 29(3) | 263 students observed minute by minute over 15-minute study sessions were on task about 65% of the time, with focus slipping after about two minutes | Observational, 263 students | Q-2, Q-4, AFF-C | |
+| **LIT-8** | Lepp, Barkley & Karpinski (2014), *Computers in Human Behavior* 31 | Higher phone use was associated with lower cumulative GPA, taken from university records, and with higher anxiety | Correlational, 500+ students. No causal claim | | |
+| **LIT-9** | Hidalgo-Fuentes (2022), *Electronic Journal of Research in Educational Psychology* 20(57) | Meta-analysis of 18 studies and 8,679 students: a moderate positive relationship between problematic smartphone use and procrastination (Zr = 0.40) | Meta-analysis, and correlational, so the direction is unresolved | Q-1, AFF-A | **Q-11:** none of the 8 Q12 answers named the phone. See X-6 |
+| **LIT-10** | Lyngs et al. (2024), *CHI 2024* | 280 students set their own device-use goals and chose their own self-control tools. At 1 to 3 months, 95% were still using at least one, self-reported self-control rose substantially, and students picked very different combinations | Field study with follow-up, 280 students | Q-7, Q-9, AE2-P8, AE2-P12 | |
+| **LIT-11** | Lyngs et al. (2020), *CHI 2020* | 58 students over six weeks: goal reminders and a removed newsfeed both kept them on task. Reminders were often called annoying and feed removal caused fear of missing out. The authors recommend flexible blocking matched to each person's definition of distraction | Field study, 58 students, six weeks | Q-9, AE2-P8, AE2-P12 | |
+| **LIT-12** | Lally, van Jaarsveld, Potts & Wardle (2010), *European Journal of Social Psychology* 40(6) | Median 66 days for a daily behaviour to become automatic, range 18 to 254. Missing a single day did not derail formation | Field study, small sample, self-report | | **AE2-P8, AE-11:** fixed weekly blocks sit awkwardly with a student who wants to choose each time and who studies in bursts. See X-7 |
 
-**Numbering, proposed by KAYZ for group review.** T20 has taken LIT-1 to LIT-5, so **T09 should start at LIT-6**. If Rahul has already numbered from LIT-1, these five renumber instead, because his is the larger set.
+**Still to come.** T09, the learning-science and neurodivergent-learners base, owned by Rahul. Due Fri 6 Nov on the original plan and still outstanding.
+
+**Numbering, proposed by KAYZ for group review.** T20 took LIT-1 to LIT-5 and the phone review took LIT-6 to LIT-12, so **T09 should start at LIT-13**. If Rahul has already numbered from LIT-1, these twelve renumber instead, because his is the larger set.
 
 ---
 
@@ -171,3 +179,12 @@ AE2-5 and AE2-8 record genuine enthusiasm for the confidence rating and thinking
 **X-5. Stated permission for lecture materials, against stated behaviour on recordings.**
 Q-10 says 19 of 22 would let an app use their lecture slides and recordings. Q-5 says 11 of 22 do not watch recordings at all, and 7 of 22 attended no lectures in person in the fortnight.
 *Reading:* permission to use a data source is not evidence that the source is rich for that student. A design that leans on recordings may be building on material half the sample ignores. Slides and timetable look safer than recordings.
+
+**X-6. The literature blames the phone; our own respondents never mention it.**
+LIT-9 is a meta-analysis over 8,679 students finding a moderate positive link between problematic smartphone use and procrastination, and LIT-7 and LIT-6 support the same picture. Q-11 is our own open-answer data: of the 8 people who described a bad study session, **none named the phone.** They named friends, a co-worker, a spilt drink, ordering food, having no goal, and simply not starting.
+*Reading:* two explanations fit. Either phones are not the driver for our sample, or the phone is invisible to people describing their own failures and is the channel through which friends and food arrive. We never asked, so Q12 could not have surfaced it. **Unresolved until the interviews.** Section 5b of the interview guide now asks directly (`interviews/interview-guide.md`). Until those land, any design that assumes the phone is the problem is building on the literature and not on our users.
+
+**X-7. Fixed weekly study blocks, against students who want to choose each time.**
+The study-block concept proposed for the 10 Nov sync asks the student to commit to fixed times each week, and LIT-12 says a routine takes a median of 66 days to become automatic. AE2-P8 is a participant rejecting fixed session lengths and taking the "choose each time" option as the only honest answer. AE-11 says study happens in set deep-work blocks **and** in spontaneous urgent bursts, so plans have to fit both.
+*Reading:* the concept may be right about the mechanism and wrong about the rigidity. LIT-10 points the same way: students who chose their own tools and strictness were still using them months later. A block the student sets, moves and overrides is consistent with all three. A fixed timetable imposed by the app is consistent with none of them. This is a design constraint on the concept, not an argument against it, and it is listed as a caution in the sync brief.
+*Added by KAYZ for group review, 9 Nov.*
