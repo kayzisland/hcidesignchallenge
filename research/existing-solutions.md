@@ -1,6 +1,8 @@
 # Existing solutions review (T08)
 
-Status: v1, 8 Nov 2026. Owners: KAYZ (Rahul to add theory links). Rubric criteria 6 (solution appropriateness) and 7 (domain understanding).
+Status: v1.1, 9 Nov 2026. Owners: KAYZ (Rahul to add theory links). Rubric criteria 6 (solution appropriateness) and 7 (domain understanding).
+
+**Changes in v1.1 (9 Nov).** Added app blockers, which v1 missed entirely. Opal and Flora are scored below and their features were checked against the developers' own pages on 9 Nov 2026. This matters now because the study-block concept proposed for the 10 Nov sync is, mechanically, an app blocker with a lesson inside it (`../meetings/2026-11-10-sync.md`), and the phone literature went in the same day (`literature-phones.md`, LIT-6 to LIT-12).
 
 ## Why we used this method
 A competitive review is an investigative technique. It shows what students already use and where those tools stop, which stops us from rebuilding a product that already exists. That risk is real: Q9 shows AI chatbots, flashcards and planners are already in daily use (`questionnaire-results.md`, Q-6). We chose a desk review over hands-on usability testing of each product, because we have five weeks and one group, and our testing budget belongs to our own lo-fi and hi-fi prototypes. The cost is that we're judging features, not real use. That's logged in the limitations below.
@@ -30,6 +32,8 @@ Each tool is scored against our evidence, not against a generic feature list.
 | **Tiimo** | Visual day planner built for ADHD and autistic users; timers, routines, AI planning | ✓ | ✓ | ✗ | ✗ | ✓ | ◐ | ◐ |
 | **Goblin Tools (Magic ToDo)** | Breaks a task into small steps with a "spiciness" level; built for neurodivergent users | ✓ | ✗ | ✗ | ✗ | ✗ | ✗ | ✓ |
 | **Forest** | Focus timer that grows a tree while your phone is left alone | ◐ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
+| **Opal** | Screen-time blocker. Rules block chosen apps and websites at set times of day across the week; a Focus Timer locks you in for a set length; Hard Mode cannot be switched off; breaks ask you to name the app, write your intention and set a timer | ✓ | ✓ | ✗ | ✗ | ✓ | ✗ | ✓ |
+| **Flora** | Focus timer where a virtual tree grows while you stay off blocked apps and dies if you leave. Friends can plant together, there is a to-do list, and an opt-in paid service plants a real tree | ◐ | ✓ | ✗ | ✗ | ✗ | ✗ | ✓ |
 | **Focusmate** | Video co-working sessions with a stranger (body doubling) | ✓ | ✓ | ✗ | ✗ | ◐ | ✗ | ✓ |
 | **Notion / calendars** | General planning and notes | ◐ | ✗ | ✗ | ✗ | ◐ | ◐ | ✓ |
 | **Canvas + Panopto** | The university's own course site and lecture recordings | ✗ | ✗ | ◐ | ✗ | ◐ | ✓ | ◐ |
@@ -40,6 +44,7 @@ Each tool is scored against our evidence, not against a generic feature list.
 - **Flashcard tools** are the evidence-backed recall tools (spaced repetition, retrieval practice) and score well on R. They don't help anyone start, and the cards come detached from the lecture that day unless the student builds them. Building them is effort, so it gets put off (Q-1 again).
 - **Planners and ND tools** (Tiimo, Goblin Tools) are the only ones aimed at *starting*: tiny first steps, visual time, routines. They have no idea what you're studying, and they never test you.
 - **Focus tools** (Forest, Focusmate) fix the middle of a session through commitment and social presence. Q-11 is a caution here: in our sample, social settings derailed sessions as often as they rescued them.
+- **App blockers** (Opal, Flora) are the only family besides planners that scores on starting, and Opal is the only tool in this whole table that scores on both S and P without being a planner. It does it by scheduling: a rule fires at a set time of day and blocks the apps, in Opal's own words "so you don't have to remember". That is an implementation intention executed by software (LIT-3), which is the same mechanism our design claims. Flora is the softer version, reactive and self-started, closer to Forest than to Opal. **Both are blind to what the student is studying.** Neither knows the timetable, neither has seen a lecture slide, and neither asks a single question, so R, M and C are empty for both. LIT-10 and LIT-11 also warn that blocking works best when the student picks the strictness and keeps an override, which Opal's Hard Mode deliberately removes.
 - **Canvas and Panopto** hold the course context (C) that every other tool lacks. They're passive archives: nothing reaches out, nothing tests.
 - **LearnHarness** gives us a working engine for R and M (probe, question, retrieve, error log). It doesn't solve S, F, P or C. Those are exactly what our data says matter most.
 
@@ -49,7 +54,9 @@ No tool does all three of these:
 2. **Make that session active recall on what was just taught.** Practice questions drawn from that day's slides, in the mode the student prefers (R, M, C; Q-6, Q-7).
 3. **Do it inside a strict attention budget.** Short sessions, 1-2 nudges a day (F, B; Q-4, Q-9).
 
-Every existing tool covers one column group: planners do S/P, flashcards do R, AI modes do R/M on request, Canvas holds C. **Our design's claim is the combination,** with LearnHarness as the R/M engine and our work on S, P, C and B.
+Every existing tool covers one column group: planners do S/P, blockers do S/F/P through scheduling and locking, flashcards do R, AI modes do R/M on request, Canvas holds C. **Our design's claim is the combination,** with LearnHarness as the R/M engine and our work on S, P, C and B.
+
+**Blockers are the closest thing to our start layer, and they stop exactly where we begin.** Opal will clear the student's phone at 14:00 on a Tuesday. It has no idea there was a lecture at 13:00, it cannot put that lecture's material in front of them, and when the block lifts nothing has been learned. A blocker removes the alternative to studying. It never supplies the studying. That distance is the design's whole claim, and it is now evidenced on both sides: Q-1 and AFF-A say students need the start, Q-6 and AFF-D say the session has to be active recall, and the blockers do the first and none of the second.
 
 ## What we borrow, and from whom
 | From | Borrow | For |
@@ -67,7 +74,8 @@ Every existing tool covers one column group: planners do S/P, flashcards do R, A
 - **A separate "ND mode".** Our data doesn't support it (Q-12). The ND tools' best ideas (tiny steps, visual time) help everyone.
 
 ## Limitations
-- This is a desk review of features from product pages and public write-ups, checked 8 Nov 2026. We didn't run usability tests on these products.
+- This is a desk review of features from product pages and public write-ups, checked 8 Nov 2026, and 9 Nov 2026 for Opal and Flora. We didn't run usability tests on these products.
+- **Claims we dropped as unverified.** Third-party reviews said Opal has preset blocking categories, that its breaks are capped at five minutes, and that an Android version exists. None of those appears in Opal's own description, which says "Only for iPhone", so none is used above. Flora's page does not say how its blocking works, so the table says what it does and not how. No pricing is quoted for either, because the figures in circulation disagree.
 - Scores are our judgement against our lens. A second group member should rescore the table independently and we'll compare.
 - Pricing and feature sets change quickly. Treat the table as a snapshot.
 
@@ -80,4 +88,7 @@ Every existing tool covers one column group: planners do S/P, flashcards do R, A
 - [ADD.org: ADHD tools for adults](https://add.org/adhd-tools-for-adults/)
 - [Anki vs Quizlet comparison, 2026](https://dev.to/brainrash_edu/brainrash-vs-quizlet-vs-anki-honest-comparison-2026-1mh)
 - [AI spaced-repetition apps deep dive, 2026](https://www.youngju.dev/blog/culture/2026-05-16-ai-spaced-repetition-memory-apps-2026-anki-ankihub-remnote-supermemo-quizlet-ai-mochi-cards-brainscape-classcard-memrise-deep-dive.en)
+- [Opal: Focus Sessions, Focus Rules and Hard Mode](https://opalapp.com/focus-sessions) (checked 9 Nov 2026)
+- [Opal: Screen Time Control, App Store listing](https://apps.apple.com/us/app/opal-screen-time-control/id1497465230) (checked 9 Nov 2026, developer's own description)
+- [Flora: green focus](https://flora.appfinca.com/) (checked 9 Nov 2026)
 - LearnHarness: github.com/amosblomqvist/learnharness (docs/teaching-methodology.md)
