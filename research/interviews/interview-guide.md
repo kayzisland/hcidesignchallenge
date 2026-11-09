@@ -1,6 +1,12 @@
 # Interview guide: 15-minute study interviews
 
-Status: v1, 8 Nov 2026. Interviewer: KAYZ. Participants: questionnaire volunteers (Q16). Format: semi-structured, online, recorded and transcribed with Notion AI **with consent**. Each interview gets an ID (`INT-01`...) and its findings get IDs (`INT-01-a`...).
+Status: v1.1, 9 Nov 2026. Interviewer: KAYZ. Participants: questionnaire volunteers (Q16). Format: semi-structured, online, recorded and transcribed with Notion AI **with consent**. Each interview gets an ID (`INT-01`...) and its findings get IDs (`INT-01-a`...).
+
+**Changes in v1.1 (9 Nov).**
+- Added the abandonment question to section 3, promised in `../autoethnography-02-kobi.md`.
+- Added section 5b on phones and study blocks, to test X-6 in `../findings-register.md`: the literature links phones to procrastination (LIT-6, LIT-9) and none of our 8 Q12 answers named the phone (Q-11). We never asked, so this is the first time we do.
+- **Dropped from section 4:** "How do you check you've really understood something?" It was the least load-bearing of the three. The other two probe Q-6 and Q-7, which both drive live design decisions (active recall, and offering both teaching modes). Self-checking sits under Q-3, our least frequent problem, picked by 1 of 22, and the design has already moved away from leading on explanation (`../../design-log.md`, 8 Nov). Section 4 drops from 3 minutes to 2.
+- **Timing.** The sections now sum to 16 minutes against a stated 15. Interviews do not run to the minute. If you are running long, shorten section 2, because sections 3 and 5b carry the newest questions and nothing else tests them.
 
 ## Why interviews, and why semi-structured
 The questionnaire told us *what* (getting started is the top problem, Q-1). It can't tell us *why*. Interviews give the why, in the participant's own words (Wk 2). Semi-structured keeps the questions comparable across participants while leaving room to follow what they raise. We dropped observation (see `../../design-log.md`, 8 Nov), so these interviews also carry the "last real session" question, which gets as close to behaviour as recall allows.
@@ -33,14 +39,17 @@ Start recording only after a clear yes. Restate the consent on the recording.
 - (If they mention not understanding) What did you do when you got stuck?
 - Have you ever stopped using a study app or tool? What made you stop, and when did you decide?
 
-**4. How you learn (3 min). Probes Q-6, Q-7**
+**4. How you learn (2 min). Probes Q-6, Q-7**
 - What do you actually do when you study? Show me, if you can, the last thing you used.
 - When something is hard, would you rather be shown how, or be asked questions until you get there? Why? Has that ever changed depending on the subject?
-- How do you check you've really understood something?
 
 **5. Reaction to a proactive app (2 min). Probes Q-8, Q-9, Q-10**
 - Imagine your phone notices you have a free hour after a lecture and offers a 10-minute quiz on that lecture. What would you do?
 - What would make that annoying? What would make it useful?
+
+**5b. Phones and study blocks (2 min). Probes LIT-6, LIT-9, the study-block concept**
+- In that last study session, where was your phone, and did it pull you off track? What happened?
+- Imagine you picked two fixed study times a week, and during them your phone locked everything except breaks every 25 minutes. What would you do? What would make you switch it off?
 
 **6. Close (1 min)**
 - Is there anything about how you study that I didn't ask but should have?
