@@ -3,7 +3,7 @@
 
 Usage:
     pip install matplotlib
-    python3 make_affinity.py            # writes affinity-v1.1.png
+    python3 make_affinity.py v2         # writes affinity-v2.png
     python3 make_affinity.py v2         # writes affinity-v2.png
 
 Edit CLUSTERS below and run again. After the interviews (T07), add the
@@ -11,7 +11,7 @@ INT-0n-x notes to the clusters they belong to, open new clusters only where
 at least three notes share something no existing cluster says, and build v2.
 
 Layout: one column per cluster, a coloured header, pale sticky notes beneath,
-and the two super-groups labelled along the bottom. Note text is wrapped to
+and the super-groups labelled along the bottom. Note text is wrapped to
 the column width and every box is sized to its content, so nothing clips.
 """
 
@@ -26,6 +26,7 @@ from matplotlib.patches import FancyBboxPatch
 # visible is the point: a cluster that only holds agreeing notes is a guess.
 
 CLUSTERS = [
+    # --- Getting into a session -------------------------------------------
     dict(id="AFF-A", name="I can't get going", colour="#1f5fae", group=0, notes=[
         'Q12: "Just couldn\'t get started"',
         'Q12: "Didn\'t get started soon enough"',
@@ -39,28 +40,61 @@ CLUSTERS = [
         "AE2-P15: Got the practice item right, quit anyway",
         "AE2-1: Six setup steps before the first question",
         "AE2-10: Teaches well, does nothing about starting",
+        'INT-03-a: A "mental block" to starting, filled with scrolling',
+        'INT-05-a: Knows how to study, has "no desire to do it"',
+        "INT-06-a: About a week between deciding and starting",
+        "INT-04-c: Pulled into other tasks until they must eat or sleep",
+        "INT-05-c: No finish point, stopped when time ran out",
     ]),
-    dict(id="AFF-B", name="The setting derails me", colour="#c8471f", group=0, notes=[
+    dict(id="AFF-I", name="If it's not due, I won't start", colour="#a02c2c", group=0, notes=[
+        "INT-04-a: Exam crunch, so the gap before starting was short",
+        "INT-01-a: On time means no reason to work ahead",
+        "INT-02-d: With no outside pressure he turns to his phone",
+    ]),
+    dict(id="AFF-J", name="Going there makes me do it", colour="#4f6b1f", group=0, notes=[
+        'INT-01-b: The walk to the library commits him, "in for a penny"',
+        "INT-03-d: Moved from home to the library, home too comfortable",
+        'INT-05-b: Going mattered "even if they did no work"',
+        "INT-06-d: Studying away from their room helps them focus",
+    ]),
+    dict(id="AFF-K", name="I don't know where to start from", colour="#6b3fa0", group=0, notes=[
+        'INT-04-e: Wants "the very, very first, tiniest step"',
+        'INT-01-e: No order in the material, an "insurmountable task"',
+        "INT-02-b: Paralysis across 200 resources, no path through",
+        "INT-01-f: A tool he reaches the long way round is redundant",
+    ]),
+    dict(id="AFF-M", name="My phone is right there", colour="#b05a00", group=0, notes=[
+        "INT-04-b: Phone always next to them, almost always pulls them off",
+        "INT-03-b: A 50-minute break becomes 20 minutes of scrolling",
+        "INT-05-d: The phone distracted them several times",
+        'INT-06-b: What would help is "absence of distraction"',
+        'INT-04-d: Remove the phone and they would "find another way"',
+        ("counter", "INT-01-b: Leaves notifications uncleared as his reminder"),
+    ]),
+    # --- Staying in a session ----------------------------------------------
+    dict(id="AFF-B", name="The setting derails me", colour="#c8471f", group=1, notes=[
         'Q12: "Studied with too many friends"',
         'Q12: "Was working with someone"',
         "Q12: A spilt drink ended it",
         "AE-1: Taking notes pulled attention off the lecture",
+        "INT-03-e: Friends on campus, they ate, the day was gone",
+        "INT-06-c: Library with a friend, chatting and doom scrolling",
     ]),
-    dict(id="AFF-C", name="Too much at once", colour="#1a7a4c", group=0, notes=[
+    dict(id="AFF-C", name="Too much at once", colour="#1a7a4c", group=1, notes=[
         "AE-5: Seeing the whole plan was overwhelming",
         'AE-7: A heavy session, "a tad lost", so I switched mode',
         "Q12: Didn't understand, gave up, came back days later",
         "AE2-P6: Attention gone by the end of stage 1 of 4",
         "AE2-P12: Wanted to switch display mode later",
         "AE2-P16: The reveal screen had too much on it at once",
+        "INT-01-c: Below about 80% understood, he can't follow up",
+        "INT-02-g: Symbol-heavy maths and jargon switch his brain off",
     ]),
-    dict(id="AFF-G", name="Why are you asking me this?", colour="#0f6f7a", group=0, notes=[
-        "AE2-P4: Every option applied, so ticking them said nothing",
-        "AE2-P9: Couldn't predict how I'd want a wrong answer handled",
-        "AE2-P11: Comfort settings asked before I'd seen any content",
-        "AE2-9: Questions and confidence ratings, no explanation yet",
-        ("counter", "AE2-P5: A question that split people was welcome"),
-        ("counter", "AE2-P10: The theme changed the app as I answered"),
+    dict(id="AFF-N", name="It depends what I'm studying", colour="#0f6b4f", group=1, notes=[
+        "INT-03-g: Depends on interest, not subject",
+        "INT-04-h: Shown in maths, asked in philosophy",
+        "INT-06-i: Asked in maths, shown in language subjects",
+        "INT-05-f: Depends whether there is a set goal",
     ]),
     dict(id="AFF-D", name="I learn when I produce the answer", colour="#9a7000", group=1, notes=[
         "AE-3: Concepts I argued my way to stuck",
@@ -70,38 +104,68 @@ CLUSTERS = [
         "AE2-P7: Practice questions missing from the revision list",
         "AE2-5: Confidence and reasoning fields beside the question",
         "AE2-8: Used the thinking field without being prompted",
+        "INT-03-f: AI summary first, then AI-written MCQs to test",
+        "INT-02-e: Starts with a past paper to find the gaps",
+        "INT-01-d: Ten cards on weak topics beats a hundred",
     ]),
     dict(id="AFF-E", name="Mistakes repeat", colour="#b83a63", group=1, notes=[
         "AE-6: Same error came back twice",
         "AE-2: Misses from a test fed review",
         "AE2-6: 30% confidence on an answer that was wrong",
+        "INT-05-e: Marks the wrong ones to see again",
+        "INT-06-f: Done when every question is answered with confidence",
+        "INT-01-i: 2,000 cards lapsed after 17 days, demoralising",
+        ("counter", "INT-06-e: Upload and it makes the quiz, never abandoned"),
     ]),
-    dict(id="AFF-F", name="Fit my week, nudge me gently", colour="#4a3fa8", group=1, notes=[
+    # --- Across sessions, and how the app behaves --------------------------
+    dict(id="AFF-F", name="Fit my week, nudge me gently", colour="#4a3fa8", group=2, notes=[
         "AE-9: Material split by week felt manageable",
         "AE-10: Slides and recording weren't there when I needed them",
         "Q-8: 19/22 welcome a quiz in a free gap",
         "Q-9: Most accept 1-2 notifications a day",
         'AE2-P8: Fixed session lengths didn\'t fit, chose "each time"',
         "AE2-P13: Nudge questions landed, demo data was labelled",
+        'INT-05-g: "Really, really great" if limited to one notification',
+        "INT-04-f: Positive, but let them time it or schedule it",
+        "INT-06-g: Useful, but they would put it off",
+        "INT-05-h: Would declare study times only if adjustable",
+        "INT-03-c: Dropped Pomodoro, the timer broke their flow",
     ]),
-    dict(id="AFF-H", name="I can't tell what it's doing", colour="#8a5a2b", group=1, notes=[
+    dict(id="AFF-G", name="Why are you asking me this?", colour="#0f6f7a", group=2, notes=[
+        "AE2-P4: Every option applied, so ticking them said nothing",
+        "AE2-P9: Couldn't predict how I'd want a wrong answer handled",
+        "AE2-P11: Comfort settings asked before I'd seen any content",
+        "AE2-9: Questions and confidence ratings, no explanation yet",
+        ("counter", "AE2-P5: A question that split people was welcome"),
+        ("counter", "AE2-P10: The theme changed the app as I answered"),
+    ]),
+    dict(id="AFF-H", name="I can't tell what it's doing", colour="#8a5a2b", group=2, notes=[
         "AE2-2: A wait with nothing showing progress",
         "AE2-4: Reading and searching I couldn't account for",
         'AE2-7: Feedback used "MC" before I\'d been taught it',
+        "INT-01-g: Won't trust an LLM without a link to the slide",
+        "INT-01-h: Can't sift 50 minutes of an inaccurate transcript",
+        "INT-02-i: Goes to people and forums before an LLM",
+        ("counter", "INT-03-f: Trusts AI enough to use it twice a session"),
+        ("counter", "INT-06-e: An AI quiz app they have never stopped using"),
     ]),
 ]
 
-GROUPS = ["Getting into a session", "Inside a session, and between sessions"]
+GROUPS = [
+    "Getting into a session",
+    "Staying in a session",
+    "Across sessions, and how the app behaves",
+]
 
-TITLE = ("T13 affinity diagram v1.1: questionnaire open answers (Q12), questionnaire findings, "
-         "AE-01 and the AE-02 notes. Interview notes are added in v2.")
+TITLE = ("T13 affinity diagram v2: questionnaire open answers (Q12), questionnaire findings, AE-01, "
+         "the AE-02 notes and the six interviews (INT-01 to INT-06).")
 
 # --- layout (inches; 1 data unit = 1 inch) ---------------------------------
-COL_W, COL_GAP = 2.45, 0.20
+COL_W, COL_GAP = 2.18, 0.16
 MARGIN_X, MARGIN_TOP, MARGIN_BOT = 0.30, 0.30, 0.95
 HEADER_H, HEADER_GAP = 0.78, 0.22
 NOTE_GAP, NOTE_PAD_X, NOTE_PAD_Y = 0.13, 0.14, 0.13
-TITLE_FS, HEAD_FS, NOTE_FS, GROUP_FS = 13, 12.5, 10.0, 12.5
+TITLE_FS, HEAD_FS, NOTE_FS, GROUP_FS = 13, 11.5, 9.3, 12.0
 BG = "#faf9f5"
 
 
@@ -235,5 +299,5 @@ def build(outfile):
 
 
 if __name__ == "__main__":
-    version = sys.argv[1] if len(sys.argv) > 1 else "v1.1"
+    version = sys.argv[1] if len(sys.argv) > 1 else "v2"
     build(f"affinity-{version}.png")
