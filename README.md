@@ -1,9 +1,13 @@
 # hcidesignchallenge
-HCI Group Design Challenge ("Sensing for Benefit").
+HCI Group Design Challenge ("Sensing for Benefit"). The product is **LockedIN**: a study app that gets a student into a session and keeps them in it.
 
-## Quick start: run the app
+## See the design
 
-All the code is in **`onboarding/`**, the *Learning Discovery* adaptive onboarding prototype (Vite + React + TypeScript). Everything else in the repo is research and design documentation.
+Open [`prototype/sketch/lockedin-sketch.html`](prototype/sketch/lockedin-sketch.html) in a browser. One file, five tabs, no build step. It is the quickest way to see what LockedIN is, and every screen in it cites the research behind it.
+
+## Quick start: run the code
+
+The only runnable code is **`onboarding/`**, the *Learning Discovery* adaptive onboarding prototype (Vite + React + TypeScript). It is the onboarding spike merged on 1 Nov and it feeds the build. LockedIN itself is not built yet. Everything else in the repo is research and design documentation.
 
 ```bash
 bash setup.sh          # one-off: installs Node (if needed), npm packages and matplotlib
@@ -30,25 +34,27 @@ hcidesignchallenge/
 │
 ├── define/                      ← turning research into design
 │   ├── personas.md              ← personas, scenarios, storyboard outline
-│   └── behaviour-change.md      ← behaviour-change and notification design
+│   ├── behaviour-change.md      ← behaviour-change and notification design
+│   └── figures/personas/        ← persona photos (Unsplash Licence)
 │
 ├── research/                    ← evidence
 │   ├── questionnaire-v1.md / -v2.md   ← questionnaire drafts
 │   ├── questionnaire-v2-form.gs       ← script that built the Google Form
 │   ├── questionnaire-results.md       ← results analysis (n = 22)
-│   ├── interviews/interview-guide.md
+│   ├── interviews/                    ← guide, INT-01 to INT-06, synthesis
 │   ├── autoethnography-01/02-kobi.md  ← self-study logs
 │   ├── literature-phones.md           ← literature on phones and distraction
 │   ├── existing-solutions.md          ← review of existing apps
-│   ├── affinity.md                    ← affinity diagram notes
+│   ├── affinity.md                    ← affinity diagram notes (v2)
 │   ├── findings-register.md           ← all findings in one place
-│   └── figures/                       ← charts + make_affinity.py (Python)
+│   └── figures/                       ← charts, affinity v1 to v2, make_affinity.py
 │
-├── meetings/                    ← weekly sync notes
+├── meetings/                    ← sync notes and decision briefs
 │
-├── prototype/sketch/            ← KAYZ's rough sketch of the LockedIN flow, with personas, context-based scenarios, a Week 1-5 syllabus map and a QOC. Input to T17, not a deliverable
+├── prototype/
+│   └── sketch/                  ← the LockedIN flow sketch, one HTML file
 │
-└── onboarding/                  ← ★ THE APP: all source code
+└── onboarding/                  ← the onboarding spike: the only runnable code
     ├── package.json             ← npm dependencies
     ├── index.html, vite.config.ts, tsconfig.json
     └── src/
@@ -66,9 +72,11 @@ hcidesignchallenge/
 
 | I want to… | Go to |
 |---|---|
-| Run or change the app | `onboarding/` |
+| See what LockedIN is | `prototype/sketch/lockedin-sketch.html` |
+| Run or change the code | `onboarding/` |
 | See why a design choice was made | `design-log.md` |
 | Check what the project is being marked on | `PLAN.md` |
 | Find research evidence | `research/findings-register.md` |
+| Read what students told us | `research/interviews/synthesis.md` |
 | Understand the target users | `define/personas.md` |
 | Catch up on decisions from meetings | `meetings/` |
