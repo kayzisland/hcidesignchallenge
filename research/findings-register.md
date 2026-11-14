@@ -101,7 +101,83 @@ Source: [`affinity.md`](affinity.md). Built from Q12 open answers, questionnaire
 | **AFF-H** | "I can't tell what it's doing": show progress during a wait, say what background work is for, never use a term the session has not introduced | affinity.md (new in v1.1) | Single-source | AE2-2, AE2-4, AE2-7 | |
 
 ## INT-n-x: Interviews
-**To come.** Interviews are booked and run w/c 9 Nov 2026 (T07). Findings land in `interviews/INT-0n.md` and are added here as each interview is written up. The affinity diagram rebuilds as v2 once the last one is done.
+Six semi-structured interviews, 6 to 12 Nov 2026 (T07). INT-01 and INT-02 by Jishnu, INT-03 to INT-06 by KAYZ. Sources: [`interviews/INT-01.md`](interviews/INT-01.md) to [`interviews/INT-06.md`](interviews/INT-06.md), counted across all six in [`interviews/synthesis.md`](interviews/synthesis.md).
+
+**Read every row with one caveat.** Each finding is one participant. Strength here comes from what agrees with it, and the quotes in INT-03 to INT-06 come from AI summaries that have not yet been checked against the transcripts.
+
+### INT-01: year 3, Computer Science, ND yes (Jishnu)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-01-a** | Studies week by week. Being on time removes the reason to work ahead, so effort rises only after falling behind | Strong | INT-04-a, Q-1, AFF-A | |
+| **INT-01-b** | Manages attention through his surroundings, not apps. Works in the library because the walk commits him, and leaves phone notifications uncleared as a standing reminder | Contested | INT-03-d, INT-05-b, INT-06-d (place as commitment); LIT-6 (devices away) | The phone-lock concept would hide the notifications he uses as a cue. He is the counter-case in X-6 |
+| **INT-01-c** | Whether he follows up depends on how much he understood. Below roughly 80% of a lecture he struggles to follow up at all | Single-source | Q-3, AE2-6 | |
+| **INT-01-d** | Wants to go straight to the section he struggled with. Ten cards on weak topics beats a hundred to find them | Single-source | AE-8, AFF-E, INT-02-e | |
+| **INT-01-e** | Lecture material arrives with no order, which makes studying an "insurmountable task". He wants a roadmap with an order | Strong | INT-04-e, INT-02-b, Q-11, AFF-A | |
+| **INT-01-f** | He wants to reach any piece of information directly. A tool that makes him go the long way round is redundant | Single-source | INT-01-e, AE2-1 | INT-01-e also asks for a fixed order, so the design owes him both |
+| **INT-01-g** | Does not trust LLMs as a source of truth. Every summary should link to the exact slide or moment for checking | Strong | INT-02-i, Q-6 | INT-03-f, INT-06-e both rely on AI daily. See X-9 |
+| **INT-01-h** | Transcripts are useful, but Panopto's interface and inaccurate transcript make 50 minutes of lecture unsearchable | Single-source | INT-02-e, Q-5 | |
+| **INT-01-i** | Abandonment: cards unreviewed for 17 days were marked not completed, over 2,000 lapsed, and recovery meant 100+ a day. Progress must be recoverable "like the gym" | Strong | AE2-P14, AE2-P15, AE2-1, Q-1 | |
+
+### INT-02: year 4, MSc Computational Finance, ND no (Jishnu)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-02-a** | Noticed his knowledge gap through social media and forums, which produced a sense of missing out and social pressure | Single-source | INT-02-c | |
+| **INT-02-b** | Decision paralysis across too many resources, with no streamlined path to what he needed | Strong | INT-01-e, INT-04-e, Q-11 | |
+| **INT-02-c** | His challenge is long-term consistency. Starting is fine; once he sees progress he stops chasing | Contested | INT-01-i (progress systems drive abandonment) | Q-1, INT-05-a and four others say starting is the problem. He is the exception in T-1 |
+| **INT-02-d** | With no external pressure he turns to his phone, and always thinks he should have started earlier | Strong | INT-03-b, INT-04-b, INT-05-d, INT-06-c, LIT-6, LIT-9 | |
+| **INT-02-e** | Starts with a past paper to find what he does not know, then goes through all lectures, using the transcript to skim what he knows | Single-source | AE2-9 (measure first), INT-01-d, Q-6 | |
+| **INT-02-f** | On hard topics he goes down rabbit holes and can become obsessed. He asks a person if he cannot solve it, and never abandons a topic | Single-source | Q-3 | |
+| **INT-02-g** | Visual cues with audio help a lot. Symbol-heavy maths and jargon make his brain switch off | Single-source | Q-7, AFF-C | |
+| **INT-02-h** | He is more interested in practical application than theory. Real-world framing helps him start and helps him choose what to study | Single-source | INT-03-g (interest drives mode) | |
+| **INT-02-i** | Does not go to LLMs first, prefers human and forum sources. Sees flashcards as a gimmick because of the time making them, and would use them if provided | Strong | INT-01-g, INT-06-e (would use what is provided), Q-6 | INT-03-f, INT-06-e rely on AI. See X-9 |
+
+### INT-03: postgraduate, law conversion, ND not recorded (KAYZ)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-03-a** | Starting is the hardest part. A "mental block" filled with social media, games and chores. Once in flow it is not as bad | Strong | Q-1, AFF-A, INT-05-a, INT-06-a, INT-04-a | |
+| **INT-03-b** | Social media is the main pull. Breaks about every 50 minutes often become 20 minutes of scrolling | Strong | INT-02-d, INT-04-b, INT-05-d, INT-06-c, LIT-7, LIT-9 | |
+| **INT-03-c** | Dropped Pomodoro because the timer interrupted their flow, for example mid question set | Strong | AE2-P8, AE-11, INT-05-h, LIT-11 | Directly contradicts the fixed 25 and 5 cycle in the 10 Nov concept |
+| **INT-03-d** | Moved from home to the library. Home is too comfortable and has family interruptions. Plans the day the night before, roughly 9 to 5, "not too strict" | Strong | INT-01-b, INT-05-b, INT-06-d | |
+| **INT-03-e** | A bad session: friends were on campus, they ate together instead of going to the library, and the day was gone | Strong | Q-11, AFF-B, INT-06-c | |
+| **INT-03-f** | Uses AI twice a session: a summary first, then AI-written multiple-choice questions at the end to test themselves | Single-source | INT-06-e, Q-6, AFF-D | INT-01-g, INT-02-i distrust LLMs. See X-9 |
+| **INT-03-g** | Shown versus asked depends on interest. Interesting subjects they work out themselves; less interesting ones they would rather be told | Strong | Q-7, INT-04-h, INT-05-f, INT-06-i | |
+
+### INT-04: postgraduate, maths and philosophy, ND not recorded (KAYZ)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-04-a** | Their last session was exam crunch. The gap between deciding and starting was short because of the deadline. **Urgency removed the starting problem** | Strong | INT-01-a, Q-1, AFF-A | |
+| **INT-04-b** | Their phone is "always right next to me" and "almost always" pulls them off track | Strong | INT-02-d, INT-03-b, INT-05-d, INT-06-c, LIT-6, LIT-9 | |
+| **INT-04-c** | A bad session is constant distraction, drawn into non-study tasks such as editing videos until they need to eat or sleep | Single-source | INT-03-a, Q-11 | |
+| **INT-04-d** | Removing the phone would help, but they have a general distraction problem and would "probably find another way" | Contested | INT-06-h (focus is the real barrier) | LIT-6, LIT-9 say phone removal has a real effect |
+| **INT-04-e** | Breaking a task down is their biggest struggle. An AI could split an objective into steps, "even just the very, very first, tiniest step" | Strong | INT-01-e, INT-02-b, AFF-A, Q-11 | |
+| **INT-04-f** | A 10-minute post-lecture quiz: positive, but annoying "if I don't want to do it". Timing it to when they are receptive, or letting them schedule it, would help | Strong | Q-8, Q-9, INT-05-g, LIT-4 | |
+| **INT-04-g** | A phone lock in fixed study times: they would keep it on for urgent tasks and might switch it off for non-urgent ones | Contested | INT-05-h, INT-06-h, LIT-10, LIT-11 | The lock is weakest exactly when INT-04-a says starting is hardest. See X-8 |
+| **INT-04-h** | Shown versus asked depends on the subject. Shown in maths after many questions; in philosophy they ask and re-read | Strong | Q-7, INT-03-g, INT-05-f, INT-06-i | INT-06-i splits on the same two subjects in the opposite direction |
+
+### INT-05: year 3, Medicine, ND not recorded (KAYZ)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-05-a** | They know how to study and lack the desire to start. Asked whether an app should teach studying or tell them when to study, they chose the second: "no desire to do it", not a skills gap | Strong | Q-1, Q-2, AFF-A, INT-03-a, INT-06-a, AE2-10 | |
+| **INT-05-b** | A couple of spare hours after placement, so they went to the library. About an hour between deciding and starting, mostly travel. Being there mattered "even if they did no work" | Strong | INT-01-b, INT-03-d, INT-06-d | |
+| **INT-05-c** | No clear finish point. They stopped when they ran out of time | Single-source | Q-11 (no goal for the session), AE2-P1 | INT-06-f and INT-02-e both have a finish condition |
+| **INT-05-d** | Their phone distracted them several times. They returned to work after getting bored of it or turning it off | Strong | INT-02-d, INT-03-b, INT-04-b, INT-06-c, LIT-9 | |
+| **INT-05-e** | Uses Anki on an iPad, with cards made by a student in the year above. Writes the answer, then marks wrong ones to see again | Single-source | Q-6, AFF-D, AFF-E, INT-02-i (would use cards made for them) | |
+| **INT-05-f** | Shown versus asked depends on whether there is a set goal. Checks understanding by answering more questions and by confidence, and says there is no objective measure | Strong | Q-7, AE2-5, INT-03-g, INT-04-h, INT-06-i | |
+| **INT-05-g** | A 10-minute post-lecture quiz would be "really, really great" **if limited to one notification**. Repeated reminders would "get on my nerves" | Strong | Q-8, Q-9, INT-04-f, LIT-4, LIT-5 | |
+| **INT-05-h** | Would declare free study times only if the times could be adjusted, because their schedule fluctuates. Plans availability in weeks | Strong | AE2-P8, AE-11, INT-03-c, LIT-10, LIT-11 | |
+
+### INT-06: year 2, International Business, ND not recorded (KAYZ)
+| ID | Finding | Strength | Corroborated by | Contradicted by |
+|---|---|---|---|---|
+| **INT-06-a** | About a week passed between deciding to study and starting, then two to three hours on the day. They kept getting sidetracked, then "just opened the website and started" | Strong | Q-1, AFF-A, INT-03-a, INT-05-a | |
+| **INT-06-b** | What would help them start: "Absence of distraction." Named notifications, tidying and opening the curtains | Contested | INT-05-a, Q-1 | INT-06-h rejects the lock that would deliver it. See X-8 |
+| **INT-06-c** | A bad session: a library visit with a friend, where they chatted and doom scrolled instead of studying | Strong | Q-11, AFF-B, INT-03-e, LIT-9 | |
+| **INT-06-d** | The phone sat next to them at first, then face down on the bed while they worked at the desk. Studying away from their room helps them focus | Strong | INT-01-b, INT-03-d, INT-05-b, LIT-6 | |
+| **INT-06-e** | Their main tool is a notebook-style AI app: they upload question banks and it generates quizzes. The first study app they have used, and they have never stopped | Single-source | INT-03-f, INT-02-i (would use what is provided), Q-6 | INT-01-g, INT-02-i distrust LLMs. See X-9 |
+| **INT-06-f** | They count themselves done when they can answer every practice question with full confidence. They memorise by cumulative repetition | Single-source | AE2-5, INT-05-f, Q-6 | INT-05-c has no finish point at all |
+| **INT-06-g** | A 10-minute post-lecture quiz: useful because it covers the lecture, but doing a quiz is annoying and they would probably put it off ("I'm just lazy to be honest") | Strong | Q-8, INT-04-f, AE2-P15 | |
+| **INT-06-h** | Two fixed weekly study times with the phone locked and breaks every 25 minutes: they do not think they would use it. If already focused the phone does not matter; if they cannot focus, everything is a distraction | Strong | INT-04-d, INT-04-g, INT-03-c | INT-06-b wants absence of distraction. See X-8 |
+| **INT-06-i** | Shown versus asked depends on the subject: guiding questions in maths, told first then reverse-engineer for language-based subjects. Checks understanding by explaining to someone | Strong | Q-7, INT-03-g, INT-04-h, INT-05-f | INT-04-h splits on the same two subjects the opposite way |
 
 ## LIT-n: Literature
 Two sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../define/behaviour-change.md) (T20), verified against primary texts on 8 Nov 2026. **LIT-6 to LIT-12** come from [`literature-phones.md`](literature-phones.md), checked on 9 Nov 2026. In both cases author, year, venue and the specific claim were checked, and nothing was dropped as unverifiable.
@@ -133,8 +209,10 @@ Two sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../d
 Claims backed by three or more IDs from at least two different methods. These are the safest things the project can say, and they are what the deck should lead on.
 
 **C-1. Starting is the problem, and it is a cost problem.**
-Q-1, Q-2, Q-11, AFF-A, AE-11, AE2-P2, AE2-P14, AE2-P15, AE2-1, AE2-10.
-Four methods agree: questionnaire, affinity clustering, and both autoethnographies. The strongest version is AE2-P15, where a correct answer was followed by quitting anyway, and AE2-10, where a tool that teaches well was judged to do nothing about starting. This is the design's central claim and the best-evidenced thing here.
+Q-1, Q-2, Q-11, AFF-A, AE-11, AE2-P2, AE2-P14, AE2-P15, AE2-1, AE2-10, INT-01-a, INT-03-a, INT-04-a, INT-05-a, INT-06-a.
+**Five methods agree:** questionnaire, affinity clustering, both autoethnographies and now six interviews. The best-evidenced thing the project has.
+Before the interviews the strongest version was AE2-P15, a correct answer followed by quitting anyway. **INT-05-a is now the strongest version,** because it is a participant stating the design problem unprompted: asked whether an app should teach them to study or tell them when to study, they chose the second, because they have "no desire to do it" and no skills gap.
+**The interviews also added the condition we were missing.** INT-04-a studied all day the moment an exam was close, and INT-01-a works ahead only once he has fallen behind. Starting fails hardest when nothing is urgent, which is the week the design has to win.
 
 **C-2. Students learn when they produce the answer.**
 Q-6, AE-3, AE-4, AE-8, AFF-D, AE2-5, AE2-8.
@@ -182,9 +260,30 @@ Q-10 says 19 of 22 would let an app use their lecture slides and recordings. Q-5
 
 **X-6. The literature blames the phone; our own respondents never mention it.**
 LIT-9 is a meta-analysis over 8,679 students finding a moderate positive link between problematic smartphone use and procrastination, and LIT-7 and LIT-6 support the same picture. Q-11 is our own open-answer data: of the 8 people who described a bad study session, **none named the phone.** They named friends, a co-worker, a spilt drink, ordering food, having no goal, and simply not starting.
-*Reading:* two explanations fit. Either phones are not the driver for our sample, or the phone is invisible to people describing their own failures and is the channel through which friends and food arrive. We never asked, so Q12 could not have surfaced it. **Unresolved until the interviews.** Section 5b of the interview guide now asks directly (`interviews/interview-guide.md`). Until those land, any design that assumes the phone is the problem is building on the literature and not on our users.
+*Reading, 9 Nov:* two explanations fit. Either phones are not the driver for our sample, or the phone is invisible to people describing their own failures and is the channel through which friends and food arrive. We never asked, so Q12 could not have surfaced it.
+
+**Resolved 14 Nov, largely in favour of LIT-6 to LIT-9.** We asked directly in section 5b of the interview guide, and **5 of 6 named the phone or social media without being led there**: INT-02-d, INT-03-b, INT-04-b, INT-05-d, INT-06-c. INT-04-b calls the phone "always right next to me" and "almost always" the thing that pulls them off track. INT-03-b turns a 50-minute break into 20 minutes of scrolling. The second explanation was right: Q12 did not surface phones because we never asked.
+
+**INT-01-b stays as the counter-case, and it is not a disagreement about phones.** He keeps his laptop and phone away in lectures, which supports LIT-6. What he does differently is leave phone notifications uncleared as a deliberate standing reminder to study. A design that locks or clears notifications would take away the cue he relies on. One participant in six, and a specific thing for the lock design to handle.
+
+*What this does not settle:* the literature and the interviews agree the phone is a distraction. Neither shows that removing it produces studying. **INT-06-h** says the opposite, and that is X-8.
 
 **X-7. Fixed weekly study blocks, against students who want to choose each time.**
 The study-block concept proposed for the 10 Nov sync asks the student to commit to fixed times each week, and LIT-12 says a routine takes a median of 66 days to become automatic. AE2-P8 is a participant rejecting fixed session lengths and taking the "choose each time" option as the only honest answer. AE-11 says study happens in set deep-work blocks **and** in spontaneous urgent bursts, so plans have to fit both.
 *Reading:* the concept may be right about the mechanism and wrong about the rigidity. LIT-10 points the same way: students who chose their own tools and strictness were still using them months later. A block the student sets, moves and overrides is consistent with all three. A fixed timetable imposed by the app is consistent with none of them. This is a design constraint on the concept, not an argument against it, and it is listed as a caution in the sync brief.
 *Added by KAYZ for group review, 9 Nov.*
+
+**Update, 14 Nov: the interviews confirm the rigidity problem and leave the mechanism standing.** INT-03-c dropped Pomodoro because a fixed timer broke their flow mid question set. INT-05-h would declare study times only if they could be adjusted, because their schedule fluctuates. Neither rejected blocks; both rejected fixed ones. The reading above holds and is now evidenced by participants, not by one autoethnographer alone.
+
+**X-8. Students want an app to make them start, and they resist being made to.**
+**INT-05-a** asked for exactly our product: tell me when to study, because I know how and I have no desire to start. **INT-06-b** said what would help them start is "Absence of distraction", naming notifications, tidying and opening the curtains.
+Then the same people refused the mechanism that delivers it. **INT-06-h** would not use a weekly locked block: if they are already focused the phone does not matter, and if they cannot focus then everything is a distraction. **INT-04-g** would keep a lock on for urgent work and switch it off for non-urgent work, which is precisely when INT-04-a says starting is hardest. **INT-04-d** adds that removing the phone would help but they would "probably find another way".
+*Reading:* the demand is real and the proposed mechanism is not the thing they are asking for. INT-06-h is the sharpest version: a lock removes a distraction and does not create focus. Three readings are open, and the group should choose one and not average them. The lock is a setting inside a product about starting; or the lock is the wrong mechanism and the effort belongs on the first step a student takes (INT-04-e); or students underestimate how much a lock would help and a lo-fi test should check that, since every answer here is a prediction about behaviour and not a record of it.
+*This is the central open question for T16 and T17.* **Unresolved.**
+
+**X-9. Half our interview sample does not trust the engine our hi-fi is built on.**
+**INT-01-g** does not trust LLMs as a base source of truth and wants every summary linked to the exact slide or moment. **INT-02-i** does not go to LLMs first, prefers human and forum sources, and calls himself old-fashioned.
+**INT-03-f** uses AI twice in every session, a summary first and AI-written multiple-choice questions at the end. **INT-06-e** uses a notebook-style AI app as their main tool and has never stopped using it. INT-04 and INT-05 did not say.
+*Reading:* two of six against, two of six relying on it daily, and the hi-fi keeps LearnHarness. The split is not about capability. INT-01-g's objection is about verification, and it has a cheap answer: link every AI explanation back to its source slide, which is change 6 in the synthesis. INT-02-i's objection is about marketing and would be answered by showing real use. Neither needs the engine removed, and both need the engine to show its working.
+*Related:* AE2-11 asked whether a separate application is needed at all, and X-3 holds the other half of that argument.
+*Added by KAYZ for group review, 14 Nov.* **Unresolved.**
