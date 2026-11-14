@@ -46,6 +46,8 @@ hcidesignchallenge/
 │
 ├── meetings/                    ← weekly sync notes
 │
+├── prototype/sketch/            ← KAYZ's rough sketch of the LockedIN flow, with personas, context-based scenarios, a Week 1-5 syllabus map and a QOC. Input to T17, not a deliverable
+│
 └── onboarding/                  ← ★ THE APP: all source code
     ├── package.json             ← npm dependencies
     ├── index.html, vite.config.ts, tsconfig.json
