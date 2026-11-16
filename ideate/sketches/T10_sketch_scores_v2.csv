@@ -1,0 +1,71 @@
+ID,Sketch,Slice,Alternative,Shared or slice-wide,Sketch evidence (0-3),Alternative evidence (0-2),Coverage (0-3),Reuse (0/2),Total (0-10),Brief fit (P=proactive I=intervenes S=senses),Supporting findings (own),Contrary findings (own),Picked
+S-01,Post-lecture comprehension check,1,1a,,0.5,0.5,1,0,2.0,PIS,INT-01-c,,Protect
+S-02,Chunk map,1,1a,,0.5,0.5,1,0,2.0,I,INT-01-d,,Override
+S-03,10 targeted cards,1,1a,,0.5,0.5,1,0,2.0,I,INT-01-d,,Override
+S-04,Source link on every card,1,,yes,1.0,0,0,2,3.0,,INT-01-g,,Fill
+S-05,Confidence-flagged transcript,1,,yes,1.0,0,0,2,3.0,,INT-01-h INT-02-e,,Fill
+S-06,Real-world hook,1,1b,,0.5,0.5,1,0,2.0,,INT-02-h,,Protect
+S-07,Bounded snippet feed,1,1b,,0,0.5,1,0,1.5,I,,,
+S-08,Format by content type,1,1c,,1.0,0.5,3,0,4.5,I,INT-02-i,,Protect
+S-09,"""Not ready yet"" state",1,,yes,0,0,0,2,2,PIS,,,Override
+S-10,Visual + audio explainer,1,1b,,0.5,0.5,1,0,2.0,,INT-02-g,,
+S-11,Sunday planner,2,2b,,0,2,1,0,3,PIS,,,
+S-12,Daily anchors,2,2a,,0,2,2,0,4,PIS,,,
+S-13,Soft-start,2,2a,,1.0,2,2,0,5.0,PI,INT-02-d,,Protect
+S-14,Selective block settings,2,2b,,0.25,2,1,0,3.25,IS,INT-01-b,,
+S-15,Place-tied block,2,2c,,0.25,2,1,0,3.25,PIS,INT-01-b,,
+S-16,Move this block,2,2b,,1.0,2,1,0,4.0,IS,INT-01-i,,Fill
+S-17,Missed-block message,2,2b,,1.0,2,1,0,4.0,PIS,INT-01-i,,Fill
+S-18,Guided roadmap,3,3a,,1.0,2,2,0,5.0,,INT-01-e,,Protect
+S-19,Open view,3,3b,,0.5,0.5,3,0,4.0,,INT-01-f,,Protect
+S-20,Path/Files toggle,3,3c,,1.0,1.0,3,0,5.0,,INT-01-e INT-01-f,,Protect
+S-21,Topic relationship map,3,3a,,1.0,2,2,0,5.0,,INT-01-e,,Fill
+S-22,Re-entry: start with these 5,3,,yes,1.0,0,0,2,3.0,IS,INT-01-i,,Fill
+S-23,Forward-pointing progress,3,,yes,0.25,0,0,2,2.25,,INT-02-c,,Override
+S-24,5-question diagnostic,4,4b,,0.5,0.5,3,0,4.0,I,INT-02-e,,Protect
+S-25,Park it,1,,yes,0.5,0,0,2,2.5,I,INT-02-f,,
+S-26,Desk token,2,2c,,0.25,2,1,0,3.25,IS,INT-01-b,,
+S-27,Library tap point,2,2c,,0.25,2,1,0,3.25,IS,INT-01-b,,
+S-28,Lecture-exit tap point,2,2c,,0.5,2,1,0,3.5,IS,INT-01-c,,Protect
+S-29,Study pact,2,2d,,1.0,0,2,0,3.0,PI,INT-02-d,,Protect
+S-30,Ask a person,1,,yes,1.0,0,0,2,3.0,I,INT-02-f INT-02-i,,Fill
+S-31,Leaderboard,3,,yes,0,0,0,2,2,,,INT-02-a,Override
+S-32,Real-use onboarding clip,4,,yes,1.0,0,0,2,3.0,,INT-02-i,,
+S-33,"In-lecture ""lost me"" tap",1,1e,,0,0,2,0,2,I,INT-01-c,INT-01-b,
+S-34,"Smartwatch ""lost me""",1,1e,,0.5,0,2,0,2.5,IS,INT-01-c INT-01-b,,Protect
+S-35,Commute audio recap,1,1d,,0.5,0.5,2,0,3.0,I,INT-02-g,,Protect
+S-36,Explain it back,1,1d,,0,0.5,2,0,2.5,PI,,,
+S-37,Confusion heatmap,1,,yes,0.5,0,0,2,2.5,S,INT-02-a,,
+S-38,"Source first, AI second",1,,yes,2.0,0,0,2,4.0,,INT-01-g INT-02-i,,Fill
+S-39,Hook variants,1,1b,,,,,,,,,,Excluded: overlaps S-06
+S-40,Digest for DND users,1,,yes,0,0,0,2,2,PS,,,
+S-41,Chaptered lecture scrubber,1,,yes,0.5,0,0,2,2.5,,INT-01-h,,
+S-42,Fix the transcript,1,,yes,1.0,0,0,2,3.0,I,INT-01-h INT-02-e,,Fill
+S-43,Stuck timer,1,,,,,,,,PIS,,,Excluded: overlaps S-25
+S-44,One-task widget,2,2f,,0,0.25,1,0,1.25,I,,,
+S-45,Persistent reminder,2,2f,,0.25,0.25,1,0,1.5,PI,INT-01-b,,Protect
+S-46,Walk to start,2,2c,,,,,,,PIS,,,Excluded: overlaps S-15
+S-47,Gentle interception,2,2e,,1.0,1.0,3,0,5.0,PIS,INT-02-d,,Protect
+S-48,Energy check,2,2g,,0,1.0,2,0,3.0,PI,,,
+S-49,Ambient desk light,2,2f,,0.25,0.25,1,0,1.5,PI,INT-01-b,,
+S-50,Locking phone stand,2,2c,,0,2,1,0,3,IS,,,
+S-51,Silent co-study room,2,2d,,1.0,0,2,0,3.0,I,INT-02-d,,
+S-52,Deadline-backwards planner,2,2b,,1.0,2,1,0,4.0,PIS,INT-02-d,,Fill
+S-53,Get-ahead credit,2,2g,,1.0,1.0,2,0,4.0,I,INT-01-a,,Protect
+S-54,Metro map,3,3d,,1.0,1.0,2,0,4.0,,INT-01-e,,Protect
+S-55,Fog of war,3,3d,,0.75,1.0,2,0,3.75,,INT-02-c INT-01-f,,Fill
+S-56,Search across everything,3,3b,,,,,,,,,,Excluded: overlaps S-19
+S-57,Week/lecture/page tracker,3,,,,,,,,,,,Excluded: overlaps S-23
+S-58,"Fade, not debt",3,,yes,1.0,0,0,2,3.0,S,INT-01-i,,
+S-59,Welcome back,3,,,,,,,,IS,,,Excluded: overlaps S-22
+S-60,Exam countdown roadmap,3,3e,,0.5,0.5,2,0,3.0,S,INT-02-e,,Protect
+S-61,Past-paper mapping,3,3e,,0.5,0.5,2,0,3.0,,INT-02-e,,
+S-62,Zero-setup try,4,4d,,1.0,1.5,2,0,4.5,I,INT-02-i,,Protect
+S-63,Progressive onboarding,4,4e,,0,0.5,2,0,2.5,PI,,,
+S-64,Coursemate clips,4,,,,,,,,,,,Excluded: overlaps S-32
+S-65,One-question setup,4,4d,,0.5,1.5,2,0,4.0,I,INT-02-e,,Fill
+S-66,Accessibility first-run,4,4e,,0.5,0.5,2,0,3.0,,INT-02-g,,Protect
+S-67,Tiniest first step,2,2h,,3,2,3,0,8,PI,INT-04-e INT-01-e INT-02-b,,Protect
+S-68,Opt-in lock setup,2,2b,,1.5,2,1,0,4.5,IS,LIT-10 LIT-11 INT-04-g INT-01-b,,Fill
+S-69,Breaks that wait for you,2,2b,yes,1.0,2,1,2,6.0,PIS,INT-03-c,,Protect
+S-70,Pick a time for the quiz,1,,yes,2.0,0,0,2,4.0,PIS,INT-04-f INT-05-g,,Fill
