@@ -44,12 +44,15 @@ hcidesignchallenge/
 │   ├── interviews/                    ← guide, INT-01 to INT-06, synthesis
 │   ├── autoethnography-01/02-kobi.md  ← self-study logs
 │   ├── literature-phones.md           ← literature on phones and distraction
+│   ├── literature-review.md           ← T09 literature review, LIT-13 to LIT-23
+│   ├── ui-research-lofi.md            ← UI research feeding the lo-fi (T17)
 │   ├── existing-solutions.md          ← review of existing apps
 │   ├── affinity.md                    ← affinity diagram notes (v2)
 │   ├── findings-register.md           ← all findings in one place
 │   └── figures/                       ← charts, affinity v1 to v2, make_affinity.py
 │
 ├── meetings/                    ← sync notes and decision briefs
+│   └── 2026-11-16-sync.md       ← the phone and laptop split, and what was dropped
 │
 ├── prototype/
 │   └── sketch/                  ← the LockedIN flow sketch, one HTML file

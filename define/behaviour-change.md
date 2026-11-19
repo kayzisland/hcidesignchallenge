@@ -1,8 +1,21 @@
 # Behaviour change and notification design (T20)
 
-Status: **v1, 8 Nov 2026.** Owner: KAYZ. Rubric criteria 6 (solution appropriateness) and 7 (domain understanding).
+Status: **v2, 18 Nov 2026.** Owner: KAYZ. Rubric criteria 6 (solution appropriateness) and 7 (domain understanding).
 
-**This is v1 and it will be revised.** The Week 8 lecture on heuristics and behaviour change arrives on 16 Nov, and T20 is due Fri 20 Nov. Everything below is built from our own findings and from literature verified on 8 Nov. Where the lecture introduces a framework or a term the module expects us to use, v2 adopts it and says what changed.
+**What changed in v2:**
+- **Week 8 models adopted.** The Week 8 slides ("Models of Behaviour Change", Canvas) set out ten models. Section 2.4 maps each one to our evidence and says which we use and which we decline. Transtheoretical stages stay rejected, with the lecture's own framing.
+- **Interview evidence added.** INT-01 to INT-06 now sit beside the questionnaire and autoethnography in the diagnosis and the rules.
+- **The 16 Nov sync decisions are built in:**
+  - one app, with the phone getting students started and the laptop doing the learning;
+  - a notification that is itself a single multiple-choice question;
+  - a Sunday checklist;
+  - calendar blocks;
+  - optional leaderboards.
+
+  R-1 and N-1 are rewritten for the single-question notification. R-8 (device roles) and N-5 (Sunday checklist) are new. R-6 now records the leaderboard tension.
+- **The phone lock is still undecided** (`../meetings/lock-decision-brief.md`, X-8). This document gives notification rules for a block either way, and takes no side on the lock.
+
+Everything below is built from our own findings, from literature verified on 8 Nov, and from the Week 8 slides.
 
 Every finding ID is indexed in `../research/findings-register.md`. Literature IDs are `LIT-n` and are listed at the end.
 
@@ -56,9 +69,28 @@ Gollwitzer distinguishes a goal intention, which names an endpoint, from an impl
 
 A timetable-triggered notification **is** an implementation intention, formed by the system on the student's behalf and executed by the system, so the student never has to remember it. "When your 13:00 lecture ends and your next two hours are free, start five questions on what was just taught" is Gollwitzer's structure with the situational cue supplied by sensing. This is the clearest theoretical justification we have for the whole proactive mechanism, and it is what separates our design from a planner that asks the student to form the plan themselves (`../research/existing-solutions.md`: Tiimo and Notion both score ◐ or ✗ on starting).
 
+### 2.4 The Week 8 models, applied (new in v2)
+
+The Week 8 slides present ten models of behaviour change. LIT-1 to LIT-3 already cover three of them. The table takes all ten against our evidence. It cites the slides as the source. Primary references for the new seven belong in the literature review (T09, KAYZ), which gives them LIT IDs; they are not added here, to keep the numbering in one place.
+
+| Model (Wk 8) | Core idea | What our evidence says | Used for |
+|---|---|---|---|
+| **COM-B** | Behaviour needs capability, opportunity and motivation | Section 2.2. Capability and opportunity are the gaps, not motivation (Q-3, Q-8, INT-05-a) | **Used:** the diagnosis |
+| **Fogg Behaviour Model (B=MAP)** | Motivation, ability and a prompt at the same moment. Prompts succeed above the action line and fail below it | Section 2.1. Our students sit high on motivation and low on ability at the moment of starting (Q-8, Q-1, INT-03-a) | **Used:** where the prompt goes, and why it must lower cost |
+| **Transtheoretical model** | Stages of change, from pre-contemplation to maintenance, with relapse | Built for readiness that develops over months. Our students are already at preparation or action (Q-8, INT-05-a). Relapse is still useful: INT-01-i shows a punished lapse ending use altogether | **Not used as a model.** Relapse only, through R-6 (forgiving return) |
+| **Dual process theory** | A fast, impulsive, associative system and a slow, rational one. Most behaviour runs on the fast one | The phone pull is fast-system behaviour (INT-03-b, INT-04-b, AFF-M). Deciding to study is slow-system work, and it loses (INT-02-d) | **Used:** the single-question notification makes studying the fast, easy option. Tapping an answer needs no plan (R-1, N-1) |
+| **Goal setting theory** | Goals work when they have clarity, challenge, commitment, feedback, and complexity kept achievable | Sessions fail with no goal set (Q-11). Students want the "tiniest step" (INT-04-e). Too many resources paralyse (INT-02-b, AFF-K) | **Used:** every session states one clear goal (clarity), starts at the edge of ability (challenge), shows the answer straight away (feedback), and opens on a first step small enough to be achievable (complexity). R-4 |
+| **Social cognitive theory** | Behaviour comes from personal, behavioural and environmental factors acting on each other | Place commits people (AFF-J: INT-03-d, INT-05-b, INT-06-d). Friends derail sessions (INT-03-e, INT-06-c) | **Used:** environment is a lever in its own right. The calendar block names a place, and the sketch's "where are you?" prompt is the proposal (R-9) |
+| **Bounded rationality** | People satisfice: they take a good-enough option under uncertainty, using heuristics | Too many resources and no order make studying an "insurmountable task" (INT-01-e, INT-02-b) | **Used:** the app chooses the next step, so the student never has to search for it (R-4, F concept in T10) |
+| **Prospect theory** | Losses feel larger than equal gains, and value is judged against a reference point | Streaks work by threatening a loss. That is exactly what made INT-01 abandon Anki, with 2,000+ lapsed cards (INT-01-i) | **Used to decline:** no streaks, no "overdue" counts (R-6). The same reasoning puts leaderboards under test, not by default |
+| **Theory of planned behaviour** | Attitude, subjective norm and perceived behavioural control form intention, which drives behaviour | Attitude is positive (Q-8). Perceived control is low at the start (INT-04-e). Subjective norm cuts both ways: social pressure put INT-02 off (INT-02-a), and friends derail sessions | **Used:** raise perceived control with a small first step. Treat norm-based features (leaderboards, study pacts) as risky and test them (R-6) |
+| **Implementation intentions** | "If this cue, then that response" | Section 2.3. Students hold the goal but not the if-then (Q-11) | **Used:** the timetable supplies the cue (N-1); the Sunday checklist lets the student set their own if-then for the week (N-5) |
+
+**What the lecture adds to v1.** Dual process theory and goal setting theory explain why the single-question notification works better than a "time to study" reminder. A reminder asks the slow system to make a decision. A question asks the fast system to tap an answer, and the first step is done before the student has decided anything. Prospect theory gives the formal reason R-6 refuses streaks.
+
 ### Frameworks considered and not used
-- **Transtheoretical "stages of change"** was considered and dropped. It models readiness to change a health behaviour over months. Our problem is a single moment inside a day, and Q-8 shows readiness is already there.
-- **Gamification, streaks and points** were considered and dropped. Our anti-persona work (`personas.md`) and AFF-D both say the reward has to be the learning. Section 6 says more.
+- **Transtheoretical "stages of change"** is not used as a model (see 2.4). It describes readiness that develops over months. Our problem is a single moment inside a day, and Q-8 shows readiness is already there.
+- **Gamification, streaks and points** were considered and dropped. Our anti-persona work (`personas.md`) and AFF-D both say the reward has to be the learning, and prospect theory (2.4) explains why loss-framed mechanics backfire. **Leaderboards are the exception the 16 Nov sync kept, as optional.** R-6 says how we handle them.
 
 ---
 
@@ -75,8 +107,14 @@ Putting the three together gives one sentence: **our students are motivated, cap
 | Q-11, AE2-P1, AE2-1 | A session with no stated goal fails; a blank opening screen is a cost | Gollwitzer: the missing if-then |
 | AE2-P14, AE2-P15, AE2-10 | Cost accumulates and people quit even when able | Fogg: ability is the lever |
 | Q-4 (drift inside 20 minutes), AFF-C | Whatever we start has to be short | Fogg: shorter is more able |
+| INT-01-a, INT-03-a, INT-04-a, INT-05-a, INT-06-a (5 of 6) | Starting is the barrier, and it is worst when nothing is urgent | Fogg, COM-B: the non-urgent week is where the prompt has to work |
+| INT-02-d, INT-03-b, INT-04-b, INT-05-d, INT-06-c (5 of 6), AFF-M | The phone is the main pull | Dual process: the fast system wins unless studying is the easier option |
+| INT-04-e, INT-01-e, INT-02-b, AFF-K | The missing first step, and too many resources | Goal setting, bounded rationality: supply one clear, achievable step |
+| INT-04-f, INT-05-g, INT-06-g | The post-lecture quiz is welcome if single and well timed | Fogg, LIT-4: one prompt at a breakpoint |
+| INT-03-c, INT-05-h | Fixed timers break flow; blocks must be adjustable | LIT-10, LIT-11: the student sets the strictness |
+| INT-01-i, INT-02-a | Punishing progress and social pressure drive people away | Prospect theory, theory of planned behaviour: no loss framing, norms with care |
 
-**The one thing this diagnosis rules out.** We are not building motivation features. No streaks, no points, no leaderboards, no guilt. Q-8 says the motivation is there and Q-9 says our real risk is spending the goodwill we already have.
+**The one thing this diagnosis rules out.** We are not building motivation features. No streaks, no points and no guilt. Q-8 says the motivation is there, and Q-9 says our real risk is spending the goodwill we already have. *v2 note:* the 16 Nov sync kept leaderboards as an optional feature. This diagnosis does not support them, so R-6 sends them to testing, off by default.
 
 ---
 
@@ -84,7 +122,8 @@ Putting the three together gives one sentence: **our students are motivated, cap
 
 Each rule cites the findings that force it and the literature that supports it. These are the rules Jiven's hi-fi (T21) and Lekan's heuristic checklist (T22) should both be able to check against.
 
-**R-1. One or two notifications a day, hard cap, default one.**
+**R-1. One or two notifications a day, hard cap, default one. The default notification is itself the first question.**
+*v2:* the 16 Nov sync made the notification a single multiple-choice question that can be answered from the lock screen. That keeps us inside the budget, because a prompt that is already the first step doesn't need a follow-up. INT-05-g: "really, really great" if limited to one notification. INT-04-f and INT-06-g want it timed to when they're receptive, and are put off by it otherwise. **Interface limit:** Android shows at most three action buttons on an expanded notification, so the question is three-option on the phone. That's a platform constraint, not a teaching choice (`../research/ui-research-lofi.md`).
 Q-9: 15 of 22 switch off beyond 1-2 a day; nobody chose "none", so the budget is real and non-zero. LIT-5 found perceived disruption varies with the ongoing task's type, completion level and complexity, which we cannot always sense, so the safe move is to send few. LIT-4 adds the consequence of getting it wrong: badly timed interruptions were rated less respectful, and loss of attributed respect is linked to users discontinuing an application.
 
 **R-2. Timetable and lecture materials only. Never location.**
@@ -100,22 +139,31 @@ AE2-P1: a welcome screen that removes objections and gives no reason to start. A
 AFF-B: three of eight Q12 failures were a friend, a co-worker or a spilt drink. AE2-P12 and AE2-P8: students want to defer and switch, not commit. A snooze is also our safety valve against R-1, because a deferred notification is not a spent one.
 
 **R-6. No streak punishment, and no guilt.**
-AFF-D and Q-6 say the reward is the learning. The anti-persona in `personas.md` exists to stop us building engagement mechanics. AE2-P14 is the direct warning: a participant describing himself as "fidgety and anxious" trying to get through a setup flow. Adding loss-framed streaks to that is a harm, and it also risks the motivation COM-B says we already have.
+AFF-D and Q-6 say the reward is the learning. The anti-persona in `personas.md` exists to stop us building engagement mechanics. AE2-P14 is the direct warning: a participant describing himself as "fidgety and anxious" trying to get through a setup flow. Adding loss-framed streaks to that is a harm, and it also risks the motivation COM-B says we already have. *v2:* INT-01-i is the interview version: a lapse of 17 days produced 2,000+ overdue cards, and he stopped. Prospect theory (2.4) is the mechanism, because a streak is a loss waiting to happen.
+
+**Leaderboards (kept as optional at the 16 Nov sync).** They pull against this rule. A leaderboard is a subjective norm (theory of planned behaviour), and our only interview evidence on social comparison is negative: INT-02-a felt social pressure and missing out. The existing-solutions review shows both directions in the market: Seneca invites students to "compete with your friends", while Memrise says it "is not a gamified flashcard app". **Proposed by KAYZ for group review:** leaderboards are off by default, switched on in Settings, and tested in T18 as a variable. If testers who switch them on start more sessions and nobody reports pressure, they stay.
 
 **R-7. Show what the app knows and why it is here.**
 AFF-H is new in affinity v1.1 and it is about opacity: AE2-2 (a wait with no progress), AE2-4 (work the student could not account for), AE2-7 (a notation never introduced). A proactive app that appears unbidden has to answer "why now" in the notification itself. AE2-P13 shows this working: the demo labelling on sample calendar data was noticed unprompted and accepted.
 
+**R-8. The phone starts, the laptop teaches (new in v2, from the 16 Nov sync).**
+Every phone notification ends in one of two places. One is a single answered question. The other is a handover to the laptop session, which opens on the next question. Learning sessions do not run on the phone, because the phone is the distraction (AFF-M: 5 of 6). LIT-6 found that a phone in reach costs attention even when idle. **What this rule does not claim:** no participant was asked where they want to learn, so device roles are an inference from the distraction evidence. T16's QOC compares this split against all-on-phone and all-on-laptop (16 Nov action), and T18 tests the handover.
+
+**R-9. The block names a place (proposal, new in v2).**
+Place is a commitment device for 4 of 6 (AFF-J). Social cognitive theory treats environment as a cause of behaviour, not a backdrop. When a block starts, the app asks where the student is, and suggests a quieter spot or putting the phone out of reach. It never senses location (R-2). **Proposed by KAYZ for group review.** It comes from the rough sketch (`../prototype/sketch/`), and the 16 Nov sync did not discuss it.
+
 ---
 
-## 5. Four concrete notification designs
+## 5. Five concrete notification designs
 
 Wording is given exactly and every line is under 90 characters, because Android and iOS both truncate around there and a truncated prompt breaks R-4.
 
 ### N-1. The post-lecture gap (primary, Tayo's flow)
 - **Trigger.** A timetabled lecture ends, and the timetable shows 45 minutes or more free.
 - **Timing.** 5 minutes after the end time, once per day maximum.
-- **Wording.** `HCI just finished. 5 questions on it, about 10 minutes?`
-- **On tap.** Opens the session. Goal line visible ("5 questions on mental models, about 10 minutes"), question 1 already on screen.
+- **Wording (v2, the notification is the question).** Title: `HCI just finished. One question:` Body: the question, under 90 characters. Three answer buttons (R-1).
+- **On answer.** The answer is marked on the lock screen with a one-line explanation. Then one choice: `4 more on your laptop` (hands over to the session, R-8) or `Done for now`. Either way the first step has happened.
+- **v1 wording, kept as the fallback** if a question can't be written short enough: `HCI just finished. 5 questions on it, about 10 minutes?`, opening the session with question 1 on screen.
 - **Evidence.** Q-8 (19/22 welcome exactly this scenario), Q-1, Q-10, AFF-A, AFF-F, LIT-1 (prompt at high ability), LIT-3 (the if-then), LIT-4 (fires at a breakpoint).
 - **Scenario.** This is S-1 in `personas.md`.
 
@@ -142,7 +190,14 @@ Wording is given exactly and every line is under 90 characters, because Android 
 - **On tap.** Resumes the exact question the session stopped on.
 - **Evidence.** AFF-B, AE2-P12, AE2-P8, R-5. AE2-P8 is the reason the time estimate is on the notification and the length was never fixed in advance.
 
-**What is deliberately absent.** No "you haven't studied in 3 days". No streak broken message. No notification that exists only to bring the student back into the app. Every one of the four carries a session with a stated goal, which is R-4.
+### N-5. The Sunday checklist (new in v2, from the 16 Nov sync)
+- **Trigger.** Sunday evening, at a time the student chose in onboarding. Once a week.
+- **Wording.** `Next week: 3 lectures, 2 free gaps. Set your study blocks?`
+- **On tap.** A checklist of next week's lectures, with suggested blocks in free gaps. The student ticks, moves or removes each one. Ticking a block sets the cue for N-1 and the calendar block.
+- **Evidence.** INT-05-h plans in weeks and needs to move blocks, and INT-03-d plans the day the night before. LIT-3: the student forms the if-then themselves, which is the strongest version of an implementation intention. LIT-10: the student chooses. Goal setting theory: commitment comes from setting the goal yourself.
+- **Budget.** N-5 counts as Sunday's one notification.
+
+**What is deliberately absent.** No "you haven't studied in 3 days". No streak broken message. No notification that exists only to bring the student back into the app. Each of the five carries either a session with a stated goal (R-4) or, for N-5, the plan that sets those sessions up.
 
 ---
 
@@ -162,8 +217,10 @@ Wording is given exactly and every line is under 90 characters, because Android 
 
 ## 7. Limitations
 
-- **This is v1, written before the Week 8 lecture** on 16 Nov. The module may expect specific frameworks or vocabulary that are not here, and v2 adopts them.
-- **No literature review underneath it.** T09 (`../research/literature.md`, Rahul) is overdue, so the five sources below were found and verified for this document alone. They are not a systematic review and there is no claim that they are the strongest five.
+- **The Week 8 models are cited from the slides, not from primary sources.** Their references go into the literature review (T09, KAYZ), which will give them LIT IDs. Until then, section 2.4 rests on the lecture's own summaries.
+- **The literature review is still in progress.** T09 is now owned by KAYZ (16 Nov sync). LIT-1 to LIT-5 were found and verified for this document alone. They are not a systematic review, and there is no claim that they are the strongest five.
+- **The single-question notification is untested** and depends on writing good three-option questions under 90 characters. If that proves hard for some content, N-1 falls back to its v1 wording.
+- **The phone and laptop roles (R-8) are inferred,** not asked. See R-8.
 - **The notification budget rests on one self-report question** (Q-9) from 22 people who were imagining an app, not using one. Stated tolerance and actual tolerance are different measurements.
 - **LIT-4 is a desktop laboratory study** from 2004, with tasks that are not studying. LIT-5 is mobile and in the wild, and it found that disruption depends on task type, completion level and complexity, which we can only partly sense from a timetable. Neither was run on students between lectures.
 - **None of these designs has been tested.** The wordings are drafts. T18 and T23 are where they get evaluated, and R-1's cap is the first thing to check.
@@ -185,6 +242,6 @@ All five verified against primary sources on 8 Nov 2026: author, year, venue and
 
 **Nothing was dropped as unverifiable.** All five candidate sources checked out.
 
-**Numbering note, proposed by KAYZ for group review.** T20 has taken LIT-1 to LIT-5. T09 (Rahul) also produces LIT-n IDs and has not landed yet. To avoid a collision, **T09 should start at LIT-6.** If Rahul has already numbered from LIT-1, these five renumber instead, because his is the larger set.
+**Numbering note (v2).** T20 holds LIT-1 to LIT-5, and `../research/literature-phones.md` holds LIT-6 to LIT-12. The literature review (T09) starts at LIT-13.
 
 *LIT-5 note:* three of its five authors were at the University of Birmingham at the time of publication, including the lead author and Robert Hendley. Worth a line in the deck.

@@ -180,7 +180,9 @@ Six semi-structured interviews, 6 to 12 Nov 2026 (T07). INT-01 and INT-02 by Jis
 | **INT-06-i** | Shown versus asked depends on the subject: guiding questions in maths, told first then reverse-engineer for language-based subjects. Checks understanding by explaining to someone | Strong | Q-7, INT-03-g, INT-04-h, INT-05-f | INT-04-h splits on the same two subjects the opposite way |
 
 ## LIT-n: Literature
-Two sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../define/behaviour-change.md) (T20), verified against primary texts on 8 Nov 2026. **LIT-6 to LIT-12** come from [`literature-phones.md`](literature-phones.md), checked on 9 Nov 2026. In both cases author, year, venue and the specific claim were checked, and nothing was dropped as unverifiable.
+Three sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../define/behaviour-change.md) (T20), verified against primary texts on 8 Nov 2026. **LIT-6 to LIT-12** come from [`literature-phones.md`](literature-phones.md), checked on 9 Nov 2026. **LIT-13 to LIT-23** come from [`literature-review.md`](literature-review.md) (T09), checked on 19 Nov 2026. In every case author, year, venue and the specific claim were checked, and nothing was dropped as unverifiable.
+
+The corroborating and contradicting IDs for LIT-13 to LIT-23 are the ones the review itself names in its RQ tables. None was added here.
 
 | ID | Source | Finding used | Strength | Corroborated by | Contradicted by |
 |---|---|---|---|---|---|
@@ -198,9 +200,21 @@ Two sources. **LIT-1 to LIT-5** come from [`../define/behaviour-change.md`](../d
 | **LIT-11** | Lyngs et al. (2020), *CHI 2020* | 58 students over six weeks: goal reminders and a removed newsfeed both kept them on task. Reminders were often called annoying and feed removal caused fear of missing out. The authors recommend flexible blocking matched to each person's definition of distraction | Field study, 58 students, six weeks | Q-9, AE2-P8, AE2-P12 | |
 | **LIT-12** | Lally, van Jaarsveld, Potts & Wardle (2010), *European Journal of Social Psychology* 40(6) | Median 66 days for a daily behaviour to become automatic, range 18 to 254. Missing a single day did not derail formation | Field study, small sample, self-report | | **AE2-P8, AE-11:** fixed weekly blocks sit awkwardly with a student who wants to choose each time and who studies in bursts. See X-7 |
 
-**Still to come.** T09, the learning-science and neurodivergent-learners base, owned by Rahul. Due Fri 6 Nov on the original plan and still outstanding.
+| **LIT-13** | Steel (2007), *Psychological Bulletin* 133(1), 65-94 | Meta-analysis of 691 correlations. The strong and consistent predictors of procrastination are task aversiveness, task delay, self-efficacy and impulsiveness | Meta-analysis, 691 correlations | INT-04-a (task delay), INT-05-a (task aversiveness), AFF-M (impulsiveness) | |
+| **LIT-14** | Sirois & Pychyl (2013), *Social and Personality Psychology Compass* 7(2), 115-127 | Conceptual review: procrastination has a great deal to do with short-term mood repair. An aversive task is avoided to feel better now, and the cost falls on the future self | Conceptual review, no new data | INT-03-a, Q-3 | |
+| **LIT-15** | Ko et al. (2015), *CHI '15 Extended Abstracts*, 1561-1566 | A group phone-limiting app. 79.5% of 49 surveyed were disturbed by smartphones while socialising. In a pilot of 20, groups said they could limit smartphones together. No controlled outcome | Pilot, n = 20, no control group | INT-03-e, INT-06-c | |
+| **LIT-16** | Roediger & Karpicke (2006), *Psychological Science* 17(3), 249-255 | On delayed tests, prior testing produced substantially greater retention than studying. At 5 minutes, restudying did better, so the benefit arrives late | Experiment | Q-6, AE-8 | Its own caveat: at a 5-minute delay restudying won, so students will not feel the benefit at once |
+| **LIT-17** | Dunlosky et al. (2013), *Psychological Science in the Public Interest* | Of ten techniques, practice testing and distributed practice received the highest overall utility rating. Rereading, highlighting and summarisation rated low | Review of ten techniques | Q-6 | |
+| **LIT-18** | Wood & Neal (2007), *Psychological Review* 114(4), 843-863 | Habits form from associations between a response and its context. Once formed, the context triggers the associated response without a mediating goal | Theoretical review | AFF-J, INT-03-d, INT-05-b, INT-06-d, AE-11 | **INT-05-h:** moving a block weakens the context cue, and INT-05-h wants blocks that can move. The review names this tension |
+| **LIT-19** | Sailer & Homner (2020), *Educational Psychology Review* 32, 77-112 | Meta-analysis of 40 experiments. Small positive effects: cognitive g = .49, motivational g = .36, behavioural g = .25. Combining competition with collaboration was particularly effective | Meta-analysis, 40 experiments | INT-02-a | |
+| **LIT-20** | Albuquerque et al. (2017), *Computers & Education* 115, 161-170 | A male-stereotyped gamified environment affected participants' anxiety. Cites earlier work in which a male-dominated leaderboard affected women's maths performance | Experimental, hypothetical scenario study | No direct data of ours. T20 R-6 already declines loss framing | |
+| **LIT-21** | Locke & Latham (2002), *American Psychologist* 57(9), 705-717 | Goal setting and task motivation over 35 years. Used in T20 for R-4: every session states one clear, achievable goal | Established framework | | |
+| **LIT-22** | Ajzen (1991), *Organizational Behavior and Human Decision Processes* 50(2), 179-211 | The theory of planned behaviour. Used in T20 for: perceived control is low at the start, so the first step must be small, and norm-based features are risky | Established framework | | |
+| **LIT-23** | Tversky & Kahneman (1979), *Econometrica* 47(2), 263-292 | Prospect theory: losses loom larger than gains. Used in T20 for R-6, no streaks | Established framework | INT-01-i | |
 
-**Numbering, proposed by KAYZ for group review.** T20 took LIT-1 to LIT-5 and the phone review took LIT-6 to LIT-12, so **T09 should start at LIT-13**. If Rahul has already numbered from LIT-1, these twelve renumber instead, because his is the larger set.
+**T09 landed on 19 Nov,** written by KAYZ after the 16 Nov sync reassigned it. Its file is `literature-review.md`, and PLAN.md's original timeline names `research/literature.md`. The plan is frozen, so the file keeps the name it was written under.
+
+**Not yet sourced.** The review flags dual process theory, social cognitive theory, bounded rationality and the transtheoretical model as cited in T20 from the Week 8 slides only. Their primary sources need checking before the deck relies on them, and they have no LIT ID until then.
 
 ---
 
