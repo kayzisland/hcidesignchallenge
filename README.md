@@ -54,6 +54,9 @@ hcidesignchallenge/
 ├── meetings/                    ← sync notes and decision briefs
 │   └── 2026-11-16-sync.md       ← the phone and laptop split, and what was dropped
 │
+├── ideate/
+│   └── qoc-device-split.md      ← T16 QOC: which device does which job (draft marks)
+│
 ├── prototype/
 │   └── sketch/                  ← the LockedIN flow sketch, one HTML file
 │
