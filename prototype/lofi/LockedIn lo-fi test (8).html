@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LockedIn lo-fi test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday study tool, deliberately rough: a lo-fi wireframe for user testing
+   IDEA a paper prototype on a sketchpad: grey boxes on paper, one yellow highlighter for what to tap
+   PICTURE the device itself (phone or laptop) showing the live screen, large, centred
+   COLOUR sketchpad ground, paper-white screens, graphite ink, highlighter yellow; night = dark desk, screens stay paper
+   TYPE Kalam for the facilitator's handwritten notes, Atkinson Hyperlegible on the screens (legible for ND testers)
+   LAYOUT laptop: device left, facilitator panel right; phone: device first, panel folds below */
+:root{color-scheme:light dark;--bg:light-dark(#efeee9,#1c1d1f);--dot:light-dark(#d9d7cf,#2c2e31);--ink:light-dark(#1d1d1b,#ecebe6);--soft:light-dark(#6b6a65,#a9a8a2);--line:light-dark(#c9c7bf,#3b3d40);--card:light-dark(#fbfaf6,#26282b)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:22px 22px;color:var(--ink);font:16px/1.5 "Atkinson Hyperlegible",system-ui,sans-serif;overflow-x:clip}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;padding:16px max(4vw,16px) 0}
+h1{font:700 clamp(24px,3vw,34px)/1.05 Kalam,cursive;margin:0;letter-spacing:-.01em}
+header p{margin:0;color:var(--soft);font-size:14px}
+main{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,380px);gap:24px;padding:16px max(4vw,16px) 40px;align-items:start}
+@media(max-width:900px){main{grid-template-columns:minmax(0,1fr)}}
+#stage{display:flex;justify-content:center;align-items:flex-start;min-height:560px}
+#stage.idle{min-height:0}
+.dev{--s:#fffef9;--si:#1d1d1b;--sg:#77766f;--sl:#cfcdc4;--hl:#ffe45c;color:var(--si);font-size:15px}
+.phone{width:min(360px,100%);height:720px;background:#2a2a2a;border-radius:42px;padding:12px;box-shadow:0 2px 0 #0002}
+.phone .scr{background:var(--s);border-radius:32px;height:100%;overflow:auto;display:flex;flex-direction:column;position:relative}
+.sb{display:flex;justify-content:space-between;padding:10px 22px 4px;font-size:13px;font-weight:700}
+.pad{padding:14px 18px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.lock .scr{background:repeating-linear-gradient(135deg,#e9e7df 0 14px,#e2e0d7 14px 28px)}
+.big{font-size:64px;font-weight:700;text-align:center;line-height:1;margin-top:24px}
+.date{text-align:center;color:var(--sg);margin-bottom:18px}
+.notif{background:#fffef9;border:2px solid var(--si);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.notif .row .b{padding:6px 4px;font-size:13px;line-height:1.2;overflow-wrap:anywhere}
+.ntop{display:flex;justify-content:space-between;font-size:12px;color:var(--sg)}
+.ntop b{color:var(--si)}
+.arrive{animation:drop .5s ease-out}
+@keyframes drop{from{transform:translateY(-30px);opacity:0}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.arrive{animation:none}}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row>*{flex:1 1 0}
+button{font:inherit;color:inherit;cursor:pointer}
+.b{min-height:44px;border:2px solid var(--si);background:#fffef9;color:var(--si);border-radius:12px;padding:8px 12px;font-weight:700}
+.b.p{background:var(--hl)}
+.err{color:#b42318;font-size:13px;margin:0;font-weight:700}
+.b:disabled{opacity:.45;cursor:default}
+.b.q{border-style:dashed;font-weight:400}
+.b:focus-visible,.chip:focus-visible,.opt:focus-visible{outline:3px solid #2f6fe4;outline-offset:2px}
+.bar{display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--sl);padding:6px 18px 10px;font-weight:700}
+.bar span{font-weight:400;color:var(--sg);font-size:13px}
+.box{border:2px solid var(--si);border-radius:12px;padding:12px}
+.ghost{border:2px dashed var(--sl);border-radius:12px;padding:10px;color:var(--sg);font-size:13px}
+.muted{color:var(--sg);font-size:13px}
+.stem{font-weight:700;font-size:17px;line-height:1.35}
+.opt{display:block;width:100%;text-align:left;min-height:44px;border:2px solid var(--si);background:#fffef9;color:var(--si);border-radius:12px;padding:10px 12px}
+.opt.sel{background:var(--hl)}
+.opt.ok{background:#d7f0c8}
+.opt.no{background:#f6d2cc}
+.chip{display:inline-flex;align-items:center;min-height:40px;border:2px solid var(--si);border-radius:999px;padding:4px 14px;background:#fffef9;color:var(--si)}
+.chip.sel{background:var(--hl)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.src{display:inline-block;background:#e6e4dc;border-radius:6px;padding:2px 8px;font-size:12px}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border:2px solid var(--si);border-radius:50%}
+.dots i.d{background:var(--si)}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--si);border-radius:12px;overflow:hidden}
+.seg button{min-height:44px;border:0;border-left:2px solid var(--si);background:#fffef9;color:var(--si)}
+.seg button:first-child{border-left:0}
+.seg button.sel{background:var(--hl);font-weight:700}
+input[type=range]{width:100%;accent-color:#1d1d1b}
+textarea,input[type=text]{font:16px "Atkinson Hyperlegible",sans-serif;width:100%;border:2px solid var(--si);border-radius:10px;padding:8px;background:#fffef9;color:var(--si)}
+.wk{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;min-height:52px;text-align:left;border:2px solid var(--si);border-radius:12px;padding:10px 12px;background:#fff6c2;color:var(--si)}
+.wk.on{background:var(--hl)}
+.tag{font-size:12px;border:1.5px dashed var(--si);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.lnk{border:0;background:none;padding:0;text-decoration:underline;color:var(--si);font-size:13px;min-height:0}
+.home{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 10px;padding:30px 18px}
+.app{display:flex;flex-direction:column;align-items:center;gap:6px;border:0;background:none;color:var(--si);font-size:12px}
+.app i{width:56px;height:56px;border:2px solid var(--si);border-radius:14px;background:#e6e4dc;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:20px}
+.app.li i{background:var(--hl)}
+.hbar{height:5px;width:120px;background:var(--si);border-radius:3px;margin:auto auto 10px;border:0;padding:0}
+.lap{width:min(820px,100%)}
+.lap .lid{background:#2a2a2a;border-radius:18px 18px 4px 4px;padding:12px}
+.lap .scr{background:var(--s);border-radius:6px;min-height:470px;display:flex;flex-direction:column}
+.lap .base{height:18px;background:#3a3a3a;border-radius:0 0 18px 18px;margin:0 -3%}
+.lgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px;padding:16px 20px 20px;flex:1}
+@media(max-width:600px){.lgrid{grid-template-columns:minmax(0,1fr)}.phone{height:680px}}
+.toast{border:2px solid var(--si);background:var(--hl);border-radius:12px;padding:10px 12px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.slide{border:2px solid var(--sl);border-radius:8px;aspect-ratio:4/3;padding:10px;display:flex;flex-direction:column;gap:8px}
+.slide i{display:block;height:8px;background:var(--sl);border-radius:4px}
+.slide i.h{background:var(--hl);height:14px}
+aside{display:flex;flex-direction:column;gap:14px;position:sticky;top:12px}
+@media(max-width:900px){aside{position:static}}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px}
+.card h2{font:700 20px/1.1 Kalam,cursive;margin:0 0 8px}
+.card h3{font-size:15px;margin:10px 0 4px}
+.card p,.card li{font-size:14px;margin:4px 0}
+.card ul{padding-left:18px;margin:4px 0}
+.read{font-family:Kalam,cursive;font-size:17px;line-height:1.35;border-left:3px solid #e6c400;padding-left:10px;margin:6px 0}
+.vrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin:6px 0;font-size:14px}
+.ab{display:flex;border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+.ab button{min-width:44px;min-height:36px;border:0;background:transparent;color:var(--ink);font-weight:700}
+.ab button.sel{background:#ffe45c;color:#1d1d1b}
+.pb{min-height:40px;border:1.5px solid var(--ink);border-radius:10px;background:transparent;color:var(--ink);padding:6px 12px;font-weight:700}
+.pb.y{background:#ffe45c;color:#1d1d1b;border-color:#1d1d1b}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+#log{width:100%;height:120px;font:12px/1.4 ui-monospace,monospace;border:1.5px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);padding:6px}
+#tid{border:1.5px solid var(--ink);background:transparent;color:var(--ink);width:110px}
+.clock{font-variant-numeric:tabular-nums;color:var(--soft);font-size:13px;white-space:nowrap}
+.small{font-size:13px;color:var(--soft)}
+#mode{margin-left:auto}
+body.user #devpanel{display:none}
+body.user #mode{display:none}
+body.user .devonly,body:not(.user) .useronly{display:none}
+body.user .read{font-family:"Atkinson Hyperlegible",system-ui,sans-serif;font-size:15px;line-height:1.45}
+#stage{flex-direction:column;align-items:center;gap:12px}
+.ustrip{width:min(360px,100%);margin:0}
+.ustrip .read{margin:6px 0}
+.lnk{border:0;background:none;padding:6px 0;text-decoration:underline;color:var(--soft);font-size:13px;cursor:pointer}
+body:not(.user) #userpanel{display:none}
+#devpanel,#userpanel{display:flex;flex-direction:column;gap:14px}
+.tk{border-top:1.5px solid var(--line);padding:10px 0}
+.tk:first-of-type{border-top:0}
+.tk h3{display:flex;justify-content:space-between;align-items:center;margin:0}
+.ok{color:#2b7a1f;font-weight:700}
+#ucomment,#uout{width:100%;border:1.5px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);font:15px "Atkinson Hyperlegible",sans-serif;padding:8px}
+</style>
+</head>
+<body>
+<header>
+<h1>LockedIn · lo-fi test</h1>
+<p class="devonly">Clickable paper prototype for the 25 Nov user test, built from storyboards 1, 3 and 4. Nothing here is real: no notifications, no AI, no app blocking.</p><p class="useronly">A rough, clickable prototype of a study app. Nothing here is real.</p>
+<div class="ab" id="mode" role="group" aria-label="Mode"><button data-mode="user">User mode</button><button data-mode="dev">Developer mode</button></div>
+</header>
+<main>
+<section id="stage" aria-live="polite"></section>
+<aside id="panel">
+<div id="userpanel"></div>
+<div id="devpanel">
+<div class="card">
+<h2>Tester</h2>
+<div class="vrow"><label for="tid">Participant ID</label><input id="tid" type="text" value="P01"></div>
+<p class="small" id="order"></p>
+</div>
+<div class="card">
+<h2>Versions</h2>
+<div id="vers"></div>
+<p class="small">Odd IDs see version A first, even IDs see B first. Switching restarts the task.</p>
+</div>
+<div class="card">
+<h2>Tasks</h2>
+<div class="tabs" id="tabs"></div>
+<div id="script"></div>
+</div>
+<div class="card">
+<h2>Click log</h2>
+<p class="small"><span id="lcount">0</span> events · <span class="clock" id="clock">task not started</span></p>
+<textarea id="log" readonly aria-label="Click log as CSV"></textarea>
+<div class="row" style="margin-top:8px"><button class="pb y" id="copy">Copy log</button><button class="pb" id="reset">Reset for next tester</button></div>
+<p class="small">Paste the log into test/lofi-results/ after each tester. Lecture 7 questions are sample content written for this test.</p>
+</div>
+</div>
+</aside>
+</main>
+<script>
+{
+const QS={
+q1:{stem:"A user expects the bin icon to undo a delete. What is that built on?",opts:["Past experience","The manual","A guess"],c:0,hint:"Where do expectations about a system come from?",ex:"Mental models are built from systems people have used before.",slide:12,worked:"Similar question: why do people expect a swipe to go back? Their model comes from other apps they've used."},
+q2:{stem:"Why does a gap between the designer's model and the user's model cause errors?",opts:["The user acts on what they expect, not on how it works","The designer wrote poor documentation","Users ignore error messages"],c:0,hint:"Think about what the user relies on when they act.",ex:"Users act on their own model. Where it differs from the system's, their actions do something unexpected.",slide:14,worked:"Similar question: why do people double-click web links? Their model comes from the desktop, where double-click opens files. Past experience shapes what they try."},
+q3:{stem:"Which gulf is about working out whether your action worked?",opts:["The gulf of execution","The gulf of evaluation","Neither"],c:1,hint:"One gulf is about doing, the other about seeing the result.",ex:"The gulf of evaluation is the effort of reading the system's state after you act (Norman).",slide:16,worked:"Similar question: you press a lift button and nothing lights up. Is that execution or evaluation? Evaluation: you can't tell whether your action worked."},
+q4:{stem:"Someone turns a thermostat to max to heat a room faster. What does that show?",opts:["A faulty mental model","A slow system","A missing affordance"],c:0,hint:"What does the user believe the dial controls?",ex:"They think the dial sets speed, not the target temperature: a classic faulty mental model (Norman).",slide:18,worked:"Similar question: people press a lift button repeatedly to make it come faster. Their model links pressing to speed."},
+q5:{stem:"What helps a user build an accurate mental model?",opts:["Visible system state and feedback","More menu options","Hiding error messages"],c:0,hint:"What lets users check what the system is doing?",ex:"Visibility and feedback let users check their model against the system.",slide:20,worked:"Similar question: why does a progress bar help? It shows the system's state, so the user's model stays accurate."},
+qf:{stem:"Which gulf is about seeing whether your action worked?",opts:["Execution","Evaluation","Neither"],c:1,ex:"Evaluation: reading the system's state after you act.",slide:16},
+qp:{stem:"What helps users build an accurate mental model?",opts:["Feedback","More menus","Hidden errors"],c:0,ex:"Feedback lets users check their model against the system.",slide:20},
+qp2:{stem:"Dragging a file to the bin to delete it relies on…",opts:["A mental model","The manual","Luck"],c:0,ex:"The desktop bin borrows a model people already hold from the real world.",slide:12},
+qp3:{stem:"Pressing a lift button again and again shows a…",opts:["Faulty model","Fast system","Good design"],c:0,ex:"People believe pressing more makes it come faster: a faulty mental model.",slide:18},
+qp4:{stem:"Which gulf is about doing the action?",opts:["Execution","Evaluation","Neither"],c:0,ex:"The gulf of execution is working out how to do what you intend (Norman).",slide:16},
+qp5:{stem:"Turning a thermostat to max to heat faster shows a…",opts:["Wrong model","Broken dial","Fast heater"],c:0,ex:"The dial sets a target, not a speed. The user's model is wrong.",slide:18},
+q6:{stem:"A switch that looks like a button but has to be slid shows a problem with…",opts:["Its affordance","Its feedback","Memory load"],c:0,hint:"What does the switch's shape invite you to do?",ex:"Its look suggests pressing, not sliding: a misleading affordance (Norman).",slide:22,worked:"Similar question: a door with a flat metal plate invites pushing. The plate's shape tells you what to do: that is its affordance."},
+q7:{stem:"Why does an error that only says \"Error 404\" widen the gulf of evaluation?",opts:["It doesn't explain the system's state","It is too long","It appears too often"],c:0,hint:"What does the user need to understand after acting?",ex:"Without a readable state, the user can't tell what happened or what to do next.",slide:16,worked:"Similar question: a printer that only blinks orange. Nobody can read its state, so evaluation is hard."},
+q8:{stem:"Which change most helps a user's mental model of a smart thermostat?",opts:["Show the target temperature and time to reach it","Add more buttons","Hide the dial"],c:0,hint:"What would let the user see how it works?",ex:"Showing the target and progress lets users check their model against the system.",slide:20,worked:"Similar question: a kettle light that goes off when the water boils shows the state, so the model stays right."}
+};
+const PHQ=["qp","qp2","qp3","qp4","qp5"];
+const MORE=["q6","q7","q8"];
+const CONF=[["Guess",0],["Unsure",30],["Fairly sure",70],["Certain",100]];
+const TOP={q1:"where mental models come from",q2:"gaps between models",q3:"the gulf of evaluation",q4:"faulty mental models",q5:"feedback and visibility",q6:"affordances",q7:"readable error states",q8:"showing system state"};
+const curN=()=>st.lqBase+st.lap.i+1,totN=()=>st.lqBase+st.lq.length;
+const VER={n:{label:"Phone nudge",A:"Answer on the lock screen (R-1, N-1)",B:"Tap to open the question (V-11)"},w:{label:"Block start",A:"Asks \"where are you?\" (R-9)",B:"Doesn't ask (O-4)"},f:{label:"First run",A:"One question first (10 Nov)",B:"Connect ChatGPT first (V-3)"}};
+const TASKS=[
+{k:"t1",v:"n",name:"1 After the lecture",start:"lock0",read:"It's Tuesday, 13:05. Your HCI lecture just finished and you're free until 3. Your phone is in your hand. Do whatever feels natural.",watch:["Do they answer straight away, or put it off?","Do they understand \"4 more on your laptop\"?","On the laptop: do they use the slider, the reasoning box, Hint or Show me first?","At question 3 say: \"A friend messages you, you have to go.\" Once they leave, tap \"An hour later: reopen\" in this panel. Do they find their place?"],ask:["How did that notification feel?","Would you rather learn on the phone or the laptop?"]},
+{k:"t2",v:"w",name:"2 Thursday's block",start:"blk0",read:"It's Thursday, 14:00. On Sunday you planned a study block for now. Start it. Then, during the block, try to open Instagram.",watch:["Version A: how do they react to \"where are you?\" Do they move?","Bed, Café or On the move: now or later? Do they take the suggestion (desk, library), stay put, or reschedule?","On the move: do they stop after one question or keep going?","Which focus level do they pick, and why?","At the shield: helpful, or annoying?"],ask:["Would you leave focus on in a real block?","Was anything pushy?"]},
+{k:"t3",v:"f",name:"3 First time",start:null,read:"A friend told you about LockedIn. You've just opened it for the first time. Get to the point where you're actually studying.",watch:["Time to the first question (in the log)","Any hesitation at the ChatGPT step (version B)","Do they read the setup questions or rush them?"],ask:["Was that quick enough?","Would you sign in with ChatGPT for this?"]}
+];
+const st={tid:"P01",ver:{n:"A",w:"A",f:"A"},task:null,scr:"idle",t0:0,log:[],li:0,pick:null,lap:{i:0,ans:{},fb:null,hint:false,shown:false,conf:50,why:""},where:null,focus:null,res:null,timer:null,resetArm:false};
+const $=s=>document.querySelector(s);
+const stage=$("#stage");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ms=()=>st.task?Math.round(performance.now()-st.t0):0;
+function L(ev,d){st.log.push([new Date().toISOString(),st.tid,st.task||"",st.task?st.ver[TASKS.find(t=>t.k===st.task).v]:"",ms(),ev,d||""]);drawLog()}
+function drawLog(){$("#lcount").textContent=st.log.length;$("#log").value="time,participant,task,version,ms_since_task_start,event,detail\n"+st.log.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\n")}
+const sb=()=>`<div class="sb"><span>${st.task==="t2"?"14:00":"13:05"}</span><span>▮▮▮ 72%</span></div>`;
+const phone=(body,lock)=>`<div class="dev phone${lock?" lock":""}"><div class="scr">${sb()}${body}</div></div>`;
+const lap=body=>`<div class="dev lap"><div class="lid"><div class="scr">${body}</div></div><div class="base"></div></div>`;
+const bar=(t,s)=>`<div class="bar">${t}<span>${s||""}</span></div>`;
+const opts=(q,pre)=>q.opts.map((o,i)=>`<button class="opt" data-a="${pre}" data-i="${i}">${esc(o)}</button>`).join("");
+function result(q,i){const ok=i===q.c;return `<div class="box"><b>${ok?"✓ Right.":"Not quite: "+esc(q.opts[q.c])+"."}</b> ${esc(q.ex)}<div style="margin-top:6px"><span class="src">Lecture 7 · slide ${q.slide}</span></div></div>`}
+function lockScreen(notif,date){return phone(`<div class="big">${st.task==="t2"?"14:00":"13:05"}</div><div class="date">${date}</div><div class="pad" style="padding-top:0">${notif}</div>`,true)}
+const DONE={toString(){return `<div class="ghost" style="text-align:center;margin-top:auto">${st.mode==="user"?`Task finished. Your next step is ${narrow()?"just above the phone":"on the right"}.`:"Task finished. Please hand the device back."}</div>`}};
+const END=["saved","lapdone","blkend","tdone","blkmoved","blkmovedone"];
+const S={
+idle:()=>`<div class="card" style="max-width:420px;margin-top:24px"><h2>Pick a task to start</h2><p>${st.mode==="user"?"Press Start on task 1 in the task list to begin. The app screen will appear here.":"Choose a task on the right, read the scenario aloud, then hand the device to the tester."}</p></div>`,
+lock0:()=>lockScreen(`<p class="muted" style="text-align:center">${st.mode==="user"?"Waiting for a notification…":"No notifications"}</p>`,"Tuesday 24 November"),
+lock1:()=>{const q=QS.q1;const head=`<div class="ntop"><b>LockedIn</b><span>now</span></div><div><b>HCI just finished. One question:</b><br>${esc(q.stem)}</div><div class="muted">Why now: lecture ended, you're free till 15:00</div>`;
+ if(st.ver.n==="A"&&st.res===null)return lockScreen(`<div class="notif arrive">${head}<div class="row">${q.opts.map((o,i)=>`<button class="b" data-a="n1" data-i="${i}">${esc(o)}</button>`).join("")}</div></div>`,"Tuesday 24 November");
+ if(st.ver.n==="A")return lockScreen(`<div class="notif">${`<div class="ntop"><b>LockedIn</b><span>now</span></div>`}${result(q,st.res)}<div class="row"><button class="b p" data-go="lapready" data-l="handover">4 more on your laptop</button><button class="b" data-go="saved" data-l="done_for_now">Done for now</button></div></div>`,"Tuesday 24 November");
+ return lockScreen(`<button class="notif arrive" data-go="q1app" data-l="notif_tap" style="text-align:left;cursor:pointer;color:inherit">${head}<div class="muted">Tap to answer</div></button>`,"Tuesday 24 November")},
+q1app:()=>{const q=QS.q1;return phone(bar("LockedIn","HCI · Lecture 7")+`<div class="pad"><div class="muted">Question 1 of 5</div><div class="stem">${esc(q.stem)}</div>${st.res===null?opts(q,"n1"):result(q,st.res)+`<div class="row"><button class="b p" data-go="lapready" data-l="handover">4 more on your laptop</button><button class="b" data-go="saved" data-l="done_for_now">Done for now</button></div>`}</div>`)},
+saved:()=>lockScreen(`<div class="notif"><div class="ntop"><b>LockedIn</b><span>now</span></div><b>Saved.</b>The other 4 questions wait for your next free gap. Nothing is overdue.</div>${DONE}`,"Tuesday 24 November"),
+lapready:()=>lap(bar("LockedIn · Today","Tue 24 Nov")+`<div class="lgrid"><div style="display:flex;flex-direction:column;gap:12px"><div class="toast"><span><b>Your HCI session is ready at question 2.</b><br><span style="font-size:13px">${st.res===QS.q1.c?"Question 1: ✓ answered on your phone":"Question 1: not quite. It comes back on Friday."}</span></span><button class="b" data-go="lapq" data-l="laptop_continue">Continue</button></div><div class="ghost">Today: HCI lecture 11:00-13:00 · free until 15:00 · next block Thu 14:00</div></div><div class="ghost">Library · Progress · Me</div></div>`),
+lapq:()=>{const k=st.lq[st.lap.i],q=QS[k],fb=st.lap.fb,n=curN(),tot=totN();
+ const dots=`<div class="dots">${Array.from({length:tot},(_,j)=>`<i class="${j<n-1?"d":""}"></i>`).join("")}</div>`;
+ const conf=`<div class="muted">How sure are you?</div><div class="chips">${CONF.map(([lab,val])=>`<button class="chip${st.lap.conf===val?" sel":""}" data-a="conf" data-v="${val}">${lab}</button>`).join("")}</div>`;
+ let body;
+ if(fb!==null)body=`${q.opts.map((o,i)=>`<div class="opt ${i===q.c?"ok":i===fb?"no":""}">${esc(o)}</div>`).join("")}${result(q,fb)}<div class="row"><button class="b p" data-a="next">${n<tot?"Next question":"Finish the set"}</button></div>`;
+ else body=`${st.lap.shown?`<div class="box" style="background:#f3f1e8"><b>Show me first.</b> ${esc(q.worked)}<div style="margin-top:6px"><span class="src">Lecture 7 · slide ${q.slide}</span></div></div>`:""}${st.lap.hint?`<div class="box" style="background:#fff6c2"><b>Hint:</b> ${esc(q.hint)}</div>`:""}${q.opts.map((o,i)=>`<button class="opt${st.pick===i?" sel":""}" data-a="pick" data-i="${i}">${esc(o)}</button>`).join("")}${st.lap.err?`<p class="err">Pick an answer first.</p>`:""}<label class="muted" for="why">Your reasoning (optional)</label><textarea id="why" rows="2">${esc(st.lap.why)}</textarea>${conf}<div class="row"><button class="b q" data-a="hint">Hint</button><button class="b q" data-a="showme">Show me first</button></div><div class="row"><button class="b" data-a="leave">Leave for now</button><button class="b p" data-a="submit">Submit</button></div>`;
+ return lap(bar("LockedIn · Lecture 7: mental models",`Goal: ${tot} questions, about ${tot*2} min`)+`<div class="lgrid"><div style="display:flex;flex-direction:column;gap:10px">${dots}<div class="muted">Question ${n} of ${tot}</div><div class="stem">${esc(q.stem)}</div>${body}</div><div><div class="slide" aria-label="Slide ${q.slide}"><span class="muted">Slide ${q.slide}</span><i class="h"></i><i></i><i style="width:70%"></i><i></i><i style="width:50%"></i></div><p class="muted">The slide this question comes from.</p></div></div>`)},
+lapleft:()=>lap(bar("LockedIn","saved")+`<div class="pad" style="align-items:flex-start"><div class="box"><b>Saved at question ${curN()}.</b> Pick up any time. Nothing is marked missed.</div><p class="muted">You can close the laptop now.</p>${st.mode==="user"?`<button class="b q" data-go="lapback" data-l="skip_hour">Skip ahead: an hour later</button>`:""}</div>`),
+lapback:()=>lap(bar("LockedIn · Today","Tue 24 Nov · 14:20")+`<div class="lgrid"><div style="display:flex;flex-direction:column;gap:12px"><div class="toast"><span><b>Picking up where you left off.</b><br><span style="font-size:13px">Question ${curN()} of ${totN()}, about ${(totN()-curN()+1)*2} minutes left</span></span><button class="b" data-go="lapq" data-l="resume">Resume</button></div><div class="ghost">Today · Library · Progress · Me</div></div><div class="ghost">Next block Thu 14:00</div></div>`),
+lapbreak:()=>lap(bar("LockedIn · Lecture 7","Set finished")+`<div class="pad" style="align-items:flex-start"><div class="stem">Set finished. Good place to stop for a bit.</div><p>Breaks only come at the end of a set, never mid-question.</p><div class="row" style="width:100%;max-width:600px"><button class="b" data-go="lapbrk" data-l="break_5">Take a 5-min break</button>${st.lap.more?"":`<button class="b" data-a="more3">3 more questions</button>`}<button class="b p" data-go="lapdone" data-l="finish">Finish for today</button></div></div>`),
+lapbrk:()=>lap(bar("LockedIn","on a break")+`<div class="pad" style="align-items:flex-start"><div class="stem">On a break until ${st.task==="t2"?"14:30":"13:40"}.</div><p>Your apps are back. One buzz when it's over, and nothing is lost if you take longer.</p><button class="b p" data-go="lapbreak" data-l="break_over">Break's over</button></div>`),
+lapdone:()=>{const miss=Object.entries(st.lap.ans).filter(([k,v])=>!v).map(([k])=>k);if(st.task==="t1"&&st.res!==null&&st.res!==QS.q1.c)miss.unshift("q1");return lap(bar("LockedIn · Lecture 7","Done")+`<div class="pad" style="align-items:flex-start"><div class="stem">Done: ${totN()} questions on Lecture 7.</div><p>${miss.length?`Coming back in Friday's review: ${miss.map(k=>TOP[k]).join(", ")}.`:"Nothing to review on Friday."} Your apps are back.</p><div class="ghost">Next: ${st.task==="t2"?"Tuesday":"Thursday"} 14:00 block, already in your week.</div><p class="muted">No streak, no score to keep up.</p>${DONE}</div>`)},
+blk0:()=>lockScreen(`<button class="notif arrive" data-go="blk1" data-l="block_tap" style="text-align:left;cursor:pointer;color:inherit"><div class="ntop"><b>LockedIn</b><span>now</span></div><b>Thu 14:00 · your study block</b><span>Lecture 7. First step: slide 12, one question.</span></button>`,"Thursday 26 November"),
+blk1:()=>{const wq=st.ver.w==="A",w=wq?st.where:null,ask=w==="Bed"||w==="Café";
+ const fx={Off:"No focus mode. Your apps work as normal.",Gentle:"Distracting apps ask \"one question first?\"",Firm:"Distracting apps ask why before they open."}[st.focus]||"You choose. You can end the block any time.";
+ const focus=`<div><b>Focus</b><div class="seg" style="margin-top:6px">${["Off","Gentle","Firm"].map(f=>`<button class="${st.focus===f?"sel":""}" data-a="focus" data-v="${f}">${f}</button>`).join("")}</div><p class="muted" style="margin:6px 0 0">${fx}</p></div>`;
+  let rest;
+ if(w==="On the move")rest=`<p class="muted" style="margin:0">Not a good moment for a full block. One question now, and the rest when you sit down?</p><button class="b p" data-go="qm" data-l="move_one_now">Answer one question now</button><button class="b" data-go="blklater" data-l="move_skip_q">Just move the block</button>`;
+ else if(ask&&!st.intent)rest=`<p style="margin:0"><b>Do you want to study now, or later?</b></p><div class="row"><button class="b p" data-a="intent" data-v="now">Study now</button><button class="b" data-a="intent" data-v="later">Later</button></div>`;
+ else{const tipNow={Bed:"Sitting up, phone out of reach, makes starting easier.","Café":"Headphones help if it's busy."}[w];rest=`${tipNow?`<p class="muted" style="margin:0">${tipNow}</p>`:""}${focus}<div class="row"><button class="b p" data-a="blkgo" data-v="${w==="Bed"?"bed":w==="Café"?"here":"start"}">Take the first step</button><button class="b" data-go="blklater" data-l="not_now">Not now</button></div>`}
+ return phone(bar("Study block","Thu 14:00-14:45")+`<div class="pad"><div class="box"><b>Goal:</b> 5 questions, about 10 min<br><b>First step:</b> open slide 12, answer one question</div>${wq?`<div><b>Where are you?</b><div class="chips" style="margin-top:6px">${["Library","Desk","Bed","Café","On the move"].map(p=>`<button class="chip${w===p?" sel":""}" data-a="where" data-v="${p}">${p}</button>`).join("")}</div><p class="muted" style="margin:6px 0 0">You tell us. We never track your location.</p></div>`:""}${rest}</div>`)},
+blkwalk:()=>phone(bar("Study block","on your way")+`<div class="pad"><div class="stem" style="font-size:22px">Head to the library quiet floor.</div><p>About 4 minutes. Your block starts when you get there, and the time you spend walking isn't lost.</p><button class="b p" data-go="blkon" data-l="arrived">I'm here, start</button></div>`),
+blkon:()=>{const f=st.focus||"Off",pl=st.plan;
+ const fl={Off:"Focus is off. Your apps work as normal.",Gentle:"Distracting apps will ask \"one question first?\"",Firm:"Distracting apps will ask why before they open."}[f];
+ const tip={bed:"Phone across the room, if you can.",here:"Headphones on, phone face down.",desk:"At your desk. Phone face down, out of reach if you can.",walk:"You're at the library. Phone face down."}[pl]||"Put your phone face down.";
+ return phone(bar("Study block",f==="Off"?"Focus off":`Focus: ${f}`)+`<div class="pad"><div class="stem" style="font-size:26px">${pl==="walk"?"41":"38"} min left</div><div class="box"><b>First step:</b> open Lecture 7 at slide 12 on your laptop and answer one question.</div><p style="margin:0">${tip}</p><p class="muted" style="margin:0">${fl}</p>${f==="Off"?"":`<div class="ghost">LockedIn can't really block apps. Focus is a reminder you chose.</div>`}<button class="b p" data-go="blklap" data-l="open_on_laptop">Open on my laptop</button><button class="b" data-go="blkend" data-l="block_end">End block</button></div><button class="hbar" data-go="home" data-l="go_home" aria-label="Go to home screen"></button>`)},
+blklap:()=>lap(bar("LockedIn · Thursday block",`Focus on your phone: ${st.focus||"Off"}`)+`<div class="lgrid"><div style="display:flex;flex-direction:column;gap:12px"><div class="toast"><span><b>Your study block is open.</b><br><span style="font-size:13px">Lecture 7 from slide 12. 5 questions, about 10 min.</span></span><button class="b" data-go="lapq" data-l="block_laptop_start">Start</button></div></div><div class="slide"><span class="muted">Slide 12</span><i class="h"></i><i></i><i style="width:70%"></i></div></div>`),
+appx:()=>phone(`<div class="pad"><b>${esc(st.app)}</b><div class="ghost" style="height:200px">(pretend ${esc(st.app)})</div>${st.app==="WhatsApp"?`<p class="muted">Messages are always allowed during focus.</p>`:""}</div><button class="hbar" data-go="home" aria-label="Home"></button>`),
+qm:()=>{const m=st.mv,q=QS[PHQ[m.i]];return phone(bar("On the move",`${m.done} of 5 done`)+`<div class="pad"><div class="stem">${esc(q.stem)}</div>${m.res===null?q.opts.map((o,i)=>`<button class="opt" data-a="qm" data-i="${i}">${esc(o)}</button>`).join(""):result(q,m.res)+(m.done<5?`<p class="muted" style="margin:0">${m.done} of 5 done. Up to you.</p><div class="row"><button class="b p" data-a="qmore">Another one</button><button class="b" data-go="blklater" data-l="save_rest">Save the rest for later</button></div>`:`<button class="b p" data-go="blkmovedone" data-l="all_on_move">That's all 5</button>`)}</div>`)},
+blklater:()=>{const d=st.mv.done;return phone(bar("Study block","move it")+`<div class="pad"><div class="stem" style="font-size:22px">When suits you better?</div><p class="muted">${d?`${d} of 5 done. `:""}The rest of the block moves there. Nothing is marked missed.</p>${["Today 16:00","This evening 19:00","Tomorrow 10:00"].map(t=>`<button class="b" data-a="blkto" data-v="${t}">${t}</button>`).join("")}<button class="b q" data-a="blkto" data-v="next free gap">Pick for me: next free gap</button></div>`)},
+blkmoved:()=>{const d=st.mv.done;return phone(bar("Study block","moved")+`<div class="pad"><div class="box"><b>Moved to ${esc(st.movedTo||"later")}.</b> ${d?`You've already done ${d} of 5. `:""}LockedIn will nudge you then, and not before.</div>${DONE}</div>`)},
+blkmovedone:()=>phone(bar("Study block","done")+`<div class="pad"><div class="box"><b>All 5 done, on the move.</b> Nothing left for this block. Anything you missed comes back in Friday's review.</div>${DONE}</div>`),
+home:()=>phone(`<div class="home">${["Instagram","TikTok","WhatsApp","Spotify","Maps","Camera","Settings","LockedIn"].map(a=>`<button class="app${a==="LockedIn"?" li":""}" data-a="app" data-v="${a}"><i>${a[0]}</i>${a}</button>`).join("")}</div><button class="hbar" data-go="blkon" aria-label="Back to the block"></button>`),
+shield:()=>{const f=st.focus||"Off";if(f==="Gentle")return phone(`<div class="pad" style="justify-content:center"><div class="stem" style="font-size:22px">You're in a study block.</div><p>One question first? It takes about 30 seconds.</p><button class="b p" data-go="qp" data-l="shield_answer">Answer one question</button><button class="b" data-go="insta" data-l="shield_open_anyway">Open Instagram anyway</button><p class="muted">LockedIn can't really block apps. This is a reminder you chose.</p></div>`);
+ return phone(`<div class="pad" style="justify-content:center"><div class="stem" style="font-size:22px">You're in a study block.</div><label for="why2">What do you need Instagram for?</label><input id="why2" type="text" placeholder="A few words">${st.firmErr?`<p class="err">Type a few words first, or go back to studying.</p>`:""}<button class="b" data-a="firmopen">Open Instagram</button><button class="b p" data-go="blkon" data-l="shield_back">Back to studying</button><p class="muted">LockedIn can't really block apps. This is a reminder you chose.</p></div>`)},
+qp:()=>{const q=QS.qp;return phone(bar("One question","then back to your block")+`<div class="pad"><div class="stem">${esc(q.stem)}</div>${st.res===null?opts(q,"qp"):result(q,st.res)+`<div class="row"><button class="b p" data-go="blkon" data-l="back_to_block">Back to the block</button><button class="b" data-go="insta" data-l="open_after_q">Open Instagram</button></div>`}</div>`)},
+insta:()=>phone(`<div class="pad"><b>Instagram</b><div class="ghost" style="height:200px">(pretend feed)</div><div class="ghost" style="height:200px"></div></div><button class="hbar" data-go="home" aria-label="Home"></button>`),
+blkend:()=>phone(bar("Study block","ended")+`<div class="pad"><div class="box"><b>Block ended.</b> Your apps are back. Nothing is lost: the session waits on your laptop.</div>${DONE}</div>`),
+fa1:()=>{const ok=st.res===QS.qf.c;return phone(bar("LockedIn","")+`<div class="pad"><p class="muted">No account yet</p><div class="stem" style="font-size:22px">Try a sample question: HCI, mental models.</div><div class="box">${esc(QS.qf.stem)}</div>${st.res===null?opts(QS.qf,"qf"):result(QS.qf,st.res)+`<p>${ok?"<b>Took 30 seconds.</b> Want this after every lecture?":"<b>Every question helps, even a wrong one.</b> Want one after each lecture?"}</p><button class="b p" data-go="fset" data-l="want_more">Yes, set it up</button>`}</div>`)},
+fset:()=>{const g=(name,vals,lab)=>`<b>${lab}</b><div class="chips">${vals.map(v=>`<button class="chip${st.setup[name]===v?" sel":""}" data-a="pick1" data-g="${name}" data-v="${v}">${v}</button>`).join("")}</div>`;return phone(bar("Setup","3 quick taps · that's all")+`<div class="pad">${g("timetable",["Canvas","Google","Skip"],"1. Your timetable")}${g("energy",["Morning","Afternoon","Evening"],"2. When do you have energy?")}${g("strict",["Gentle","Firm","Off"],"3. How strict should LockedIn be?")}${st.setErr?`<p class="err">Pick one for 2 and 3. You can change them later.</p>`:""}<p class="muted">Change any time. We never read your location.</p><button class="b p" data-a="setdone">Done</button></div>`)},
+fb1:()=>phone(bar("Welcome to LockedIn","Step 1 of 3")+`<div class="pad"><div class="stem" style="font-size:22px">Connect your AI</div><p>LockedIn uses your AI account to write questions from your slides. Signing in is the only setup.</p><button class="b p" data-go="fb2" data-l="chatgpt">Sign in with ChatGPT (recommended)</button><button class="b" data-go="fb2" data-l="other_ai">Use another AI account</button><p class="muted">Your account stays on your laptop.</p></div>`),
+fb2:()=>phone(`<div class="pad" style="justify-content:center"><b style="font-size:20px">ChatGPT</b><p class="muted">Sign in to continue to LockedIn (pretend)</p><input type="text" aria-label="Email" value="demo.student@lockedin.test" readonly><input type="text" aria-label="Password" value="••••••••" readonly><p class="muted">Demo account, already filled in. Never type your own details here.</p><button class="b p" data-go="fb3" data-l="signed_in">Continue</button></div>`),
+fb3:()=>{const tt=st.setup.timetable,mods=st.setup.mods;return phone(bar("Welcome to LockedIn","Step 2 of 3")+`<div class="pad"><div class="stem" style="font-size:22px">What are you studying?</div><div class="chips">${["HCI","Game Theory","Databases"].map(v=>`<button class="chip${mods.includes(v)?" sel":""}" data-a="mod" data-v="${v}">${v}</button>`).join("")}</div><b>Your timetable</b><div class="chips">${["Canvas","Google","Skip"].map(v=>`<button class="chip${tt===v?" sel":""}" data-a="pick1" data-g="timetable" data-v="${v}">${v}</button>`).join("")}</div><p class="muted">${tt&&tt!=="Skip"?`Read from ${tt}: 9 lectures this week. I never read your location.`:"No timetable yet. You can add it later. I never read your location."}</p><button class="b p" data-go="fb4" data-l="step2_done">Next</button></div>`)},
+fb4:()=>phone(bar("Try it now","Step 3 of 3")+`<div class="pad"><div class="box">${esc(QS.qf.stem)}</div>${st.res===null?opts(QS.qf,"qf"):result(QS.qf,st.res)+`<button class="b p" data-go="fweek" data-l="first_taste_done">See my week</button>`}</div>`),
+tdone:()=>{const b=st.wk.items.filter(x=>x.s).sort((a,c)=>DAYS.indexOf(a.d)-DAYS.indexOf(c.d)||a.h-c.h);return phone(bar("Your week","set")+`<div class="pad"><div class="box"><b>Your week is set.</b> ${b.length?b.length===1?"One study block.":b.length+" study blocks.":"No study blocks this week."}</div>${b.map(x=>`<div class="muted"><b>${x.d}</b> ${esc(x.t)}</div>`).join("")}<p class="muted">LockedIn will nudge you when each one starts. You can change them any time.</p>${DONE}</div>`)},
+fweek:()=>{const w=st.wk;const items=w.items.slice().sort((a,b)=>DAYS.indexOf(a.d)-DAYS.indexOf(b.d)||a.h-b.h);
+ const row=it=>{if(!it.s)return `<div class="ghost"><b>${it.d}</b> ${esc(it.t)}</div>`;
+  const open=w.open===it.id,mv=w.move===it.id;
+  let html=`<button class="wk${open?" on":""}" data-a="wk" data-v="${it.id}" aria-expanded="${open}"><span><b>${it.d}</b> Study ${esc(it.t)}</span>${it.moved?`<span class="tag">moved</span>`:""}</button>`;
+  if(open&&!mv)html+=`<div class="row"><button class="b q" data-a="wkmove" data-v="${it.id}">Move</button><button class="b q" data-a="wkdel" data-v="${it.id}">Remove</button></div>`;
+  if(mv){const taken=w.items.map(x=>x.d+x.h);html+=`<div class="muted">Move to a free gap:</div><div class="chips">${SLOTS.filter(s=>!taken.includes(s.d+s.h)).map(s=>`<button class="chip" data-a="wkto" data-v="${s.d}|${s.h}">${s.d} ${s.h}:00</button>`).join("")}<button class="chip" data-a="wkcancel" style="border-style:dashed">Cancel</button></div>`}
+  return html};
+ const n=w.items.filter(x=>x.s).length;
+ return phone(bar("Your week","Sunday plan")+`<div class="pad">${weekInfo()}<p class="muted">${n?`${n===1?"One suggested block":n+" suggested blocks"} in your free gaps. Tap one to move or remove it.`:"No study blocks this week. That's fine too."}</p>${items.map(row).join("")}${w.undo?`<p class="muted" style="margin:0">Removed ${w.undo.d} block · <button class="b" style="min-height:32px;padding:2px 12px;font-size:13px;margin-left:4px" data-a="wkundo">Undo</button></p>`:""}<button class="b q" data-a="wkadd">Add a block</button><button class="b p" data-a="end" data-v="week_ok">Looks good</button></div>`)}
+};
+const weekInfo=()=>{const u=st.setup;if(!u.energy)return "";return `<p class="muted" style="margin:0">Blocks at ${ENERGY[u.energy]}:00 because you have energy in the ${u.energy.toLowerCase()}. Focus: ${u.strict}. ${u.timetable&&u.timetable!=="Skip"?"Lectures from "+u.timetable+".":"No timetable yet, so these lectures are a sample."}</p>`};
+const ENERGY={Morning:10,Afternoon:14,Evening:19};
+const DAYS=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+const SLOTS=[{d:"Tue",h:16},{d:"Wed",h:14},{d:"Thu",h:16},{d:"Fri",h:11},{d:"Sat",h:10}];
+const wk0=()=>({open:null,move:null,undo:null,items:[{d:"Mon",h:11,t:"HCI lecture 11:00"},{d:"Tue",h:14,t:"14:00 · Library",s:1,id:"b1"},{d:"Wed",h:10,t:"Lab 10:00"},{d:"Thu",h:14,t:"14:00 · Library",s:1,id:"b2"},{d:"Fri",h:9,t:"Game Theory 9:00"}]});
+st.wk=wk0();
+function go(id,l){if(l)L(l);if(["lock1","q1app","qp","fa1","fb4"].includes(id)&&id!==st.scr&&!(id==="lock1"&&st.scr==="lock1"))st.res=null;st.scr=id;L("screen",id);if(END.includes(id)){L("task_end",id);onEnd()}render()}
+function render(){stage.innerHTML=strip()+S[st.scr]();stage.classList.toggle("idle",st.scr==="idle");drawPanel()}
+function startTask(k){const t=TASKS.find(x=>x.k===k);clearTimeout(st.timer);st.task=k;st.t0=performance.now();st.res=null;st.pick=null;st.where=null;st.focus="Off";st.setup={mods:[]};st.setErr=false;st.firmErr=false;st.app=null;st.lq=k==="t2"?["q1","q2","q3","q4","q5"]:["q2","q3","q4","q5"];st.lqBase=5-st.lq.length;st.plan=null;st.movedTo=null;st.intent=null;st.mv={i:0,done:0,res:null};st.wk=wk0();st.lap={i:0,ans:{},fb:null,hint:false,shown:false,conf:null,why:"",err:false,more:false};L("task_start",t.name);
+ const first=k==="t3"?(st.ver.f==="A"?"fa1":"fb1"):t.start;go(first);
+ if(k==="t1")st.timer=setTimeout(()=>{if(st.scr==="lock0"){L("nudge_arrived");go("lock1")}},3000)}
+const UT={t1:"It's Tuesday, 13:05. Your HCI lecture just finished and you're free until 3. Your phone buzzes. Do whatever feels natural. Halfway through, pretend a friend messages you: leave, then come back.",t2:"It's Thursday, 14:00. On Sunday you planned a study block for now. Start it however you like. During the block, try opening Instagram.",t3:"A friend told you about LockedIn and you've just opened it for the first time. Get to the point where you're actually studying, then look at your week."};
+const freshU=()=>({t1:{s:0},t2:{s:0},t3:{s:0}});
+st.u=freshU();st.ucomment="";
+function onEnd(){const u=st.u[st.task];if(!u||st.mode!=="user")return;if(u.s===1||u.s===3){(u.o=u.o||[]).push("completed");u.s++;nextStepView()}}
+const narrow=()=>window.matchMedia("(max-width:900px)").matches;
+const VDESC={n:{A:"you answered straight from the notification",B:"you tapped the notification to open the question"},w:{A:"the block asked where you were",B:"the block didn't ask where you were"},f:{A:"you answered a question first, then did a quick setup",B:"you connected ChatGPT first"}};
+const tname=k=>{const t=TASKS.find(x=>x.k===k);return "Task "+t.name[0]+": "+t.name.slice(2)};
+function activeHTML(k){const t=TASKS.find(x=>x.k===k),u=st.u[k];let h=`<p class="read">${esc(UT[k])}</p>`;
+ if(u.s===1||u.s===3)h+=`${u.s===3?`<p class="small"><b>Second way.</b> Only go as far as the part that's different, then press I've finished.</p>`:`<p class="small">The screen will tell you when the task is finished.</p>`}<div class="row"><button class="pb" data-u="fin">I've finished</button><button class="pb" data-u="stuck">I'm stuck</button><button class="pb" data-u="restart">Restart</button></div>`;
+ if(u.s===2)h+=`<p><b>Thanks!</b> Now try the same thing again. One part will be different.</p><button class="pb y" data-u="second">Try it a second way</button>`;
+ if(u.s===4){const o=u.first==="A"?"B":"A";h+=`<p><b>Which way did you prefer?</b></p><p class="small">First way: ${VDESC[t.v][u.first]}.<br>Second way: ${VDESC[t.v][o]}.</p><div class="row">${[["first","First way"],["second","Second way"],["same","No difference"]].map(([v,l])=>`<button class="pb" data-u="pref" data-v="${v}">${l}</button>`).join("")}</div>`}
+ if(u.s===5){const nx=["t1","t2","t3"].find(x=>st.u[x].s===0);h=nx?`<p class="ok">✓ Done, thank you.</p><button class="pb y" data-u="start" data-k="${nx}">Next: ${tname(nx)}</button>`:`<p class="ok">✓ All three done, thank you.</p><p class="small">Add any thoughts and copy your results ${narrow()?"at the bottom of the page":"on the right"}.</p>`}
+ return h}
+function strip(){if(st.mode!=="user"||!narrow()||!st.task)return "";const u=st.u[st.task];if(!u||u.s===0)return "";return `<div class="card ustrip"><h2 style="font-size:17px;margin:0">${tname(st.task)}</h2>${activeHTML(st.task)}</div>`}
+function drawUser(){const el=$("#userpanel");const ks=["t1","t2","t3"];
+ const tk=k=>{const u=st.u[k],act=st.task===k&&u.s>0&&u.s<5;let h=`<div class="tk${act?" act":""}"><h3><span>${tname(k)}</span>${u.s===5?`<span class="ok">✓ done</span>`:""}</h3>`;
+  if(!act&&u.s===0)h+=`<button class="pb" style="margin-top:6px" data-u="start" data-k="${k}">Start</button>`;
+  if(act||(u.s===5&&st.task===k))h+=activeHTML(k);
+  return h+`</div>`};
+ const all=ks.every(k=>st.u[k].s===5);
+ el.innerHTML=`<div class="card"><h2>Hi, thanks for trying this</h2><p>This is a rough prototype of LockedIn, a study app our HCI group is designing. Nothing here is real: no notifications, no AI, and nothing leaves this page.</p><p>There are no wrong answers. If something confuses or annoys you, that's exactly what we want to find. Say what you think out loud if you can.</p></div><div class="card"><h2>Three short tasks</h2>${ks.map(tk).join("")}<div class="tk"><button class="pb" data-u="over">${st.overArm?"Tap again to clear everything":"Start over"}</button><p class="small" style="margin-top:6px">Clears your answers, comments and taps, for a fresh start or the next person.</p></div></div><div class="card"><h2>Your thoughts</h2>${all?`<p><b>All done, thank you!</b></p>`:""}<label class="small" for="ucomment">Anything confusing, annoying or good?</label><textarea id="ucomment" rows="4">${esc(st.ucomment)}</textarea><div class="row" style="margin-top:8px"><button class="pb y" id="ucopy" data-u="copy">${st.copied?"Copied. Paste it in a message":"Copy my results"}</button></div><p class="small">This copies your comments and taps so you can paste them in a message to Jishnu. Nothing is sent by itself. Your answers are anonymous (${esc(st.tid)}).</p><textarea id="uout" rows="4" readonly hidden aria-label="Your results"></textarea></div><button class="lnk" data-mode="dev">Running a test session? Switch to developer mode</button>`}
+function goTo(sel){const el=document.querySelector(sel);if(!el)return;const rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;el.scrollIntoView({behavior:rm?"auto":"smooth",block:"start"})}
+function nextStepView(){setTimeout(()=>{if(narrow())goTo(".ustrip");else goTo("#userpanel .tk.act")},60)}
+function uAct(d,b){const k=d.k||st.task,u=st.u[k];
+  if(d.u==="start"){const v=TASKS.find(x=>x.k===k).v;u.first=st.ver[v];u.s=1;u.o=[];startTask(k);if(narrow())setTimeout(()=>goTo("#stage"),60)}
+  else if(d.u==="second"){const v=TASKS.find(x=>x.k===k).v;st.ver[v]=st.ver[v]==="A"?"B":"A";u.s=3;L("second_way",v+"="+st.ver[v]);startTask(k);if(narrow())setTimeout(()=>goTo(".ustrip"),60)}
+  else if(d.u==="pref"){u.pref=d.v;u.s=5;L("preference",d.v+" (first="+u.first+")");render();nextStepView()}
+  else if(d.u==="fin"||d.u==="stuck"){(u.o=u.o||[]).push(d.u==="fin"?"finished (self-reported)":"stuck at "+st.scr);L(d.u==="fin"?"user_finished":"user_stuck",st.scr);u.s=u.s===1?2:4;render();nextStepView()}
+  else if(d.u==="restart"){L("restart_task",st.task);startTask(st.task)}
+  else if(d.u==="over"){if(!st.overArm){st.overArm=true;drawPanel();clearTimeout(st.overT);st.overT=setTimeout(()=>{st.overArm=false;drawPanel()},4000);return}st.overArm=false;newUser()}
+  else if(d.u==="copy"){const txt=results(),o=$("#uout");L("results_copied");const ok=()=>{st.copied=true;const cb=$("#ucopy");if(cb)cb.textContent="Copied. Paste it in a message"};const bad=()=>{o.hidden=false;o.value=txt;o.select();const cb=$("#ucopy");if(cb)cb.textContent="Select the text below and copy it"};navigator.clipboard?navigator.clipboard.writeText(txt).then(ok,bad):bad()}}
+function newUser(){st.copied=false;clearTimeout(st.timer);st.log=[];st.u=freshU();st.ucomment="";st.task=null;st.scr="idle";st.tid="F"+(100+Math.floor(Math.random()*900));$("#tid").value=st.tid;const x=Math.random()<.5?"A":"B";st.ver={n:x,w:x,f:x};drawLog();render()}
+function results(){const pr=["t1","t2","t3"].map(k=>{const t=TASKS.find(x=>x.k===k),u=st.u[k];return `${tname(k)}: ${u.pref?u.pref+" (first way was version "+u.first+")":"no preference given"}. Outcome: ${(u.o||[]).join(", then ")||"not tried"}`}).join("\n");return `LockedIn lo-fi results\nParticipant: ${st.tid}\n\nPreferred:\n${pr}\n\nComments:\n${st.ucomment||"(none)"}\n\nTap log:\n${$("#log").value}`}
+function setMode(m){st.mode=m;document.body.classList.toggle("user",m==="user");document.querySelectorAll("#mode button").forEach(b=>b.classList.toggle("sel",b.dataset.mode===m));try{history.replaceState(null,"",m==="dev"?"#dev":location.pathname+location.search)}catch(e){}render()}
+function drawPanel(){drawUser();
+ $("#vers").innerHTML=Object.entries(VER).map(([k,v])=>`<div class="vrow"><span><b>${v.label}</b><br><span class="small">${esc(v[st.ver[k]])}</span></span><span class="ab">${["A","B"].map(x=>`<button class="${st.ver[k]===x?"sel":""}" data-ver="${k}" data-x="${x}" aria-label="${v.label} version ${x}">${x}</button>`).join("")}</span></div>`).join("");
+ $("#tabs").innerHTML=TASKS.map(t=>`<button class="pb${st.task===t.k?" y":""}" data-task="${t.k}">${t.name}</button>`).join("");
+ const t=TASKS.find(x=>x.k===st.task);
+ $("#script").innerHTML=t?`<h3>Read aloud</h3><p class="read">${esc(t.read)}</p><h3>Watch for</h3><ul>${t.watch.map(w=>`<li>${esc(w)}</li>`).join("")}</ul><h3>Ask after</h3><ul>${t.ask.map(w=>`<li>${esc(w)}</li>`).join("")}</ul><p class="small">Now showing version <b>${st.ver[t.v]}</b>: ${esc(VER[t.v][st.ver[t.v]])}</p><div class="row"><button class="pb" data-swap="${t.v}">Run the other version</button></div><h3>After both versions: which would they rather use?</h3><div class="row">${["A","B","Neither"].map(x=>`<button class="pb" data-pref="${x}">${x}</button>`).join("")}</div>${t.k==="t1"?`<div class="row" style="margin-top:8px"><button class="pb" data-force="lock1">Send the nudge now</button><button class="pb" data-force="lapback">An hour later: reopen</button></div>`:""}`:`<p class="small">Pick a task. Each one starts its timer and logs every tap.</p>`;
+ const n=parseInt(st.tid.replace(/\D/g,""))||1;$("#order").textContent=`${st.tid}: show version ${n%2?"A":"B"} first in every task.`}
+stage.addEventListener("click",e=>{const ub=e.target.closest("[data-u]");if(ub){uAct(ub.dataset,ub);return}const b=e.target.closest("[data-go],[data-a]");if(!b)return;
+ if(b.dataset.go){go(b.dataset.go,b.dataset.l);return}
+ const a=b.dataset.a,i=+b.dataset.i,v=b.dataset.v;
+ if(a==="qm"){const m=st.mv,k=PHQ[m.i],q=QS[k];m.res=i;m.done++;L("answer",k+":"+q.opts[i]+(i===q.c?":correct":":wrong")+":on_the_move");render()}
+ else if(a==="qmore"){st.mv.i=Math.min(st.mv.i+1,PHQ.length-1);st.mv.res=null;L("another_one",String(st.mv.done));render()}
+ else if(a==="intent"){st.intent=v;L("intent",v+":"+st.where);if(v==="later")go("blklater");else render()}
+ else if(a==="n1"||a==="qp"||a==="qf"){st.res=i;const qk=a==="n1"?"q1":a==="qm"?"qp":a,q=QS[qk];L("answer",qk+":"+q.opts[i]+(i===q.c?":correct":":wrong"));render()}
+ else if(a==="pick"){st.pick=i;st.lap.err=false;L("pick",q0()+":"+i);render()}
+ else if(a==="conf"){keep();st.lap.conf=+v;L("confidence",v);render()}
+ else if(a==="more3"){st.lap.more=true;st.lq=st.lq.concat(MORE);st.lap.i++;st.lap.fb=null;st.lap.hint=false;st.lap.shown=false;st.pick=null;st.lap.why="";st.lap.conf=null;L("three_more");go("lapq")}
+ else if(a==="pick1"){st.setup[b.dataset.g]=v;st.setErr=false;L("setup",b.dataset.g+"="+v);render()}
+ else if(a==="mod"){const m=st.setup.mods,j=m.indexOf(v);if(j<0)m.push(v);else m.splice(j,1);L("module",v);render()}
+ else if(a==="setdone"){const u=st.setup;if(!u.energy||!u.strict){st.setErr=true;L("setup_incomplete");render();return}const H=ENERGY[u.energy];st.wk.items.filter(x=>x.s).forEach(x=>{x.h=H;x.t=`${H}:00 · Library`});go("fweek","setup_done")}
+ else if(a==="hint"){st.lap.hint=true;L("hint",q0());render()}
+ else if(a==="showme"){st.lap.shown=true;L("show_me_first",q0());render()}
+ else if(a==="submit"){keep();if(st.pick===null){st.lap.err=true;L("submit_empty",q0());render();return}const q=QS[q0()];st.lap.fb=st.pick;st.lap.ans[q0()]=st.pick===q.c;L("answer",q0()+":"+q.opts[st.pick]+(st.pick===q.c?":correct":":wrong")+`:conf${st.lap.conf===null?"none":st.lap.conf}:why${st.lap.why.length}`);render()}
+ else if(a==="next"){st.lap.i++;st.lap.fb=null;st.lap.hint=false;st.lap.shown=false;st.pick=null;st.lap.why="";st.lap.conf=null;st.lap.err=false;if(st.lap.i>=st.lq.length){st.lap.i=st.lq.length-1;go("lapbreak")}else go("lapq")}
+ else if(a==="leave"){keep();go("lapleft","leave")}
+ else if(a==="where"){st.where=v;st.intent=null;L("where",v);render()}
+ else if(a==="blkgo"){st.plan=v;L("block_plan",v);go(v==="walk"?"blkwalk":"blkon","block_start")}
+ else if(a==="blkto"){st.movedTo=v;L("block_moved_to",v);go("blkmoved")}
+ else if(a==="focus"){st.focus=v;L("focus",v);render()}
+ else if(a==="app"){st.firmErr=false;L("app_tap",v);if(v==="Instagram"||v==="TikTok"){if(!st.focus||st.focus==="Off")go("insta");else go("shield")}else if(v==="LockedIn")go("blkon");else{st.app=v;go("appx")}}
+ else if(a==="firmopen"){const r=($("#why2")||{}).value||"";if(!r.trim()){st.firmErr=true;L("firm_no_reason");render();return}st.firmErr=false;L("firm_reason",r);go("insta")}
+ else if(a==="tap"){b.classList.toggle("sel");L("tap",v)}
+ else if(a==="wk"){const w=st.wk;w.open=w.open===v?null:v;w.move=null;L("week_open",v);render()}
+ else if(a==="wkmove"){st.wk.move=v;L("week_move_start",v);render()}
+ else if(a==="wkcancel"){st.wk.move=null;L("week_move_cancel");render()}
+ else if(a==="wkto"){const w=st.wk,it=w.items.find(x=>x.id===w.move),[d,h]=v.split("|");const from=it.d+" "+it.h;it.d=d;it.h=+h;it.t=`${h}:00 · Library`;it.moved=true;L("week_moved",`${it.id}:${from}->${d} ${h}`);w.move=null;w.open=null;w.undo=null;render()}
+ else if(a==="wkdel"){const w=st.wk,i=w.items.findIndex(x=>x.id===v);w.undo=w.items[i];w.items.splice(i,1);w.open=null;L("week_removed",v+":"+w.undo.d);render()}
+ else if(a==="wkundo"){const w=st.wk;w.items.push(w.undo);L("week_undo",w.undo.id);w.undo=null;render()}
+ else if(a==="wkadd"){const w=st.wk,taken=w.items.map(x=>x.d+x.h),s=SLOTS.find(x=>!taken.includes(x.d+x.h));if(!s){L("week_add_full");return}const id="b"+(w.items.length+10);w.items.push({d:s.d,h:s.h,t:`${s.h}:00 · Library`,s:1,id,moved:true});w.open=id;L("week_added",`${id}:${s.d} ${s.h}`);render()}
+ else if(a==="end"){st.wk.items.forEach(x=>delete x.moved);st.wk.open=null;st.wk.move=null;L("week_final",st.wk.items.filter(x=>x.s).map(x=>x.d+" "+x.h).join("; "));go("tdone","week_ok")}});
+stage.addEventListener("input",e=>{if(e.target.id==="why")st.lap.why=e.target.value});
+const q0=()=>st.lq[st.lap.i];
+function keep(){const w=$("#why");if(w)st.lap.why=w.value}
+$("#panel").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+ if(d.mode){setMode(d.mode);return}
+ if(d.u){uAct(d,b);return}
+ if(d.task)startTask(d.task);
+ else if(d.ver){st.ver[d.ver]=d.x;L("version_set",d.ver+"="+d.x);const t=TASKS.find(x=>x.k===st.task);if(t&&t.v===d.ver)startTask(t.k);else drawPanel()}
+ else if(d.swap){st.ver[d.swap]=st.ver[d.swap]==="A"?"B":"A";L("version_swap",d.swap+"="+st.ver[d.swap]);startTask(st.task)}
+ else if(d.pref){L("preference",d.pref);b.textContent=d.pref+" ✓"}
+ else if(d.force){L("facilitator_jump",d.force);go(d.force)}
+ else if(b.id==="copy"){navigator.clipboard?.writeText($("#log").value).then(()=>{b.textContent="Copied"},()=>{$("#log").select();b.textContent="Select all, then copy"})}
+ else if(b.id==="reset"){if(!st.resetArm){st.resetArm=true;b.textContent="Tap again to clear the log";setTimeout(()=>{st.resetArm=false;b.textContent="Reset for next tester"},4000);return}
+  st.resetArm=false;st.log=[];st.u=freshU();st.ucomment="";st.task=null;st.scr="idle";const n=(parseInt(st.tid.replace(/\D/g,""))||0)+1;st.tid="P"+String(n).padStart(2,"0");$("#tid").value=st.tid;const x=n%2?"A":"B";st.ver={n:x,w:x,f:x};b.textContent="Reset for next tester";drawLog();render()}});
+$("#panel").addEventListener("input",e=>{if(e.target.id==="ucomment"){st.ucomment=e.target.value;if(st.copied){st.copied=false;const cb=$("#ucopy");if(cb)cb.textContent="Copy my results"}}});
+$("#mode").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setMode(b.dataset.mode)});
+$("#tid").addEventListener("change",e=>{st.tid=e.target.value.trim()||"P01";const n=parseInt(st.tid.replace(/\D/g,""))||1;const x=n%2?"A":"B";st.ver={n:x,w:x,f:x};drawPanel()});
+{let rt;window.addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(render,150)})}
+setInterval(()=>{$("#clock").textContent=st.task?`task timer ${Math.floor(ms()/60000)}:${String(Math.floor(ms()/1000)%60).padStart(2,"0")}`:"task not started"},1000);
+{const dev=location.hash==="#dev";if(!dev){st.tid="F"+(100+Math.floor(Math.random()*900));$("#tid").value=st.tid;const x=Math.random()<.5?"A":"B";st.ver={n:x,w:x,f:x}}
+drawLog();setMode(dev?"dev":"user")}
+}
+</script>
+</body>
+</html>
