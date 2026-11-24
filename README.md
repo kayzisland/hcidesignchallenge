@@ -3,7 +3,7 @@ HCI Group Design Challenge ("Sensing for Benefit"). The product is **LockedIN**:
 
 ## See the design
 
-**The lo-fi going into user testing:** `prototype/lofi/LockedIn lo-fi test (8).html`. Open it in a browser. Every decision in it, and everything the test still has to answer, is in [`prototype/lofi/CHANGELOG.md`](prototype/lofi/CHANGELOG.md).
+**The lo-fi going into user testing:** [`prototype/lofi/lockedin-lofi-test.html`](prototype/lofi/lockedin-lofi-test.html). Open it in a browser. Every decision in it, and everything the test still has to answer, is in [`prototype/lofi/CHANGELOG.md`](prototype/lofi/CHANGELOG.md).
 
 **The wider picture:** [`prototype/sketch/lockedin-sketch.html`](prototype/sketch/lockedin-sketch.html). One file, five tabs, no build step: screens, personas, scenarios, a Week 1-5 syllabus map and the design rationale, each citing its research.
 
