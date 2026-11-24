@@ -27,7 +27,7 @@ The lo-fi grew out of KAYZ's `prototype/sketch/lockedin-sketch.html`: a nine-scr
 | A/B switches added at three choices | Answers the sketch's own open question: "which screens become alternatives in Jishnu's lo-fi?" |
 | Focus levels Off / Quiet / Locked became Off / Gentle / Firm, shown as a shield when an app is opened | Matches Jiven's block API (off / gentle / firm) |
 | The sketch's Personas, Scenarios, Syllabus map and Design rationale tabs were not carried over | The lo-fi is a test instrument; those tabs stay in the sketch and `define/personas.md` |
-| The Settings screen was not carried over | Out of scope for Wednesday's tasks so far; still F5 in the timeline |
+| The Settings screen was not carried over at first | Added in version 12, with the toggles from UI research Q5 |
 
 Both files stay in the repo: KAYZ's sketch in `prototype/sketch/`, the test build in `prototype/lofi/`.
 
@@ -52,6 +52,9 @@ Each row is one change. "Trigger" says who found the problem; "Type" says what b
 
 | Ver. | Change | Trigger | Evidence | Type |
 | --- | --- | --- | --- | --- |
+| 12 | On phones, text boxes (reasoning, comments, the Firm reason) closed the keyboard as soon as it opened. The keyboard shrinks the window, and the page redrew on every resize, replacing the box being typed in. It now redraws only when the width changes, and never while someone is typing | Two friends testing in User mode (screen recording, 23 Nov) | — | Bug fix |
+| 12 | Settings screen, opened from the week and "Your week is set" screens: nudges per day (0 / 1 / 2, default 1), default focus (Off / Gentle / Firm, default Off), add blocks to my calendar, leaderboard with friends (off by default), what LockedIn uses (location never), and Advanced folded away. Each setting changes what the student sees: nudges and calendar change the week summary, and default focus preselects the block's focus. Every change is logged | Jishnu (deferred from version 1) | KAYZ's sketch (version 0); UI research Q5; 16 Nov decision (toggles in Settings); R-1, Q-9, Q-10, X-8, R-6; anti-persona Dev (AE2-1) | Research-backed |
+| 12 | After task 1, the "phone or laptop?" question has three answer buttons: phone, laptop, or depends where I am. The facilitator records it in Developer mode; testers answer it on screen in User mode. Logged as `learn_where` and included in copied results | KAYZ, QOC v2.1 review | QOC rule for changing our minds (R-8 inference; LIT-10, LIT-11) | Test tooling |
 | 11 | On phones, the active task card sits directly above the app screen, so instructions and app are visible together | AI walkthrough of User mode | Nielsen: recognition rather than recall; AFF-C | Heuristic |
 | 11 | Start scrolls to the app; a finished task scrolls to the next step (it was 140 px below a 390 px phone screen) | AI walkthrough of User mode | Nielsen: visibility of system status; AE2-P1 | Heuristic |
 | 11 | Finish message says where the next step is: "just above the phone" or "on the right" | AI walkthrough of User mode | Visibility of system status | Heuristic |
@@ -95,14 +98,14 @@ Each row is one change. "Trigger" says who found the problem; "Type" says what b
 
 ## What backs the changes
 
-Nearly half of the 40 changes rest on findings from our own research; only 3 are pure designer judgement, and those are the ones Wednesday must test.
+Nearly half of the 43 changes rest on findings from our own research; only 3 are pure designer judgement, and those are the ones Wednesday must test.
 
 | Type | Changes | What it means for the deck |
 | --- | --- | --- |
-| Research-backed | 18 | The prototype now matches a finding it previously contradicted. Cite the finding ID; the walkthrough is only what caught it |
+| Research-backed | 19 | The prototype now matches a finding it previously contradicted. Cite the finding ID; the walkthrough is only what caught it |
 | Heuristic | 11 | Standard usability fixes (Nielsen, Shneiderman). Belongs in Lekan's heuristic evaluation (T22), not in "data changed the design" |
-| Test tooling | 5 | Changes to how the test runs or what it records, not to LockedIn's design |
-| Bug fix | 3 | The prototype didn't do what it was meant to |
+| Test tooling | 6 | Changes to how the test runs or what it records, not to LockedIn's design |
+| Bug fix | 4 | The prototype didn't do what it was meant to |
 | Designer judgement | 3 | No user evidence yet: removing the place buttons after Study now, "Another one" on the move, and the friend-facing header. Log them as judgement and test them |
 
 Four changes fixed places where the prototype contradicted our own rules: the setup answers changing nothing (AFF-G), a score on the done screen (R-6), no handover in the block (R-8), and breaks that ended the session (INT-03-c).
@@ -138,6 +141,7 @@ The three A/B choices are still the main questions; the walkthrough changes add 
 - In bed or a café, do testers choose now or later? Do they read the tip?
 - On the move, do they stop after one question or keep going?
 - Do they accept the suggested week, or move and remove blocks?
+- Asked how they'd get fewer notifications, do they find Settings?
 - Gentle or firm: which feels helpful, which annoying?
 - Is "4 more on your laptop" understood without help?
 
