@@ -3,7 +3,9 @@ HCI Group Design Challenge ("Sensing for Benefit"). The product is **LockedIN**:
 
 ## See the design
 
-Open [`prototype/sketch/lockedin-sketch.html`](prototype/sketch/lockedin-sketch.html) in a browser. One file, five tabs, no build step. It is the quickest way to see what LockedIN is, and every screen in it cites the research behind it.
+**The lo-fi going into user testing:** `prototype/lofi/LockedIn lo-fi test (8).html`. Open it in a browser. Every decision in it, and everything the test still has to answer, is in [`prototype/lofi/CHANGELOG.md`](prototype/lofi/CHANGELOG.md).
+
+**The wider picture:** [`prototype/sketch/lockedin-sketch.html`](prototype/sketch/lockedin-sketch.html). One file, five tabs, no build step: screens, personas, scenarios, a Week 1-5 syllabus map and the design rationale, each citing its research.
 
 ## Quick start: run the code
 
@@ -35,7 +37,8 @@ hcidesignchallenge/
 ├── define/                      ← turning research into design
 │   ├── personas.md              ← personas, scenarios, storyboard outline
 │   ├── behaviour-change.md      ← behaviour-change and notification design
-│   └── figures/personas/        ← persona photos (Unsplash Licence)
+│   ├── figures/personas/        ← persona photos (Unsplash Licence)
+│   └── storyboards/             ← T14 storyboards, S-1 to S-4 and two anti-scenarios
 │
 ├── research/                    ← evidence
 │   ├── questionnaire-v1.md / -v2.md   ← questionnaire drafts
@@ -45,6 +48,7 @@ hcidesignchallenge/
 │   ├── autoethnography-01/02-kobi.md  ← self-study logs
 │   ├── literature-phones.md           ← literature on phones and distraction
 │   ├── literature-review.md           ← T09 literature review, LIT-13 to LIT-23
+│   ├── literature-learning-loop.md    ← the learning loop, LIT-24 to LIT-31
 │   ├── ui-research-lofi.md            ← UI research feeding the lo-fi (T17)
 │   ├── existing-solutions.md          ← review of existing apps
 │   ├── affinity.md                    ← affinity diagram notes (v2)
@@ -52,17 +56,21 @@ hcidesignchallenge/
 │   └── figures/                       ← charts, affinity v1 to v2, make_affinity.py
 │
 ├── meetings/                    ← sync notes and decision briefs
+│   ├── 2026-11-10-sync.md       ← the LearnHarness decision, option D
 │   ├── 2026-11-16-sync.md       ← the phone and laptop split, and what was dropped
-│   └── 2026-11-23-sync.md       ← the core four features, and the 27 Nov focus group
+│   ├── 2026-11-23-sync.md       ← the core four features, and the 27 Nov focus group
+│   └── lock-decision-brief.md   ← does the phone lock stay in the lo-fi? Open
 │
 ├── ideate/
-│   └── qoc-device-split.md      ← T16 QOC: which device does which job (draft marks)
+│   ├── qoc-device-split.md      ← T16 QOC: which device does which job (draft marks)
+│   └── sketches/                ← T10: 70 sketches, the selection and the scores
 │
 ├── deck/
 │   └── feature-chains.md        ← T38: a research-to-testing chain per core feature
 │
 ├── prototype/
-│   └── sketch/                  ← the LockedIN flow sketch, one HTML file
+│   ├── sketch/                  ← the LockedIN flow sketch, one HTML file
+│   └── lofi/                    ← the lo-fi under test, with its change log
 │
 └── onboarding/                  ← the onboarding spike: the only runnable code
     ├── package.json             ← npm dependencies
@@ -82,6 +90,7 @@ hcidesignchallenge/
 
 | I want to… | Go to |
 |---|---|
+| See the lo-fi being tested | `prototype/lofi/` |
 | See what LockedIN is | `prototype/sketch/lockedin-sketch.html` |
 | Run or change the code | `onboarding/` |
 | See why a design choice was made | `design-log.md` |
