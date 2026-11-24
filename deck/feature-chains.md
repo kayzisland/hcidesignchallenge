@@ -70,6 +70,14 @@ Every finding ID is indexed in `../research/findings-register.md` or `../researc
 
 ---
 
+## "Why phone, why laptop, why both?" (the viva answer)
+Russell will ask this of every chain above. Our answer, with its sources:
+
+1. **Why the phone starts.** The phone reaches the student anywhere, including the free gap where an unprompted question is welcome (Q-8; QOC B1, C1). It is also the distraction, so it is the only device where a block helps (AFF-M, LIT-6; QOC B3).
+2. **Why the laptop teaches.** Place commits people (AFF-J), and the engine already teaches well there (AE2-10).
+3. **Why both, and how we know.** This was a working choice on 16 Nov, with its weak point written down at the time (R-8: nobody was asked where they want to learn). The QOC compared it against all-on-phone, all-on-laptop, two apps and student-chooses (O5), using criteria from the module. Before testing, we wrote down the result that would overturn it. T18 tests it.
+4. **Pairing.** The hi-fi pairs phone and laptop by QR code. Our rule is that pairing happens once, after the first question is answered, so setup never comes before value (UI research Q3; AE2-1, AE2-P14). **To confirm with Jiven:** does the hi-fi pair after the first question, or before it?
+
 ## What Friday's focus group has to answer (for Lekan, T31)
 Every chain is missing the same two links: testing results and a screenshot. Tomorrow's lo-fi test fills link 6. Friday has to fill link 8 for each feature:
 
