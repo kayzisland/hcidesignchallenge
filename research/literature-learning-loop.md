@@ -71,7 +71,7 @@ Three recent reviews show how the loop works with that process.
 
 **The claim we can make:** every step of the loop rests on a mechanism with strong, recent evidence, and the loop withholds answers, which is the design feature that separated a helpful AI tutor from a harmful one (LIT-25).
 
-**The claim we cannot make yet:** that LockedIn itself teaches better than any of these tools. No study has tested our product. The hi-fi user test (26 Nov) is where we gather our own evidence, and the deck should present it as an early signal, not proof.
+**The claim we cannot make yet:** that LockedIn itself teaches better than any of these tools. No study has tested our product. The hi-fi user test (27 Nov) is where we gather our own evidence, and the deck should present it as an early signal, not proof.
 
 ## What it means for the design
 1. **Keep every check, with feedback.** Corrective feedback is one of the moderators Yang et al. found (LIT-24). A check with no explanation wastes half its value.

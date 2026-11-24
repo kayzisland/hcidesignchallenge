@@ -52,10 +52,14 @@ hcidesignchallenge/
 │   └── figures/                       ← charts, affinity v1 to v2, make_affinity.py
 │
 ├── meetings/                    ← sync notes and decision briefs
-│   └── 2026-11-16-sync.md       ← the phone and laptop split, and what was dropped
+│   ├── 2026-11-16-sync.md       ← the phone and laptop split, and what was dropped
+│   └── 2026-11-23-sync.md       ← the core four features, and the 27 Nov focus group
 │
 ├── ideate/
 │   └── qoc-device-split.md      ← T16 QOC: which device does which job (draft marks)
+│
+├── deck/
+│   └── feature-chains.md        ← T38: a research-to-testing chain per core feature
 │
 ├── prototype/
 │   └── sketch/                  ← the LockedIN flow sketch, one HTML file
