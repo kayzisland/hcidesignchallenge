@@ -52,6 +52,11 @@ Each row is one change. "Trigger" says who found the problem; "Type" says what b
 
 | Ver. | Change | Trigger | Evidence | Type |
 | --- | --- | --- | --- | --- |
+| 12 | The task 1 script said "slider"; it now says "confidence buttons", which is what the screen shows since version 8 | Jishnu, checking the test plan | — | Bug fix |
+| 12 | User mode task wording now matches the facilitator scripts word for word, so online and in-person testers get the same instructions. Task 1 says exactly when to leave (at question 3 on the laptop); task 3 ends "then check your week" in both modes | Online testing review | Same instructions for every tester | Test tooling |
+| 12 | Progress is saved in the browser as the tester goes. A reloaded page or a dropped call picks up where they were (logged as restored_after_reload); Start over and Reset for next tester clear it | Online testing review | A reload used to lose the whole session | Test tooling |
+| 12 | The mode switch and the "switch to developer mode" link only appear when the page is opened with #dev, so testers on their own screen can't see the facilitator panel | Online testing review | Testers seeing the scripts and A/B labels would bias them | Test tooling |
+| 12 | User mode asks for a participant ID ("if we gave you one"). Results are labelled with it, and a P-number sets the version order the same way as Developer mode (odd IDs see A first). Left blank, it stays an anonymous random ID with random order | Lekan, for running sessions online | Matching logs to note sheets; counterbalanced version order | Test tooling |
 | 12 | On phones, text boxes (reasoning, comments, the Firm reason) closed the keyboard as soon as it opened. The keyboard shrinks the window, and the page redrew on every resize, replacing the box being typed in. It now redraws only when the width changes, and never while someone is typing | Two friends testing in User mode (screen recording, 23 Nov) | — | Bug fix |
 | 12 | Settings screen, opened from the week and "Your week is set" screens: nudges per day (0 / 1 / 2, default 1), default focus (Off / Gentle / Firm, default Off), add blocks to my calendar, leaderboard with friends (off by default), what LockedIn uses (location never), and Advanced folded away. Each setting changes what the student sees: nudges and calendar change the week summary, and default focus preselects the block's focus. Every change is logged | Jishnu (deferred from version 1) | KAYZ's sketch (version 0); UI research Q5; 16 Nov decision (toggles in Settings); R-1, Q-9, Q-10, X-8, R-6; anti-persona Dev (AE2-1) | Research-backed |
 | 12 | After task 1, the "phone or laptop?" question has three answer buttons: phone, laptop, or depends where I am. The facilitator records it in Developer mode; testers answer it on screen in User mode. Logged as `learn_where` and included in copied results | KAYZ, QOC v2.1 review | QOC rule for changing our minds (R-8 inference; LIT-10, LIT-11) | Test tooling |
@@ -98,14 +103,14 @@ Each row is one change. "Trigger" says who found the problem; "Type" says what b
 
 ## What backs the changes
 
-Nearly half of the 43 changes rest on findings from our own research; only 3 are pure designer judgement, and those are the ones Wednesday must test.
+Nearly half of the 48 changes rest on findings from our own research; only 3 are pure designer judgement, and those are the ones Wednesday must test.
 
 | Type | Changes | What it means for the deck |
 | --- | --- | --- |
 | Research-backed | 19 | The prototype now matches a finding it previously contradicted. Cite the finding ID; the walkthrough is only what caught it |
 | Heuristic | 11 | Standard usability fixes (Nielsen, Shneiderman). Belongs in Lekan's heuristic evaluation (T22), not in "data changed the design" |
-| Test tooling | 6 | Changes to how the test runs or what it records, not to LockedIn's design |
-| Bug fix | 4 | The prototype didn't do what it was meant to |
+| Test tooling | 10 | Changes to how the test runs or what it records, not to LockedIn's design |
+| Bug fix | 5 | The prototype didn't do what it was meant to |
 | Designer judgement | 3 | No user evidence yet: removing the place buttons after Study now, "Another one" on the move, and the friend-facing header. Log them as judgement and test them |
 
 Four changes fixed places where the prototype contradicted our own rules: the setup answers changing nothing (AFF-G), a score on the done screen (R-6), no handover in the block (R-8), and breaks that ended the session (INT-03-c).
@@ -161,3 +166,4 @@ The lo-fi page and this log were drafted with an AI assistant (Claude) from the 
 - **Walkthroughs:** versions 2 to 7 came from Jishnu clicking through the page. Versions 8 and 11 came from AI-run walkthroughs in a headless browser, which screenshotted every screen and checked each fix. These are team walkthroughs, not user data.
 - **Declaration:** check the module's rules on AI use and declare it in the deck. Suggested wording: "The lo-fi was built with AI assistance from our sketches, storyboards and research; design decisions were made and reviewed by the team."
 - **Files:** [LockedIn lo-fi test](https://claude.ai/artifact/5MwDqkADVRvqmLnsi8pHVH) (published page). In `kayzisland/hcidesignchallenge`, the HTML lives at `prototype/lofi/lockedin-lofi-test.html` and this log beside it as `prototype/lofi/CHANGELOG.md`.
+
