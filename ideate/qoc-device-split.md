@@ -1,8 +1,8 @@
 # QOC: which device does which job? (T16)
 
-Status: draft v2, 24 Nov 2026. v1 (19 Nov, KAYZ) was reviewed by Jishnu on 23 Nov; v2 revises five marks, adds O5, says how the marking rule was adapted, and adds a rule for changing our minds. Owners: Jishnu, KAYZ (16 Nov action). Rubric criteria 2, 4 and 5.
+Status: v2.1, 24 Nov 2026. v1 (19 Nov, KAYZ) was reviewed by Jishnu on 23 Nov; v2 revises five marks, adds O5, says how the marking rule was adapted, and adds a rule for changing our minds. v2.1 records the rule as agreed by Jishnu and KAYZ, with KAYZ's tweak: the split must win a laptop majority, and "depends" is a third answer. Owners: Jishnu, KAYZ (16 Nov action). Rubric criteria 2, 4 and 5.
 
-**The marks are proposals until Jishnu and KAYZ agree them.** Every finding ID is indexed in `../research/findings-register.md` or `../research/affinity.md`.
+**The v2 marks were agreed by Jishnu and KAYZ on 24 Nov. Rahul's independent marking is pending.** Every finding ID is indexed in `../research/findings-register.md` or `../research/affinity.md`.
 
 ## Where this sits in the process
 On 16 Nov the group chose one app with two roles. The phone gets students started, and the laptop does the learning (`../meetings/2026-11-16-sync.md`, decisions 2 and 3). The same sync asked for the method behind that choice, because the rubric penalises premature commitment (criterion 5).
@@ -82,11 +82,16 @@ Criteria IDs are from the 26 Oct bank.
 - **The split stays the working choice until T18,** because it is what the lo-fi and hi-fi are built around. It is not yet shown to be better than O1 or O5.
 
 ## What would overturn the split
-**Rule for changing our minds (proposed 24 Nov, before T18; to be agreed by Jishnu and KAYZ before testing starts).** After task 1, each tester is asked where they'd rather keep learning after the first phone question: the phone or the laptop. If more than half say the phone (3 of 5, or 3 of 4 if a tester drops out), the split fails and we switch to O5 at T19, so students choose where to carry on. Whether testers tapped "4 more on your laptop" is recorded too, but it is not part of the rule, because "Done for now" can mean finished rather than preferring the phone.
+**Rule for changing our minds (agreed by Jishnu and KAYZ on 24 Nov, before T18).** After task 1, each tester is asked: "After the first question on your phone, where would you rather keep learning?" There are three answers: **on my phone**, **on my laptop**, or **depends where I am**.
+
+- **The split stays only if at least 3 of 5 testers actively pick the laptop** (3 of 4 if a tester drops out).
+- **Anything else sends us to O5 at T19:** a majority for the phone, a majority for "depends", or a split answer with no laptop majority. O5 lets students choose where to carry on.
+- **Why the burden sits on the split.** It is our assumption (R-8 calls it an inference), so it has to earn its place. A split answer is exactly the case O5 is for: LIT-10 and LIT-11 say the student should choose.
+- **What is not part of the rule.** Whether testers tapped "4 more on your laptop" is recorded as supporting evidence only, because "Done for now" can mean finished rather than preferring the phone.
 
 - **T18 shows students answer the phone question and don't move to the laptop.** Then the handover fails, and the learning has to move closer to the phone: O5, or a short phone session (O1).
 - **T18 shows pairing costs a start.** Then pairing moves later, or the laptop opens without pairing through a link.
-- **How T18 measures it.** Task 1 of the lo-fi is the handover as a set task: answer the question on the lock screen, then "4 more on your laptop". Its after-task questions include "Would you rather learn on the phone or the laptop?". For every tester, record their answer to that question (the rule above) and whether they carried on to the laptop (supporting evidence). That closes the gap T20 R-8 names.
+- **How T18 measures it.** Task 1 of the lo-fi is the handover as a set task: answer the question on the lock screen, then "4 more on your laptop". After task 1, the lo-fi asks the rule's question with three answer buttons (phone, laptop, depends where I am): in developer mode the facilitator records the answer in the panel, and in user mode the tester answers on screen. Each answer is logged as `learn_where`. For every tester, record that answer (the rule above) and whether they carried on to the laptop (supporting evidence). That closes the gap T20 R-8 names.
 - **What the hi-fi must not do yet.** Until T18's results are in, the hi-fi should not hard-wire "learning only on the laptop". The engine is the same in every option (X-9), so engine work is safe. If the rule above is triggered, the change lands at T24.
 
 ## Limitations
