@@ -94,6 +94,13 @@ Criteria IDs are from the 26 Oct bank.
 - **How T18 measures it.** Task 1 of the lo-fi is the handover as a set task: answer the question on the lock screen, then "4 more on your laptop". After task 1, the lo-fi asks the rule's question with three answer buttons (phone, laptop, depends where I am): in developer mode the facilitator records the answer in the panel, and in user mode the tester answers on screen. Each answer is logged as `learn_where`. For every tester, record that answer (the rule above) and whether they carried on to the laptop (supporting evidence). That closes the gap T20 R-8 names.
 - **What the hi-fi must not do yet.** Until T18's results are in, the hi-fi should not hard-wire "learning only on the laptop". The engine is the same in every option (X-9), so engine work is safe. If the rule above is triggered, the change lands at T24.
 
+### Hi-fi v2.0 status (added 25 Nov)
+- **The hi-fi went ahead of the rule.** Hi-fi v2.0 (`lockedin-companion` DECISIONS V-46) lets Practise continue on the phone ("Keep going here" beside "4 more on your laptop"). Teach (Learn) stays on the laptop. That is option O5, chosen before T18, and V-46 says so itself.
+- **T18 still decides.** The rule above is unchanged and is scored from the T18 `learn_where` answers once they are written up.
+- **If the split holds** (at least 3 of 5 pick the laptop): the group decides at T24 whether "Keep going here" stays as a student choice or goes. Either way, the deck reports V-46 as a pre-test departure.
+- **If the rule sends us to O5:** V-46 already matches it, and T19 checks the lo-fi against it.
+- **Honest criticism for the deck and viva.** We set a rule before testing and the build moved before the result. It gets logged in `../design-log.md` once the group agrees it.
+
 ## Limitations
 - Most marks rest on the evidence we already have, not on testing, so the decisive marks are **?** for every option.
 - The criteria bank was built to choose a concept on 26 Oct. It has no criterion for battery, offline use or cost, because the supplementary list there was not adopted.

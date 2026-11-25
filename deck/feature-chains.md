@@ -27,6 +27,7 @@ Every finding ID is indexed in `../research/findings-register.md` or `../researc
 | Ideate | Sunday checklist (T20 N-5). Sketch screen 3, "Your week". Storyboard 3, Thursday's block | `behaviour-change.md`, `prototype/sketch/`, `define/storyboards/` |
 | Lo-fi | Task 3 ends on the week. v2: blocks move, are removed with undo, or are added, and a moved block keeps a label. v8: the setup answers set the block times (AFF-G) | `prototype/lofi/CHANGELOG.md` |
 | Lo-fi test | **Missing.** Watch: do testers accept the suggested week, or move and remove blocks? | T18 |
+| Hi-fi build (v2.0) | The student sets a weekly target and the planner proposes blocks in free gaps. The Week page is a drag-and-drop timetable: blocks snap to 15 minutes, never land on a lecture, and each has a module. A block starts from its notification or a Start button; "Where are you?" was left out. A Sunday check-in, never "missed". Blocks publish as a calendar feed | hi-fi repo `lockedin-companion`, `docs/companion/DECISIONS.md` (V-5, V-7, V-37, V-44) |
 | Hi-fi | **Missing:** screenshot | T33 |
 | Hi-fi test | **Missing:** effect | T23 |
 
@@ -39,6 +40,7 @@ Every finding ID is indexed in `../research/findings-register.md` or `../researc
 | Ideate | T20 R-1, R-3, N-1. Three answer buttons, the Android limit (UI research Q1). Sketch screen 4. Storyboard 1 | `behaviour-change.md`, `ui-research-lofi.md` |
 | Lo-fi | Task 1: lock-screen question, then "4 more on your laptop" or "Done for now". A/B: answer on the lock screen vs tap to open (V-11) | `prototype/lofi/CHANGELOG.md` |
 | Lo-fi test | **Missing.** A/B preference, and the phone-or-laptop answer that decides the device split | T18; `ideate/qoc-device-split.md` |
+| Hi-fi build (v2.0) | The phone notification opens the question in one tap; web limits rule out answering on the lock screen, so the lo-fi A/B tests both. The question is the first Practise question. After it: "4 more on your laptop", or "Keep going here" on the phone (V-46, chosen before T18; see `../ideate/qoc-device-split.md`) | hi-fi repo, `DECISIONS.md` (V-11, V-40, V-46) |
 | Hi-fi | **Missing:** screenshot | T33 |
 | Hi-fi test | **Missing:** effect | T23 |
 
@@ -51,8 +53,11 @@ Every finding ID is indexed in `../research/findings-register.md` or `../researc
 | Ideate | Real blocking needs Apple's Screen Time frameworks, so the prototypes simulate it (UI research Q2). QOC B3: only a phone option can block the phone | `ui-research-lofi.md`, `ideate/qoc-device-split.md` |
 | Lo-fi | Task 2: Off, Gentle or Firm, with a shield on Instagram. v8: Off by default (X-8, LIT-10) | `prototype/lofi/CHANGELOG.md` |
 | Lo-fi test | **Missing.** Gentle or firm: which feels helpful, which annoying? | T18 |
+| Hi-fi build (v2.0) | **Removed in v2.0, pending a group decision.** No app blocking: a web app cannot see or stop another app opening, and the lock is unresolved in our research (X-8). The Off / Gentle / Firm rules stay on the server, unused. Earlier builds had an honest commitment screen (V-8) | hi-fi repo, `DECISIONS.md` (V-41, V-8) |
 | Hi-fi | **Missing:** screenshot | T33 |
 | Hi-fi test | **Missing:** effect | T23 |
+
+**Hi-fi v2.0 (25 Nov):** app blocking is removed (V-41). The group decides at the 26 Nov standup whether chain 3 stays in the deck as a lo-fi idea the hi-fi left out, with V-41 as the reason, or is cut from the final design.
 
 **Gap to close before the deck:** the group never logged a decision on the lock brief's options. The lo-fi effectively tests a student-chosen strictness. Log that in `design-log.md` once T18 is in.
 
@@ -65,6 +70,7 @@ Every finding ID is indexed in `../research/findings-register.md` or `../researc
 | Ideate | Device-split QOC v2: the split is the working choice; T18 decides between O1, O3 and O5 | `ideate/qoc-device-split.md` |
 | Lo-fi | Laptop session: reasoning box, four-tap confidence, hint, "show me first", slide panel. v8: no score on the done screen (R-6) | `prototype/lofi/CHANGELOG.md` |
 | Lo-fi test | **Missing.** Is "4 more on your laptop" understood without help? Where would testers rather learn? | T18 |
+| Hi-fi build (v2.0) | LearnHarness runs the session in two modes: **Learn** (probe, learn, predict, check, on the laptop) and **Practise** (fast multiple choice with the slide beside it, four confidence taps, none preselected). Missed ideas come back. Learn stays on the laptop; Practise can continue on the phone (V-46) | hi-fi repo, `DECISIONS.md` (V-40, V-46, V-50, V-51) |
 | Hi-fi | **Missing:** screenshot | T33 |
 | Hi-fi test | **Missing:** effect. The learning-loop review says the deck can present this as an early signal, not proof | T23 |
 
@@ -76,7 +82,7 @@ Russell will ask this of every chain above. Our answer, with its sources:
 1. **Why the phone starts.** The phone reaches the student anywhere, including the free gap where an unprompted question is welcome (Q-8; QOC B1, C1). It is also the distraction, so it is the only device where a block helps (AFF-M, LIT-6; QOC B3).
 2. **Why the laptop teaches.** Place commits people (AFF-J), and the engine already teaches well there (AE2-10).
 3. **Why both, and how we know.** This was a working choice on 16 Nov, with its weak point written down at the time (R-8: nobody was asked where they want to learn). The QOC compared it against all-on-phone, all-on-laptop, two apps and student-chooses (O5), using criteria from the module. Before testing, we wrote down the result that would overturn it. T18 tests it.
-4. **Pairing.** The hi-fi pairs phone and laptop by QR code. Our rule is that pairing happens once, after the first question is answered, so setup never comes before value (UI research Q3; AE2-1, AE2-P14). **To confirm with Jiven:** does the hi-fi pair after the first question, or before it?
+4. **Pairing.** In hi-fi v2.0 the phone pairs once. On an iPhone it pairs by a 6-digit code shown on the laptop; Android and desktop browsers can also scan a QR code (V-32). Pairing is the last of five setup steps, and the first is the ChatGPT sign-in (V-45). That partly reverses the 10 Nov "value before onboarding" decision, and the lo-fi first-run A/B tests exactly that (UI research Q3; AE2-1, AE2-P14). Lo-fi testers said they were happy to connect AI (group chat, 25 Nov), to be confirmed in the T18 write-up.
 
 ## What Friday's focus group has to answer (for Lekan, T31)
 Every chain is missing the same two links: testing results and a screenshot. Tomorrow's lo-fi test fills link 6. Friday has to fill link 8 for each feature:

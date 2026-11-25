@@ -1,0 +1,17 @@
+#separator:tab
+#html:true
+#notetype:Cloze
+#deck:HCI::Viva
+#tags column:3
+The UCD loop: {{c1::Empathise}}, {{c2::Define}}, {{c3::Ideate}}, {{c4::Prototype}}, {{c5::Test}}, with results looping back at {{c6::T19}} and {{c6::T24}}.		hci::viva::process
+Empathise methods: {{c1::questionnaire n = 22}}, {{c2::interviews n = 6}}, {{c3::two autoethnographies}}, {{c4::31 papers}}.		hci::viva::empathise
+Problem areas: {{c1::socialising}}, {{c2::fitness}}, {{c3::neurodivergent workload}}, {{c4::finance}}, {{c5::safety}}.		hci::viva::divergence
+Early concepts: {{c1::LectureFlow}}, {{c2::Student Saviour}}, {{c3::SpokeSafe}}.		hci::viva::divergence
+Personas: {{c1::Tayo}} primary, {{c2::Maya}} secondary, {{c3::Sam}} and {{c3::Dev}} anti-personas.		hci::viva::define
+Core features (23 Nov): {{c1::reminders (the nudge is a question)}}, {{c2::calendar study blocks}}, {{c3::an optional phone block}}, {{c4::the LearnHarness engine}}.		hci::viva::features
+Each deck chain runs: {{c1::screenshot}} → {{c2::what it does}} → {{c3::why we built it}} → {{c4::effect in testing}}.		hci::viva::features
+QOC options: O1 {{c1::all phone}}, O2 {{c2::all laptop}}, O3 {{c3::the split}}, O4 {{c4::two apps}}, O5 {{c5::student chooses}}.		hci::viva::rationale
+Lo-fi changes: {{c1::18}} research-backed, {{c2::11}} heuristic, {{c3::5}} tooling, {{c4::3}} bugs, {{c5::3}} judgement, out of {{c6::40}}.		hci::viva::prototype
+Behaviour change models used: {{c1::Fogg B = MAP}}, {{c2::COM-B}}, {{c3::implementation intentions}}, {{c4::prospect theory}}, {{c5::dual process}}, {{c6::social cognitive theory}}.		hci::viva::theory
+Acceptable data (Q-10): timetable {{c1::21/22}}, slides {{c2::19/22}}, screen time {{c3::14/22}}, location {{c4::3/22}}.		hci::viva::numbers
+Limitations: {{c1::small convenience samples}}, {{c2::fictional personas}}, {{c3::simulated blocking and push}}, {{c4::early-signal results}}.		hci::viva::criticism

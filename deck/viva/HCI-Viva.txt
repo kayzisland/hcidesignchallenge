@@ -1,0 +1,95 @@
+#separator:tab
+#html:true
+#notetype:Basic
+#deck:HCI::Viva
+#tags column:3
+Which five problem areas did the group explore before choosing a concept?	Socialising, fitness, neurodivergent workload, finance and safety (HCI Design Plan doc).	hci::viva::divergence
+Which three written concepts were compared before LockedIN existed?	LectureFlow (ADHD lecture companion), Student Saviour (student safety) and SpokeSafe (bike theft prevention).	hci::viva::divergence
+What method compared the three early concepts, and when?	A QOC design space analysis on 26 Oct, using a criteria bank taken from the brief and the lectures.	hci::viva::divergence
+What did the group choose on 28 Oct?	A proactive study app for all students, designed with neurodivergent students in mind, built on LearnHarness.	hci::viva::divergence
+What did the 8 Nov data change about the 28 Oct choice?	The design moved its lead from explaining content to starting and sustaining a session (Q-1, Q-2, Q-3).	hci::viva::divergence
+When was the product named LockedIN, and why that name?	10 Nov. The name states the job the evidence gives it: getting into a study session and staying in it.	hci::viva::divergence
+Why was a separate neurodivergent mode not built?	Q-12: at n = 22 the neurodivergent and non-neurodivergent groups showed no clear difference, so the design serves all students.	hci::viva::divergence
+Name the four empathise methods and their sizes.	Questionnaire (n = 22), interviews (n = 6), two autoethnographies, and a literature review (31 papers, LIT-1 to LIT-31).	hci::viva::empathise
+Why use four methods instead of one?	Triangulation: each method has blind spots, so a finding counts most when two or more methods agree.	hci::viva::empathise
+Why a questionnaire?	It reaches many students quickly and measures how often each problem happens, which interviews cannot do at scale.	hci::viva::empathise
+Why interviews after the questionnaire?	They explain the why behind the numbers, such as the phone and place, which the questionnaire could only count.	hci::viva::empathise
+Why autoethnography?	It gives first-hand detail of studying and of using LearnHarness that participants could not report, at no recruitment cost.	hci::viva::empathise
+What is the main limit of autoethnography?	The researcher is the participant, so the data is one person's experience and carries their bias.	hci::viva::empathise
+Why was the observation study dropped, and when?	8 Nov: too much overhead for five weeks, and studying is private and hard to observe.	hci::viva::empathise
+Why a desk review of existing tools rather than testing each one?	Five weeks left no time to usability-test each product; a desk review still shows where current tools stop.	hci::viva::empathise
+What gap did the review of 14 existing tools find?	No tool starts the student at the right moment, makes that session active recall on what was just taught, and keeps to a strict attention budget.	hci::viva::empathise
+Why do blockers like Opal stop exactly where LockedIN begins?	They clear the phone on a schedule but have no idea a lecture just ended and cannot put that lecture's material in front of the student.	hci::viva::empathise
+Q-1: how many students hit 'getting started' weekly or more?	13 of 22 (59%), the most frequent study problem.	hci::viva::numbers
+Q-3: how often did 'understanding new material' come up weekly or more?	Only 3 of 22, the rarest problem, which challenges a pure AI-tutor design.	hci::viva::numbers
+Q-8: how many welcomed an unprompted quiz in a free gap?	19 of 22 (mean 4.3 of 5); 1 found it unwelcome.	hci::viva::numbers
+Q-9: what is the notification budget?	1 to 2 a day: 15 of 22 would switch off beyond that, and nobody chose none.	hci::viva::numbers
+Q-10: which data sources were acceptable, and which not?	Timetable 21/22, slides and recordings 19/22, screen time 14/22, location only 3/22.	hci::viva::numbers
+AFF-M: how many interviewees named the phone unprompted?	5 of 6.	hci::viva::numbers
+X-8: how many asked endorsed a fixed phone lock?	None of the 5 asked.	hci::viva::numbers
+LIT-25 (Bastani et al. 2025, PNAS): what happened when a plain chatbot was removed?	Students who had used it did 17% worse than those who never had it.	hci::viva::numbers
+Q-6: what is the gap between what students use and what they rate?	AI chatbots used by 15/22 but rated most helpful by 2; rereading used by 13, rated best by 1.	hci::viva::numbers
+Q-7: what did students say about being shown versus questioned?	No single preference: 10 lean to being questioned, 8 to being shown, 4 neutral.	hci::viva::numbers
+What is the problem statement?	Students who know how to study, but can't start when nothing is due, with a phone always in reach (AFF-A, AFF-I, AFF-M, INT-05-a).	hci::viva::define
+How many affinity clusters came out of the data?	13 (AFF-A to AFF-N).	hci::viva::define
+Who is the primary persona and what is her problem?	Tayo: knows how to study but can't get going.	hci::viva::define
+Who is the secondary persona?	Maya: drifts and needs a way in, for example after a missed lecture.	hci::viva::define
+Who are the two anti-personas and what do they stop?	Sam, who wants answers done for him (stops answer-giving), and Dev, a technical power user like us (stops configuration-heavy design).	hci::viva::define
+Why include anti-personas?	They name who the design is not for, so features that please Sam or Dev are cut instead of added.	hci::viva::define
+How were scenarios used?	Each persona walks through the sketch in a different context (Grudin and Pruitt: personas first, then scenarios that act them out).	hci::viva::define
+What does the task analysis compare?	The current 'start studying' task (lecture ends, phone out, 'I'll start later') with the LockedIN version (lecture ends, one question, set started).	hci::viva::define
+What is every finding indexed in?	One findings register with IDs: Q survey, INT interview, AE autoethnography, LIT literature, AFF affinity, LF lo-fi, HF hi-fi.	hci::viva::define
+Fogg's Behaviour Model in one line?	Behaviour happens when motivation, ability and a prompt meet at the same moment (B = MAP).	hci::viva::theory
+How does LockedIN apply Fogg?	Students already have motivation; the prompt lands when ability is high, and answering one question is the smallest possible first step.	hci::viva::theory
+COM-B diagnosis for our students?	Capability and motivation are present; the opportunity to start is missing (Q-3, Q-8, INT-05-a).	hci::viva::theory
+What is an implementation intention and how do we use it?	An 'if cue, then response' plan (Gollwitzer 1999). The timetable is the 'if': when the lecture ends, then one question.	hci::viva::theory
+How does dual process theory explain the question-as-nudge?	A reminder asks the slow system to decide to study; a question engages the fast system, so starting needs no decision.	hci::viva::theory
+Why does prospect theory rule out streaks?	Losses loom larger than gains, so a broken streak feels like a loss and drives abandonment (INT-01 quit Anki with 2,000+ lapsed cards).	hci::viva::theory
+How does social cognitive theory shape the design?	Environment causes behaviour: place commits students (AFF-J), so blocks name a place and the phone is the environment to manage.	hci::viva::theory
+What did Adamczyk and Bailey (2004) find, and where is it used?	Interrupting at task breakpoints caused less annoyance and frustration, so the nudge fires as a lecture ends (LIT-4).	hci::viva::theory
+What does Ward et al. (2017) show?	A smartphone merely within reach reduces available cognitive capacity (LIT-6), which supports managing the phone.	hci::viva::theory
+Why use Wizard of Oz in the lo-fi?	A real phone lock needs native Screen Time access, so a teammate fakes it to learn whether students accept it before anyone builds it.	hci::viva::theory
+What is QOC?	Questions, Options, Criteria: a design-space method that marks each option against fixed criteria to show trade-offs, never totals.	hci::viva::theory
+Where does the Double Diamond fit our process?	Diverge then converge twice: problem areas to one problem, then many sketches to one design.	hci::viva::theory
+How were Nielsen's heuristics used?	11 of the 40 lo-fi changes were heuristic fixes, such as user control and freedom and error prevention.	hci::viva::theory
+Which usability goal does the engine target, and how?	Learnability and effectiveness: retrieval practice beats rereading (LIT-24) and confident errors teach (LIT-27).	hci::viva::theory
+Feature 1, the nudge: research, theory, hi-fi?	Q-8 19/22 and Q-9 1-2 a day; Fogg and breakpoints (LIT-4); hi-fi V-11, one tap opens the question.	hci::viva::features
+Why is the phone notification not answered on the lock screen in the hi-fi?	V-11: web platform limits. Chrome allows at most 2 actions and iOS none, so one tap opens it.	hci::viva::features
+Feature 2, study blocks: research, theory, hi-fi?	INT-05-h 'only if I can move them'; implementation intentions and prospect theory; hi-fi V-5 (weekly target, Sunday check-in, never 'missed') and V-7 (calendar feed).	hci::viva::features
+Feature 3, the phone block: research, theory, hi-fi?	AFF-M 5/6 and X-8 none for a forced lock; social cognitive theory and LIT-10 self-chosen tools last; V-8 an honest commitment screen.	hci::viva::features
+What happened to app blocking in hi-fi v2.0?	V-41: no app blocking in v2.0, because a web app cannot stop another app opening; that needs a native app.	hci::viva::features
+Feature 4, the engine: research, theory, hi-fi?	AE2-10 the engine teaches well, AE2-5 confidence and 'why' delighted; LIT-25 and LIT-24; V-6 study packs and V-40 Teach and Practise.	hci::viva::features
+What external data does LockedIN sense?	The student's timetable feed, when each lecture ends, and the slides they upload. Never location.	hci::viva::features
+Why no leaderboards or streaks?	V-9 and V-35: interviews were mixed on competition, and loss-framed mechanics backfire (prospect theory).	hci::viva::features
+How does LockedIN visualise progress in v2.0?	V-34: a cumulative learning score against a steady-pace line to the end of term, with gaps by idea.	hci::viva::features
+Why does the phone start?	It reaches the student anywhere, including the free gap where an unprompted question is welcome (Q-8; QOC B1, C1).	hci::viva::devices
+Why is the phone also where the block belongs?	The phone is the distraction, so it is the only device where a block helps (AFF-M, LIT-6; QOC B3).	hci::viva::devices
+Why does the laptop teach?	Place commits people (AFF-J), and the engine already teaches well there (AE2-10).	hci::viva::devices
+Why both, and how do we know?	A working choice from 16 Nov with its weak point written down (R-8: nobody asked where they want to learn), compared in a QOC against four alternatives and tested in T18.	hci::viva::devices
+How do the phone and laptop pair?	The laptop shows a QR code (J9); on an iPhone a 6-digit code (V-32).	hci::viva::devices
+Name the five device-split options in the QOC.	O1 all phone, O2 all laptop, O3 the split, O4 two apps, O5 phone starts and the student chooses.	hci::viva::rationale
+Why does O2 (all laptop) fail?	It cannot block the phone, which is the main distraction (B3 minus).	hci::viva::rationale
+Why does O4 (two apps) fail?	Two installs and two accounts (U2 and P2 minus), which is why the 16 Nov sync dropped it.	hci::viva::rationale
+What is the overturn rule, and when was it agreed?	Agreed 24 Nov before T18: the split stays only if at least 3 of 5 testers pick the laptop; phone, 'depends' or a tie move us to O5.	hci::viva::rationale
+Why write the overturn rule before testing?	It puts the burden of proof on our own assumption and guards against premature commitment (rubric criterion 5).	hci::viva::rationale
+Why are QOC marks never totalled?	They show trade-offs to discuss; a total would hide which criterion an option fails.	hci::viva::rationale
+What was the rough sketch, and when?	14 Nov: 9 clickable phone screens, with one question before any setup (value before setup, AE2-1).	hci::viva::prototype
+How many lo-fi versions and logged changes?	11 versions and 40 changes: 18 research-backed, 11 heuristic, 5 tooling, 3 bugs, 3 judgement calls.	hci::viva::prototype
+What did the lo-fi A/B test?	Lock-screen answer versus tap to open, 'where are you?' or not, and question first versus AI sign-in first.	hci::viva::prototype
+Why was the friends' run of the lo-fi not counted as data?	Testers knew us and were unobserved, so it is logged as an informal pilot outside the LF-n data.	hci::viva::prototype
+Lo-fi test T18 method?	Wed 25 Nov: 5 students, think-aloud, 3 set tasks, A/B on 3 choices; A/B reported as counts.	hci::viva::prototype
+Hi-fi test T23 plan?	Fri 27 Nov focus group: 6 to 7 students from mixed subjects, with SUS, task success and quotes.	hci::viva::prototype
+Why test with mixed subjects?	Dev reminds us we are the easiest testers to please, and a humanities reader found the data-heavy design felt STEM-only.	hci::viva::prototype
+How did the hi-fi evolve in versions?	v0.1 (23 Nov), v1.0 fixes, v1.1, v2.0 (Learn and Practise, gaps by idea), v2.1; each decision logged as V-n.	hci::viva::prototype
+Honest criticism 1: what was built out of order?	The engine (hi-fi) was built before the lo-fi, and research started late compared with the build.	hci::viva::criticism
+Honest criticism 2: which hi-fi decision contradicts our own rule?	V-3 and V-16: the hi-fi requires an AI sign-in first, against the 10 Nov 'value before onboarding' decision.	hci::viva::criticism
+Which hi-fi decision was taken ahead of the test that should decide it?	V-46: Practise can continue on the phone (option O5), chosen before the T18 result.	hci::viva::criticism
+Which hi-fi decision departs from an anti-persona?	V-15: a model picker per slot, which Dev would use; 'Choose for me' keeps the one-tap path.	hci::viva::criticism
+State our main limitations.	Small convenience samples, fictional personas, blocking and push simulated, and test results are early signals.	hci::viva::criticism
+Challenge: 'Your samples are tiny. Why trust them?'	We report counts, triangulate across four methods, and state the limitation; we present the findings as directional signals.	hci::viva::challenge
+Challenge: 'Didn't you commit to LearnHarness too early?'	Partly yes. It was chosen 28 Oct, made provisional on 8 Nov, re-decided on 10 Nov with data: keep the engine, cut its setup.	hci::viva::challenge
+Challenge: 'Isn't this just a quiz app?'	No existing tool combines the right moment (timetable), recall on that day's slides, and a 1-2 a day budget; that combination is the claim.	hci::viva::challenge
+Challenge: 'Where is the sensing?'	The timetable feed tells it when a lecture ends and when gaps are free; the slides supply the questions. Location was rejected by users (Q-10).	hci::viva::challenge
+Challenge: 'Is the nudge just a notification?'	It is the first question itself, so answering it is starting; a reminder only asks the student to decide.	hci::viva::challenge
+Challenge: 'Why not use AI to explain everything?'	Understanding is the rarest problem (Q-3), and unguarded AI help harms learning once removed (LIT-25).	hci::viva::challenge
+Challenge: 'Every hi-fi element must be justified. How?'	Each feature carries a chain of finding ID, literature, decision and hi-fi decision ID, in the feature chains and DECISIONS.md.	hci::viva::challenge
