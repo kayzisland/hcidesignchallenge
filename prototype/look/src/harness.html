@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LockedIn look test: four designs</title>
+<style>
+:root { color-scheme: light; --ink:#1c1c1f; --soft:#5b5b63; --line:#d3d3da; --bg:#f1f1f3; --card:#fff; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1680px; margin: 0 auto; padding: 18px 20px 60px; }
+h1 { font-size: 22px; margin: 0 0 6px; } h2 { font-size: 24px; line-height: 1.25; margin: 0 0 6px; } h3 { font-size: 16px; margin: 0 0 6px; }
+p { margin: 0 0 10px; } .soft { color: var(--soft); font-size: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+.narrow { max-width: 760px; }
+label { display: block; font-weight: 600; margin: 12px 0 4px; }
+input[type=text] { width: 100%; font: inherit; padding: 10px 12px; border: 2px solid #86868f; border-radius: 8px; background: #fff; color: var(--ink); }
+button { font: inherit; cursor: pointer; }
+.btn { min-height: 44px; padding: 8px 16px; border-radius: 8px; border: 2px solid var(--ink); background: #fff; color: var(--ink); font-weight: 600; }
+.btn.on { background: var(--ink); color: #fff; } .btn:disabled { opacity: .4; cursor: not-allowed; } .btn.small { min-height: 36px; padding: 4px 12px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.top { display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+.grid4 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 12px 0; }
+.grid4.phone { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1100px; }
+.cell { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.cell h3 { display: flex; justify-content: space-between; align-items: center; }
+.frame { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.frame iframe { border: 0; transform-origin: 0 0; display: block; background: #fff; }
+.frame .open { position: absolute; inset: 0; background: transparent; border: 0; cursor: zoom-in; }
+.picks { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 14px; align-items: center; margin-top: 6px; }
+.seg { display: inline-flex; border: 2px solid var(--ink); border-radius: 8px; overflow: hidden; }
+.seg button { min-width: 48px; min-height: 40px; border: 0; border-left: 2px solid var(--ink); background: #fff; color: var(--ink); font-weight: 700; padding: 0 12px; }
+.seg button:first-child { border-left: 0; } .seg button.on { background: var(--ink); color: #fff; }
+#full { position: fixed; inset: 0; background: #000c; display: none; z-index: 9; padding: 16px; overflow: auto; }
+#full .bar { display: flex; justify-content: space-between; color: #fff; margin: 0 auto 8px; max-width: 1280px; font-weight: 700; }
+#full iframe { display: block; margin: 0 auto; border: 0; background: #fff; border-radius: 6px; }
+pre { white-space: pre-wrap; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 12px; font: 13px/1.45 ui-monospace, Menlo, monospace; max-height: 460px; overflow: auto; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; } th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+body.sheet { background: #fff; } body.sheet main { max-width: none; }
+:focus-visible { outline: 3px solid #2f6fe4; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main id="app"></main>
+<div id="full"><div class="bar"><span id="fullname"></span><button class="btn small" id="fullclose">Close</button></div><iframe title="Full size"></iframe></div>
+<script>
+/*DATA*/
+/*DESIGNS*/
+</script>
+<script>
+const D = LOOK.designs, S = LOOK.screens;
+const $ = (s) => document.querySelector(s);
+const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "on") for (const [e, f] of Object.entries(v)) n.addEventListener(e, f); else if (k === "text") n.textContent = v; else if (v !== false && v != null) n.setAttribute(k, v === true ? "" : v); } n.append(...kids.flat().filter((k) => k != null)); return n; };
+const params = new URLSearchParams(location.search);
+const size = (s) => s.device === "phone" ? { w: 390, h: 780 } : { w: 1280, h: 800 };
+const doc = (d, html) => `<!doctype html><html lang="en"><head><meta charset="utf-8">${(d.fonts || []).map((u) => `<link rel="stylesheet" href="${u}">`).join("")}<style>html,body{margin:0}${d.css}</style></head><body>${html}</body></html>`;
+const screenDoc = (d, s) => doc(d, d.screens[s.id](LOOK.data));
+
+// What the facilitator asks before the tester has seen the other three versions. The answer is the same in every design.
+const ASK = {
+  today: ["What is the next thing this app wants you to do?", "Continue the History session (The Welfare State)"],
+  learn: ["Which idea are you on, and what comes after it?", "Idea 2 of 4; next is \"When models go wrong\""],
+  question: ["How many questions are left after this one?", "Three (this is question 2 of 5)"],
+  feedback: ["Which answer was right, and which one had you picked?", "Right: \"…about 3% of the time\". Picked: \"a 3% chance the hypothesis is true\""],
+  progress: ["Which module has had the least of your time this week?", "Modern British History (20 min)"],
+  week: ["When is your next study block?", "Today, Thursday, at 15:00 (HCI)"],
+  phone: ["Why did this question arrive now?", "The lecture ended and you are free till 15:00"],
+};
+const AXES = [["menu", "Whose menu did you like best?"], ["numbers", "Whose way of showing numbers and progress?"], ["icons", "Whose icons, or lack of them?"], ["type", "Whose text was easiest to read?"], ["colour", "Whose colours?"], ["shape", "Whose buttons and boxes?"]];
+const PICKS = [["use", "Which would you rather use?"], ["clutter", "Which feels the most cluttered?"], ["pressure", "Which puts the most pressure on you?"]];
+
+const KEY = "lockedin-look-four";
+const fresh = () => ({ id: "", at: -1, sub: 0, t0: 0, seen: {}, picks: {}, axes: {}, overall: null, words: {}, started: null });
+let st = JSON.parse(localStorage.getItem(KEY) || "null") || fresh();
+const save = () => localStorage.setItem(KEY, JSON.stringify(st));
+const hash = (s) => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return Math.abs(h); };
+// Each tester gets their own letters for the four designs, kept for the whole session, so "B" never means the same design twice in a row of testers.
+function letters() { const a = [...D.keys()]; let h = hash(st.id || "x"); for (let i = a.length - 1; i > 0; i--) { h = Math.imul(h ^ (h >>> 13), 1274126177) >>> 0; const j = h % (i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const L = "ABCD";
+const byLetter = () => letters().map((di, i) => ({ d: D[di], letter: L[i] }));
+// Which single design a tester meets first on each screen rotates, so every design is met first equally often across testers and screens.
+const firstFor = (si) => byLetter()[(hash(st.id || "x") + si) % D.length];
+
+function frame(d, s, width, clickName) {
+  const z = size(s), k = width / z.w;
+  const f = el("iframe", { title: clickName || d.name, width: z.w, height: z.h, scrolling: "no", tabindex: "-1" });
+  f.srcdoc = screenDoc(d, s); f.style.transform = `scale(${k})`;
+  const box = el("div", { class: "frame", style: `width:${width}px;height:${Math.round(z.h * k)}px` }, f);
+  if (clickName) box.append(el("button", { class: "open", "aria-label": `Open ${clickName} full size`, on: { click: () => openFull(d, s, clickName) } }));
+  return box;
+}
+function openFull(d, s, name) { const z = size(s), f = $("#full iframe"); f.width = z.w; f.height = Math.max(z.h, innerHeight - 90); f.srcdoc = screenDoc(d, s); $("#fullname").textContent = name; $("#full").style.display = "block"; }
+$("#fullclose").addEventListener("click", () => { $("#full").style.display = "none"; });
+const cellWidth = (s) => s.device === "phone" ? 240 : Math.max(420, Math.min(790, Math.floor((Math.min(innerWidth, 1680) - 40 - 14 - 44) / 2)));
+
+function home() {
+  const id = el("input", { type: "text", id: "pid", value: st.id, placeholder: "for example V01", autocomplete: "off" });
+  $("#app").replaceChildren(el("div", { class: "card narrow" },
+    el("h1", { text: "LockedIn look test: four designs" }),
+    el("p", { class: "soft", text: "For the facilitator. The same seven screens, with the same content, drawn four ways. Only the look differs. Testers see the designs as A, B, C and D; which letter is which design changes with every tester ID." }),
+    el("label", { for: "pid", text: "Tester ID (never a name)" }), id,
+    el("p", { class: "soft", style: "margin-top:10px", text: "Say: \"You'll see the same screen of a study app drawn in different ways. There are no right answers. We are testing the designs, not you.\"" }),
+    el("div", { class: "row" },
+      el("button", { class: "btn on", text: st.id && st.at >= 0 ? "Carry on" : "Start the test", on: { click: () => { const v = id.value.trim(); if (!v) return id.focus(); if (v !== st.id) { st = fresh(); st.id = v; } if (st.at < 0) st.at = 0; st.started ??= new Date().toISOString(); save(); render(); } } }),
+      el("a", { class: "btn", href: "?browse=1", text: "Browse the designs" }),
+      el("a", { class: "btn", href: "?sheet=all", text: "Sheets for the deck" }),
+      Object.keys(st.picks).length ? el("button", { class: "btn", text: "Results so far", on: { click: () => { st.at = S.length + 1; save(); render(); } } }) : null)));
+}
+
+// Step 1 of a screen: one design alone, a first-glance question and a reading question, timed.
+function alone(s, si) {
+  const { d, letter } = firstFor(si);
+  const seen = st.seen[s.id] || {};
+  if (!st.t0) st.t0 = Date.now();
+  const note = el("input", { type: "text", id: "first", value: seen.first || "", placeholder: "What they said they noticed first", autocomplete: "off" });
+  const mark = (v) => { st.seen[s.id] = { ...seen, design: d.id, letter, first: note.value, read: v, secs: seen.secs ?? Math.round((Date.now() - st.t0) / 1000) }; save(); render(); };
+  const z = size(s), w = s.device === "phone" ? 390 : Math.min(1280, innerWidth - 60);
+  $("#app").replaceChildren(
+    el("div", { class: "top" }, el("span", { class: "soft", text: `${st.id} · screen ${si + 1} of ${S.length} · ${s.name} · first look (design ${letter})` }), el("button", { class: "btn small", text: "Back to start", on: { click: () => { st.at = -1; save(); render(); } } })),
+    el("div", { class: "card", style: "margin-bottom:12px" },
+      el("p", {}, el("b", { text: "Ask 1: " }), "\"What do you notice first?\""), note,
+      el("p", { style: "margin-top:10px" }, el("b", { text: "Ask 2: " }), `"${ASK[s.id][0]}"`, el("span", { class: "soft", text: `  (Answer: ${ASK[s.id][1]})` })),
+      el("div", { class: "row" }, ...[["right", "Right"], ["partly", "Partly, or with help"], ["wrong", "Wrong, or gave up"]].map(([v, t]) => el("button", { class: seen.read === v ? "btn on" : "btn", text: t, on: { click: () => mark(v) } })),
+        seen.read ? el("span", { class: "soft", text: `${seen.secs} s` }) : null,
+        el("button", { class: "btn on", style: "margin-left:auto", text: "Show all four", disabled: !seen.read, on: { click: () => { st.seen[s.id].first = note.value; st.sub = 1; st.t0 = 0; save(); render(); scrollTo(0, 0); } } }))),
+    frame(d, s, w));
+  const f = document.querySelector(".frame iframe"); f.setAttribute("scrolling", "yes"); f.removeAttribute("tabindex");
+}
+
+// Step 2: all four side by side.
+function four(s, si) {
+  const p = st.picks[s.id] || {};
+  const why = el("input", { type: "text", id: "why", value: p.why || "", placeholder: "Why? In their words", autocomplete: "off" });
+  const set = (k, v) => { st.picks[s.id] = { ...(st.picks[s.id] || {}), [k]: v, why: why.value }; save(); render(); };
+  const grid = el("div", { class: `grid4 ${s.device}` }, byLetter().map(({ d, letter }) => el("div", { class: "cell" }, el("h3", {}, el("span", { text: `Design ${letter}` }), el("button", { class: "btn small", text: "Open full size", on: { click: () => openFull(d, s, `Design ${letter}`) } })), frame(d, s, cellWidth(s), `Design ${letter}`))));
+  const picks = el("div", { class: "picks" }, PICKS.flatMap(([k, q]) => [el("b", { text: q }), el("div", { class: "seg" }, [...L].slice(0, D.length).map((x) => el("button", { class: p[k] === x ? "on" : "", text: x, on: { click: () => set(k, x) } })), el("button", { class: p[k] === "none" ? "on" : "", text: "None", on: { click: () => set(k, "none") } }))]));
+  const done = PICKS.every(([k]) => p[k]);
+  $("#app").replaceChildren(
+    el("div", { class: "top" }, el("span", { class: "soft", text: `${st.id} · screen ${si + 1} of ${S.length} · ${s.name} · all four` }), el("button", { class: "btn small", text: "Back to start", on: { click: () => { st.at = -1; save(); render(); } } })),
+    el("h2", { text: `${s.name}: the same screen, four ways` }), el("p", { class: "soft", text: "Each shows the top of the screen. Open any of them full size to scroll." }),
+    grid,
+    el("div", { class: "card narrow" }, picks, el("label", { for: "why", text: "Why did you choose that one to use?" }), why,
+      el("div", { class: "row", style: "margin-top:14px" }, el("button", { class: "btn", text: "Back", on: { click: () => { if (st.picks[s.id]) st.picks[s.id].why = why.value; st.sub = 0; save(); render(); } } }), el("button", { class: "btn on", text: "Next", disabled: !done, on: { click: () => { st.picks[s.id].why = why.value; st.at = si + 1; st.sub = 0; st.t0 = 0; save(); render(); scrollTo(0, 0); } } }))));
+}
+
+// The end: one pick per part of the look, and one overall.
+function wrap() {
+  const s0 = S[0];
+  const strip = el("div", { class: "grid4 phone", style: "max-width:none" }, byLetter().map(({ d, letter }) => el("div", { class: "cell" }, el("h3", {}, el("span", { text: `Design ${letter}` })), frame(d, s0, 360, `Design ${letter}`),
+    el("input", { type: "text", value: st.words[letter] || "", placeholder: "One word for this design", "aria-label": `One word for design ${letter}`, style: "margin-top:8px", on: { change: (e) => { st.words[letter] = e.target.value; save(); } } }))));
+  const q = (k, text, store) => [el("b", { text }), el("div", { class: "seg" }, [...L].slice(0, D.length).map((x) => el("button", { class: store[k] === x ? "on" : "", text: x, on: { click: () => { store[k] = x; save(); render(); } } })), el("button", { class: store[k] === "none" ? "on" : "", text: "None", on: { click: () => { store[k] = "none"; save(); render(); } } }))];
+  const overall = { get v() { return st.overall; } };
+  $("#app").replaceChildren(
+    el("div", { class: "top" }, el("span", { class: "soft", text: `${st.id} · last step` }), el("button", { class: "btn small", text: "Back", on: { click: () => { st.at = S.length - 1; st.sub = 1; save(); render(); } } })),
+    el("h2", { text: "Looking back over all of them" }), strip,
+    el("div", { class: "card narrow" }, el("div", { class: "picks" }, AXES.flatMap(([k, t]) => q(k, t, st.axes)),
+      el("b", { text: "If the whole app had to be one of these, which?" }), el("div", { class: "seg" }, [...L].slice(0, D.length).map((x) => el("button", { class: st.overall === x ? "on" : "", text: x, on: { click: () => { st.overall = x; save(); render(); } } })))),
+      el("div", { class: "row", style: "margin-top:14px" }, el("button", { class: "btn on", text: "Finish", disabled: !st.overall, on: { click: () => { st.at = S.length + 1; save(); render(); scrollTo(0, 0); } } }))));
+}
+
+function results() {
+  const name = Object.fromEntries(byLetter().map(({ d, letter }) => [letter, d.name]));
+  const show = (x) => !x ? "-" : x === "none" ? "none" : `${x} (${name[x]})`;
+  const lines = [`Look test, four designs · tester ${st.id} · started ${st.started ?? ""} · finished ${new Date().toISOString()}`, `Letters for this tester: ${Object.entries(name).map(([l, n]) => `${l}=${n}`).join(", ")}`, ""];
+  S.forEach((s) => { const a = st.seen[s.id], p = st.picks[s.id];
+    lines.push(`${s.name}`);
+    lines.push(a ? `   first look at ${a.letter} (${name[a.letter]}): noticed first "${a.first || "-"}"; reading question ${a.read}, ${a.secs} s` : "   first look: not done");
+    lines.push(p ? `   would use ${show(p.use)}; most cluttered ${show(p.clutter)}; most pressure ${show(p.pressure)}` : "   four-way: not done");
+    if (p) lines.push(`   why: ${p.why || "-"}`); });
+  lines.push("", "Looking back");
+  AXES.forEach(([k, t]) => lines.push(`   ${t} ${show(st.axes[k])}`));
+  lines.push(`   whole app: ${show(st.overall)}`, `   one word each: ${Object.entries(name).map(([l, n]) => `${n} "${st.words[l] || "-"}"`).join("; ")}`);
+  const text = lines.join("\n");
+  $("#app").replaceChildren(el("div", { class: "card", style: "max-width:940px" }, el("h1", { text: `Results for ${st.id}` }),
+    el("p", { class: "soft", text: "Copy this into the results file before the next tester. Record only what happened; a blank stays blank." }), el("pre", { text }),
+    el("div", { class: "row" }, el("button", { class: "btn on", text: "Copy results", on: { click: async (e) => { await navigator.clipboard.writeText(text); e.target.textContent = "Copied"; } } }),
+      el("button", { class: "btn", text: "Back", on: { click: () => { st.at = S.length; save(); render(); } } }),
+      el("button", { class: "btn", text: "Next tester (clears this one)", on: { click: () => { if (confirm("Clear this tester's answers? Copy them first.")) { localStorage.removeItem(KEY); st = fresh(); render(); } } } }))));
+}
+
+// For the team: every design and screen, with the real names.
+function browse() {
+  const di = Math.max(0, D.findIndex((d) => d.id === params.get("design"))), view = params.get("screen") || S[0].id;
+  const d = D[di], link = (dd, v) => `?browse=1&design=${dd}&screen=${v}`;
+  const s = S.find((x) => x.id === view), z = s ? size(s) : { w: 1280, h: 800 };
+  const f = el("iframe", { title: d.name, width: z.w, height: s ? Math.max(z.h, innerHeight - 220) : innerHeight - 220, style: "border:1px solid var(--line);border-radius:6px;background:#fff;display:block" });
+  f.srcdoc = s ? screenDoc(d, s) : doc(d, d.styleSheet(LOOK.data));
+  $("#app").replaceChildren(el("div", { class: "top" }, el("h1", { text: "The four designs" }), el("a", { class: "btn small", href: "?", text: "Back to the test" })),
+    el("div", { class: "tabs" }, D.map((x) => el("a", { class: x === d ? "btn small on" : "btn small", href: link(x.id, view), text: x.name }))),
+    el("p", { class: "soft", text: d.idea }),
+    el("div", { class: "tabs" }, S.map((x) => el("a", { class: x.id === view ? "btn small on" : "btn small", href: link(d.id, x.id), text: x.name })), el("a", { class: view === "style" ? "btn small on" : "btn small", href: link(d.id, "style"), text: "Style sheet" })),
+    f);
+}
+
+// ?sheet=all, ?sheet=<screen id>, ?sheet=axes: labelled pictures and the table of positions, for the deck.
+function sheet(which) {
+  document.body.className = "sheet";
+  const out = [];
+  if (which === "axes" || which === "all") out.push(el("section", { style: "margin-bottom:40px" }, el("h2", { text: "The four designs, axis by axis" }),
+    el("table", {}, el("tr", {}, el("th", { text: "" }), D.map((d) => el("th", { text: d.name }))), el("tr", {}, el("th", { text: "Idea" }), D.map((d) => el("td", { text: d.idea }))),
+      ["composition", "menu", "density", "numbers", "shape", "type", "colour", "icons", "motion"].map((a) => el("tr", {}, el("th", { text: a[0].toUpperCase() + a.slice(1) }), D.map((d) => el("td", { text: (d.axes || {})[a] || "" })))))));
+  for (const s of S) if (which === "all" || which === s.id) out.push(el("section", { style: "margin-bottom:40px" }, el("h2", { text: `${s.name}: four ways` }),
+    el("div", { class: `grid4 ${s.device}` }, D.map((d) => el("div", { class: "cell" }, el("h3", {}, el("span", { text: d.name })), frame(d, s, s.device === "phone" ? 240 : 780))))));
+  $("#app").replaceChildren(...out);
+}
+
+function render() {
+  if (!D.length) return $("#app").replaceChildren(el("p", { text: "No designs are loaded." }));
+  if (params.get("sheet")) return sheet(params.get("sheet"));
+  if (params.get("browse")) return browse();
+  if (st.at < 0 || !st.id) return home();
+  if (st.at < S.length) return st.sub ? four(S[st.at], st.at) : alone(S[st.at], st.at);
+  if (st.at === S.length) return wrap();
+  results();
+}
+render();
+</script>
+</body>
+</html>
