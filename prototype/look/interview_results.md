@@ -85,3 +85,56 @@ Looking back
    one word each: Timeline "-"; Blocks "-"; Soft Focus "-"; Paper "-"
 
 
+
+Look test, four designs · tester V04 · started 2026-11-27T14:22:10.815Z · finished 2026-11-27T19:32:02.840Z
+Questions: v2
+Session: subject "Geography"; non-STEM; year 3 (recent graduate); online; facilitator Jishnu; note-taker none (facilitator also took notes); consent yes
+Note: picks and notes typed live by the facilitator, who ran the session alone. "Noticed first" not captured live (added from memory in prototype/look/notes-V04.md); reading times not valid; started and finished times are not the session length (about 105 minutes). Tester volunteered that they are autistic; not asked.
+Letters for this tester: A=Paper, B=Blocks, C=Timeline, D=Soft Focus
+
+Today
+   first look at A (Paper): noticed first "-"; reading question wrong, 9 s
+   would use B (Blocks); most cluttered none; most pressure A (Paper)
+   why: They would use a mixture of B and D, A is too timetabled, C has too much free space, prefers vertical layout of options from D and the eye-catching popiness from B. 
+A Learn step
+   first look at B (Blocks): noticed first "-"; reading question right, 4 s
+   would use B (Blocks); most cluttered C (Timeline); most pressure C (Timeline)
+   why: B gives attention to q wityhout being too overwhelming - colkour orange is far too bright, draws attention away from the supporting material. Revision Q in D is too big which makes it overwhelming, same as A. With B it's a bit more streamlined, put together in a way that's a bit easier to understand. Too much text in A and C, similar to research paper. Prefers pastel gradients of seperate colours - bright, vibrant but not overwhelming. 
+A Practise question
+   first look at C (Timeline): noticed first "-"; reading question right, 5 s
+   would use B (Blocks); most cluttered A (Paper); most pressure C (Timeline)
+   why: Design B overall, clears fully. Design A small text, difficult to read and C mosst cluttered/overwhelming. 
+After a wrong answer
+   first look at D (Soft Focus): noticed first "-"; reading question right, 120 s
+   would use D (Soft Focus); most cluttered C (Timeline); most pressure C (Timeline)
+   why: D- B is infuriating/discouragign after a couple wrong qs. Nothing particularly wrong with D but if B was in the exact same format as D with a single vertical card and the Not quite in the same colour scheme as D - basically just D but with B. 
+Progress
+   first look at A (Paper): noticed first "-"; reading question right, 2 s
+   would use A (Paper); most cluttered B (Blocks); most pressure B (Blocks)
+   why: Prefer A - for a view page, straightforward, less contrast, doesn't require as much brainpower. B-  worst due to info overload. Least favourite - pie chart, preferred numbers based/quantitative visuals. Prefers barebones UI for progrees. 
+Week
+   first look at B (Blocks): noticed first "-"; reading question right, 4 s
+   would use C (Timeline); most cluttered A (Paper); most pressure A (Paper)
+   why: Design C is familiar - mental model from secondary school planners - finds it easy to use, tells study target, which he barely notices in the other ones. Likes rounded icons from B, likes some aspects from B, D is meh, nothing really strandas out in particular. A is worst - unfamiliar format, unclear differentiation, half squares are a "novel" idea.  
+The phone question
+   first look at C (Timeline): noticed first "-"; reading question right, 126 s
+   would use A (Paper); most cluttered B (Blocks); most pressure B (Blocks)
+   why: A - better than C as it tells you questions and answers in a legible font, without too much going on. C - title shouldn't be so prominent, B - everything too prominent for a phone screen. Notifications post lecture nudge should be set by the user - if on bus wants to answer q after finished commuting. 
+
+Looking back
+   Whose way of laying out a screen? B (Blocks)
+   Whose amount on each screen felt right? B (Blocks)
+   Whose menu did you like best? D (Soft Focus)
+   Whose way of showing numbers and progress? A (Paper)
+   Whose buttons and boxes? B (Blocks)
+   Whose text was easiest to read? D (Soft Focus)
+   Whose colours? D (Soft Focus)
+   Whose icons, or lack of them? B (Blocks)
+   whole app: B (Blocks)
+   one word each: Paper "Formal "; Blocks "Vibrant "; Timeline "Practical "; Soft Focus "Purple"
+
+Closing
+   Who do you think this app is for? Does it feel like it's for someone like you? yes it'd be helpful 
+   Was any text too small or hard to read, in any of them? C- text hardest to read in some parts. 
+   If you could change one thing about the look of the one you picked, what would it be? B - colours less bright/not too eye-capturing, positioning of icons better in D. 
+   Anything else they said or did worth keeping B -best layout but colours too strong, D - clean/practical layout but didn't stand out. Menu down the side on D best - on B top menu not practical. Progress/showing numbers - some goopd elements from B but A overall.  Overall design principles best from B but parts from D to incorporate to make it better. 
