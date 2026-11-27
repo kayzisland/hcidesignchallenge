@@ -4,7 +4,9 @@ Four complete looks for the same seven LockedIn screens, with identical content,
 
 ## Open it
 
-**[`lockedin-look-test.html`](lockedin-look-test.html)**: download it and open it in Chrome. It is one file. It needs the internet only for fonts; offline, each design falls back to similar system fonts.
+**[`lockedin-look-test.html`](lockedin-look-test.html)**: download it and open it in Chrome.
+
+**Running sessions:** [`look-test-run-sheet.md`](look-test-run-sheet.md) has the checklist, session steps, facilitator rules and tonight's write-up. Test page v2 (27 Nov) changed two reading questions, hides the answers, times from the question, adds layout and density picks, session details and a **Tally all testers** page; the run sheet lists every change and why. It is one file. It needs the internet only for fonts; offline, each design falls back to similar system fonts.
 
 | On the first screen | What it does |
 |---|---|
@@ -23,7 +25,7 @@ Four complete looks for the same seven LockedIn screens, with identical content,
 
 Every screen of every design shows exactly the same words and numbers (`src/data.js`). Only the look differs.
 
-## The tester flow (about 15 minutes)
+## The tester flow (25 to 30 minutes)
 
 For each of seven screens: Today, a Learn step, a Practise question, after a wrong answer, Progress, Week, and the phone question.
 
