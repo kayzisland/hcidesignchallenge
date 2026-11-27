@@ -49,6 +49,7 @@ hcidesignchallenge/
 │   ├── literature-phones.md           ← literature on phones and distraction
 │   ├── literature-review.md           ← T09 literature review, LIT-13 to LIT-23
 │   ├── literature-learning-loop.md    ← the learning loop, LIT-24 to LIT-31
+│   ├── literature-progress-and-maps.md ← the concept map and its progress states (draft, proposed LIT-32 to LIT-70)
 │   ├── ui-research-lofi.md            ← UI research feeding the lo-fi (T17)
 │   ├── existing-solutions.md          ← review of existing apps
 │   ├── affinity.md                    ← affinity diagram notes (v2)
