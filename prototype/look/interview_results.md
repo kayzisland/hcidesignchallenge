@@ -1,6 +1,6 @@
 Append any new interviews to this doc for the design of the UI for the 2nd round of LoFi testing: 
 
-Look test, four designs · tester P01 · started 2026-11-26T17:44:27.479Z · finished 2026-11-26T18:13:41.038Z
+Look test, four designs · tester V01 · started 2026-11-26T17:44:27.479Z · finished 2026-11-26T18:13:41.038Z
 Letters for this tester: A=Paper, B=Timeline, C=Soft Focus, D=Blocks
 
 Today
@@ -40,7 +40,9 @@ Looking back
    Whose colours? D (Blocks)
    Whose buttons and boxes? C (Soft Focus)
    whole app: D (Blocks)
-   one word each: Paper "Confusing"; Timeline "Calander"; Soft Focus "Fitness"; Blocks "Look test, four designs · tester P02 · started 2026-11-27T01:42:42.050Z · finished 2026-11-27T02:07:51.260Z
+   one word each: Paper "Confusing"; Timeline "Calander"; Soft Focus "Fitness"; Blocks "Inviting"
+
+Look test, four designs · tester V02 · started 2026-11-27T01:42:42.050Z · finished 2026-11-27T02:07:51.260Z
 Letters for this tester: A=Timeline, B=Blocks, C=Soft Focus, D=Paper
 
 Today

@@ -29,12 +29,12 @@ The other five reading questions are unchanged, so their results compare across 
 ## Before the first session
 
 - [ ] **Get the new file onto the test laptop:** `prototype/look/lockedin-look-test.html`. Open it in Chrome. It needs the internet only for fonts; offline it falls back to similar fonts, which slightly changes how each design looks, so use Wi-Fi if you can.
-- [ ] **Relabel Jiven's tester** from P01 to V01 in `interview_results.md`, so it can't be mixed up with your T18 P01. Today's testers are **V02 onwards**.
-- [ ] **Ask Jiven what V01 studies** (STEM or not) and add it to their entry as `Session: subject "…"; STEM` (or `non-STEM`). Confirm they aren't in the group.
+- [ ] **Jiven's two testers are V01 and V02** (relabelled from P01 and P02, so they can't be mixed up with your T18 testers). Today's testers are **V03 onwards**.
+- [ ] **Ask Jiven what V01 and V02 study** (STEM or not) and add a line under each header as `Session: subject "…"; STEM` (or `non-STEM`). Confirm neither is in the group.
 - [ ] **Dry run** with a teammate, start to finish, ID `PILOT`. Time it. Then remove it: **Tally all testers → Remove PILOT**.
-- [ ] **Book testers:** at least 4 today plus 1 backup, so the total with V01 reaches 5. **At least half non-STEM overall**; if V01 is STEM, make it at least 3 of your 4. No group members. Prefer people who didn't do T18; if one did, write it under "Anything else".
-- [ ] **Slots:** 30 minutes each, with 5 minutes between. V01 took 29 minutes.
-- [ ] **Note-taker:** ask Lekan (testing owner) or anyone free. If you're alone, the page captures the essentials; type the quotes as they talk.
+- [ ] **Book testers:** at least 3 today plus 1 backup, so the total with V01 and V02 reaches 5. **At least half non-STEM overall**; if V01 and V02 are both STEM, all 3 of yours need to be non-STEM, so aim for 4 testers. No group members. Prefer people who didn't do T18; if one did, write it under "Anything else".
+- [ ] **Slots:** 35 minutes each online, with 5 minutes between. Jiven's sessions took 29 and 25 minutes.
+- [ ] **Note-taker:** ask Lekan (testing owner) or anyone free. If you're alone, jot quotes on paper while they look and type them in before **Show all four** (online, anything typed shows on the shared screen).
 - [ ] Charger. A mouse helps with "Open full size".
 
 ## One session (25 to 30 minutes)
@@ -59,7 +59,35 @@ The other five reading questions are unchanged, so their results compare across 
 
 ## Running a session online
 
-Share **your** Chrome tab over Teams; the tester just talks and names letters. The side-by-side views are small over a call, so open each design with **Open full size** before they choose. Tick **online** in the session details. Ask "What are you thinking?" more often than in person, because you can't see where they're looking.
+All of today's sessions are online. The page runs on the facilitator's laptop only. **Never send testers the HTML file:** its Browse page names the design that's already built, the answers are one click away, and the facilitator is the one who marks the reading question.
+
+**Before the call**
+- Ask the tester to join from a laptop or desktop, not a phone, because the screens are too small to judge on a phone.
+- Turn on Do Not Disturb, close other tabs, and make the Chrome window full screen. In Teams, share **the Chrome window only**, not the whole screen.
+- Print the answer key below or open it on a second screen. **Never unfold the answer on the page while sharing:** the tester sees it.
+- Don't record, and turn off Teams transcription, unless you ask separately and they say yes to that too.
+
+**During the call**
+- Read the consent script aloud, then tick consent. The start page is safe to share.
+- **"Show me" means "tell me".** Two reading questions ask where they'd tap. Online, say "Tell me where you'd click", and mark it Right if they describe it clearly enough that you could click it yourself. Don't move the mouse to where you think they mean.
+- **Type nothing while they're looking at a design.** What you type shows on the shared screen. Remember what they say, or have the note-taker write it off-screen, and type it in just before pressing **Show all four**.
+- The four side by side are small over a call. Open each with **Open full size**, one by one, before asking the three questions. Allow 30 to 35 minutes.
+- Ask "What are you thinking?" more often than in person, because you can't see where they're looking.
+- **Stop sharing before you press Finish.** The results page shows the designs' real names.
+
+**Answer key (facilitator only, keep it off the shared screen)**
+
+| Screen | Reading question | Right answer |
+|---|---|---|
+| Today | You want to carry on with the History you started earlier. Show me (tell me) where you'd tap | The Continue button on the History card (The Welfare State, 1945 to 1951) |
+| A Learn step | Which idea are you on, and what comes after it? | Idea 2 of 4; next is "When models go wrong" |
+| A Practise question | Before you answer, you want to say you're only guessing. Show me (tell me) how | Under "How sure are you?", tap "Guess" |
+| After a wrong answer | Which answer was right, and which one had you picked? | Right: "…about 3% of the time". Picked: "a 3% chance the hypothesis is true" |
+| Progress | Which module has had the least of your time this week? | Modern British History (20 min) |
+| Week | When is your next study block? | Today, Thursday, at 15:00 (HCI) |
+| The phone question | Why did this question arrive now? | The lecture ended and you are free till 15:00 |
+
+**If two people run sessions:** each laptop keeps only its own testers. Both add every result to `interview_results.md`, and tonight one person pastes the whole file into the Tally box. Use separate ID blocks (for example V03 to V09 and V10 onwards) so no ID is used twice.
 
 ## Facilitator rules
 
@@ -105,5 +133,5 @@ Write what you see, not what it means: "scrolled past the Continue button twice"
 - **Small numbers.** Report counts ("4 of 5"), never percentages. Each design is met first only one or two times per screen across all testers, so reading results are early signals.
 - **A preference for a design doesn't say which part earned it.** The eight per-part picks are how we separate them, roughly.
 - **The look was explored after the hi-fi was styled.** The QOC is the repair, and the deck should say so.
-- **The question set changed after one tester.** V01 used v1 questions; two of its seven reading results are left out of the tally.
+- **The question set changed after two testers.** V01 and V02 used v1 questions; two of their seven reading results each are left out of the tally.
 - **Convenience sample:** students we could reach, possibly kinder than strangers.

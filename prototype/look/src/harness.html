@@ -62,7 +62,10 @@ const $ = (s) => document.querySelector(s);
 const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === "on") for (const [e, f] of Object.entries(v)) n.addEventListener(e, f); else if (k === "text") n.textContent = v; else if (v !== false && v != null) n.setAttribute(k, v === true ? "" : v); } n.append(...kids.flat().filter((k) => k != null)); return n; };
 const params = new URLSearchParams(location.search);
 const size = (s) => s.device === "phone" ? { w: 390, h: 780 } : { w: 1280, h: 800 };
-const doc = (d, html) => `<!doctype html><html lang="en"><head><meta charset="utf-8">${(d.fonts || []).map((u) => `<link rel="stylesheet" href="${u}">`).join("")}<style>html,body{margin:0}${d.css}</style></head><body>${html}</body></html>`;
+// The designs are pictures: their links (href="#") must go nowhere. Inside an embedded screen, "#" resolves to this test page,
+// so a click would load the whole test inside the design. This stops every link click while keeping hover styles.
+const INERT = `<script>document.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("a,form"))e.preventDefault();},true);document.addEventListener("submit",function(e){e.preventDefault();},true);<\/script>`;
+const doc = (d, html) => `<!doctype html><html lang="en"><head><meta charset="utf-8">${(d.fonts || []).map((u) => `<link rel="stylesheet" href="${u}">`).join("")}<style>html,body{margin:0}${d.css}</style>${INERT}</head><body>${html}</body></html>`;
 const screenDoc = (d, s) => doc(d, d.screens[s.id](LOOK.data));
 
 // What the facilitator asks before the tester has seen the other three versions. The answer is the same in every design.
