@@ -3058,12 +3058,12 @@ function frame(d, s, width, clickName) {
   if (clickName) box.append(el("button", { class: "open", "aria-label": `Open ${clickName} full size`, on: { click: () => openFull(d, s, clickName) } }));
   return box;
 }
-function openFull(d, s, name) { const z = size(s), f = $("#full iframe"); f.width = z.w; f.height = Math.max(z.h, innerHeight - 90); f.srcdoc = screenDoc(d, s); $("#fullname").textContent = name; $("#full").style.display = "block"; }
-$("#fullclose").addEventListener("click", () => { $("#full").style.display = "none"; });
+function openFull(d, s, name) { viewerFull = { d, s, name }; syncViewer(); const z = size(s), f = $("#full iframe"); f.width = z.w; f.height = Math.max(z.h, innerHeight - 90); f.srcdoc = screenDoc(d, s); $("#fullname").textContent = name; $("#full").style.display = "block"; }
+$("#fullclose").addEventListener("click", () => { $("#full").style.display = "none"; viewerFull = null; syncViewer(); });
 const cellWidth = (s) => s.device === "phone" ? 240 : Math.max(420, Math.min(790, Math.floor((Math.min(innerWidth, 1680) - 40 - 14 - 44) / 2)));
 const seg = (options, current, onPick) => el("div", { class: "seg" }, options.map(([v, t]) => el("button", { class: current === v ? "on" : "", text: t ?? v, on: { click: () => onPick(v) } })));
 const letterSeg = (current, onPick, withNone = true) => seg([...[...L].slice(0, D.length).map((x) => [x, x]), ...(withNone ? [["none", "None"]] : [])], current, onPick);
-const topBar = (text, back) => el("div", { class: "top" }, el("span", { class: "soft", text }), el("button", { class: "btn small", text: back ? "Back" : "Back to start", on: { click: back || (() => { st.at = -1; save(); render(); }) } }));
+const topBar = (text, back) => el("div", { class: "top" }, el("span", { class: "soft", text: text + (viewerOpen() ? " · tester window open: share that one" : "") }), el("div", { class: "row" }, viewerButton(), el("button", { class: "btn small", text: back ? "Back" : "Back to start", on: { click: back || (() => { st.at = -1; save(); render(); }) } })));
 
 const CONSENT = "Thanks for doing this. It takes about 25 minutes. You'll see seven screens of a study app our HCI group is designing, each drawn in four different styles. Everything on them is made up: a sample student, sample lectures, nothing of yours. We're testing the designs, not you, so there are no wrong answers, and it's fine to dislike all of them. We'll take notes on what you say under an ID like V01, never your name. Your name won't appear in anything we submit, and quotes will be anonymised. You can skip anything or stop at any time without giving a reason. Are you happy to take part?";
 const INTRO = "Imagine you're a student and it's Thursday afternoon, just after 1 pm. Your lecture has just finished. You'll see one screen at a time. Please say what you're thinking out loud as you look: what you notice, what you expect, anything that confuses you.";
@@ -3096,6 +3096,9 @@ function home() {
     el("div", { class: "two" },
       el("div", {}, ...input("facilitator", "Facilitator")),
       el("div", {}, ...input("notetaker", "Note-taker", "or \"none\""))),
+    el("h3", { style: "margin-top:16px", text: "Online? Open the tester window" }),
+    el("p", { class: "soft", text: "It shows the tester only the designs, never these prompts, answers or buttons. In Teams, share that window, not this one. Keep this window on your side to run the test." }),
+    el("div", { class: "row" }, viewerButton()),
     el("h3", { style: "margin-top:16px", text: "3. Then say" }),
     el("div", { class: "say", text: INTRO }),
     err,
@@ -3354,7 +3357,47 @@ function sheet(which) {
   $("#app").replaceChildren(...out);
 }
 
+// The tester window, for online sessions: a second window showing only what the tester should see. The facilitator shares it
+// and runs the test from this window, so prompts, answers, marks and notes stay off the shared screen.
+let viewer = null, viewerFull = null;
+const viewerOpen = () => !!(viewer && !viewer.closed);
+const viewerButton = () => el("button", { class: viewerOpen() ? "btn small" : "btn small on", text: viewerOpen() ? "Tester window: bring to front" : "Open tester window", on: { click: openViewer } });
+const VIEW_CSS = 'body{margin:0;background:#f1f1f3;color:#1c1c1f;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}#v{padding:12px 16px}.vh{font-weight:700;font-size:18px;margin:0 0 10px}.vgrid{display:grid;gap:12px}.vcell{background:#fff;border:1px solid #d3d3da;border-radius:10px;padding:8px}.vcell h3{margin:0 0 6px;font-size:20px}.vframe{position:relative;overflow:hidden;border:1px solid #d3d3da;border-radius:6px;background:#fff}.vframe iframe{border:0;transform-origin:0 0;display:block;background:#fff}.wait{display:grid;place-items:center;white-space:pre-line;height:85vh;color:#5b5b63;font-size:24px;text-align:center}';
+function openViewer() {
+  if (viewerOpen()) { viewer.focus(); return syncViewer(); }
+  viewer = window.open("", "lockedin-tester", "width=1320,height=900");
+  if (!viewer) { $("#app").prepend(el("p", { class: "warn", text: "The browser blocked the tester window. Allow pop-ups for this page, then press the button again." })); return; }
+  viewer.document.open();
+  viewer.document.write(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>LockedIn: designs</title><style>${VIEW_CSS}</style></head><body><div id="v"></div></body></html>`);
+  viewer.document.close();
+  viewer.addEventListener("resize", () => syncViewer());
+  viewer.addEventListener("beforeunload", () => setTimeout(render, 200));
+  render();
+}
+// One screen of one design, scaled to fit the width, scrollable.
+function viewerFrame(d, s, width, height, scroll) {
+  const z = size(s), k = Math.min(1, width / z.w);
+  const f = el("iframe", { title: "Design", width: z.w, height: scroll ? Math.max(z.h, Math.ceil(height / k)) : z.h, scrolling: scroll ? "yes" : "no" });
+  f.srcdoc = screenDoc(d, s); f.style.transform = `scale(${k})`;
+  return el("div", { class: "vframe", style: `width:${Math.round(z.w * k)}px;height:${Math.round((scroll ? Math.max(z.h, Math.ceil(height / k)) : z.h) * k)}px` }, f);
+}
+function syncViewer() {
+  if (!viewerOpen()) return;
+  const box = viewer.document.getElementById("v"); if (!box) return;
+  const W = viewer.innerWidth - 34, H = viewer.innerHeight - 70;
+  const wait = (t) => box.replaceChildren(el("div", { class: "wait", text: t }));
+  if (params.get("browse") || params.get("sheet") || params.get("tally") || st.at < 0 || !st.id) return wait("LockedIn look test\nThe test will start in a moment.");
+  if (st.at > S.length) return wait("That's everything. Thank you!");
+  if (viewerFull) { const { d, s, name } = viewerFull; return box.replaceChildren(el("p", { class: "vh", text: name }), viewerFrame(d, s, W, H, true)); }
+  const cells = (s, cols) => { const cw = Math.floor((W - 12 * (cols - 1)) / cols) - 18; return el("div", { class: "vgrid", style: `grid-template-columns:repeat(${cols},minmax(0,1fr))` }, byLetter().map(({ d, letter }) => el("div", { class: "vcell" }, el("h3", { text: `Design ${letter}` }), viewerFrame(d, s, cw, 0, false)))); };
+  if (st.at === S.length) return box.replaceChildren(el("p", { class: "vh", text: "Looking back over all of them" }), cells(S[0], 4));
+  const s = S[st.at], si = st.at;
+  if (!st.sub) return box.replaceChildren(el("p", { class: "vh", text: `Screen ${si + 1} of ${S.length}` }), viewerFrame(firstFor(si).d, s, Math.min(W, s.device === "phone" ? 390 : 1280), H, true));
+  box.replaceChildren(el("p", { class: "vh", text: `Screen ${si + 1} of ${S.length}: the same screen, four ways` }), cells(s, s.device === "phone" ? 4 : 2));
+}
+
 function render() {
+  $("#full").style.display = "none"; viewerFull = null;
   if (!D.length) return $("#app").replaceChildren(el("p", { text: "No designs are loaded." }));
   if (params.get("sheet")) return sheet(params.get("sheet"));
   if (params.get("browse")) return browse();
@@ -3364,6 +3407,7 @@ function render() {
   if (st.at === S.length) return wrap();
   results();
 }
+const draw = render; render = function () { draw(); syncViewer(); };
 render();
 </script>
 </body>

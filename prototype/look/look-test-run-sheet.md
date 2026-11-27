@@ -23,6 +23,8 @@ Jiven's page (v1) ran one tester on 26 Nov. These changes came from reviewing it
 | A "what to watch for" note on each screen, and four closing questions (who is it for, readability, one change, anything else) | Gives the note-taker a focus; "who is it for" is the question the poster feedback raised for non-STEM students |
 | **Tally all testers** page: paste results, get counts and the rule's suggested outcome, copy as Markdown | The write-up has to happen tonight |
 | A tester ID starting P or H gets a warning | Those prefixes belong to T18 and T23 |
+| **Open tester window:** a second window showing the tester only the designs, for sharing over Teams | All sessions are online; the shared screen must not show prompts, answers or marks |
+| Clicking a link inside a design does nothing | In v1, clicking a design's menu loaded the whole test page inside the design (found by Lekan, 27 Nov) |
 
 The other five reading questions are unchanged, so their results compare across every tester. On Today and the Practise question, the tally leaves out sessions that used v1.
 
@@ -61,19 +63,20 @@ The other five reading questions are unchanged, so their results compare across 
 
 All of today's sessions are online. The page runs on the facilitator's laptop only. **Never send testers the HTML file:** its Browse page names the design that's already built, the answers are one click away, and the facilitator is the one who marks the reading question.
 
+**The tester window.** On the start page, press **Open tester window**. A second window opens that shows the tester only the designs: one design on its own, then the four side by side, then the end strip. It never shows the prompts, the answer, the marks or your notes. **In Teams, share that window only.** Run the whole test from the main window, which stays on your side. "Open full size" in the main window also shows that design full size in the tester window. If nothing opens, allow pop-ups for the page and press the button again.
+
 **Before the call**
 - Ask the tester to join from a laptop or desktop, not a phone, because the screens are too small to judge on a phone.
-- Turn on Do Not Disturb, close other tabs, and make the Chrome window full screen. In Teams, share **the Chrome window only**, not the whole screen.
-- Print the answer key below or open it on a second screen. **Never unfold the answer on the page while sharing:** the tester sees it.
+- Turn on Do Not Disturb. Open the tester window and make it large; put the main window where you can see it but don't share it.
+- Keep the answer key below to hand. With the tester window shared, unfolding the answer on the main page is safe.
 - Don't record, and turn off Teams transcription, unless you ask separately and they say yes to that too.
 
 **During the call**
-- Read the consent script aloud, then tick consent. The start page is safe to share.
-- **"Show me" means "tell me".** Two reading questions ask where they'd tap. Online, say "Tell me where you'd click", and mark it Right if they describe it clearly enough that you could click it yourself. Don't move the mouse to where you think they mean.
-- **Type nothing while they're looking at a design.** What you type shows on the shared screen. Remember what they say, or have the note-taker write it off-screen, and type it in just before pressing **Show all four**.
-- The four side by side are small over a call. Open each with **Open full size**, one by one, before asking the three questions. Allow 30 to 35 minutes.
+- Read the consent script aloud from the main window, then tick consent. The tester window says "The test will start in a moment" until you press **Start the test**.
+- **"Show me" means "tell me".** Two reading questions ask where they'd tap. Online, say "Tell me where you'd click", and mark it Right if they describe it clearly enough that you could click it yourself.
+- The four side by side are smaller over a call. Open each with **Open full size**, one by one, before asking the three questions. Allow 30 to 35 minutes.
 - Ask "What are you thinking?" more often than in person, because you can't see where they're looking.
-- **Stop sharing before you press Finish.** The results page shows the designs' real names.
+- The tester window says "That's everything. Thank you!" at the end, so you can copy the results without stopping the share.
 
 **Answer key (facilitator only, keep it off the shared screen)**
 
